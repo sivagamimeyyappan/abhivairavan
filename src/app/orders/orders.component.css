@@ -1,0 +1,26 @@
+.btn-edit:hover,
+.btn-view:hover {
+    color: lawngreen;
+}
+
+.btn-view:focus,
+.btn-edit:focus {
+    outline: none;
+}
+
+.btn-view:active,
+.btn-edit:focus {
+    outline: none;
+}
+
+.btn-edit,
+.btn-view {
+    color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    margin: 15px;
+}
+
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+    background-color: rgba(0, 0, 0, 0.3);
+}

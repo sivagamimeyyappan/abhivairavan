@@ -1,0 +1,19 @@
+.btn-Login{
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+}
+
+.btn-Login:hover{
+    color: lawngreen;
+}
+
+.card{
+    background-color: white;
+    border: 1px solid;
+    border-color: #555;
+}
+
+.btn-Login:disabled{
+    background-color: #ddd;
+    color: black;
+}

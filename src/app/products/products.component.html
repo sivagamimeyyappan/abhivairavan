@@ -1,0 +1,9 @@
+<div class="bgtheme">
+    <div *ngIf="showSpinner">
+        <i class="fas fa-spinner spinner fa-pulse"></i>
+    </div>
+    <div *ngIf="!showSpinner">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+

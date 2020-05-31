@@ -1,0 +1,77 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <br>
+            <h1>Enquiry</h1>
+            <br>
+            <form #contactusForm="ngForm" (ngSubmit)="onSubmit()">
+
+                <div class="form-group shadow-textarea">
+
+                    <textarea name = "request" [(ngModel)]="userrequest" #request="ngModel" required class="form-control z-depth-1" rows="3" placeholder="How can we help you?"></textarea>
+                    
+                    <div *ngIf="request.invalid && (request.dirty || request.touched)" class="alert alert-danger">
+                        <div *ngIf="request.errors.required">
+                            Please Fill your question.
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        </div>
+                        <input type="email" name = "email" [(ngModel)]="useremail" #email="ngModel" required email class="form-control z-depth-1" placeholder="Email">
+                    </div>
+
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                        <div *ngIf="email.errors.required">
+                            Email is required.
+                        </div>
+                        <div *ngIf="email.errors.email">
+                            Enter valid email.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                          </div>
+                        <input type="tel" name = "phone" [(ngModel)]="userPhone" #phone="ngModel" required [pattern]="mobNumberPattern" class="form-control z-depth-1" placeholder="Phone">
+                    </div>
+                    <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+                        <div *ngIf="phone.errors.required">
+                            Phone is required.
+                        </div>
+                        <div *ngIf="phone.errors.pattern">
+                            Enter valid phone number.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button [disabled]="contactusForm.invalid" type="submit" class="btn btn-contact-us">Send Enquiry</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <br>
+            <h2>Contact Us</h2>
+            <br>
+            <h4>Abhi Vairavan's Plumbing Co.</h4>
+            <h4>Contact Person</h4>
+            <p>K. Ramanathan (Managing Partner)</p>
+            <h4>Address</h4>
+            <p> New No. 59/1, Arcot Road</p>
+            <p>Kodambakkam, Chennai - 600024, Tamil Nadu, India</p>
+            <div>
+                <h4> <i class="fas fa-phone"></i> 08048428253</h4>
+            </div>
+        </div>
+    </div>
+</div>

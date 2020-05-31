@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-4 offset-md-4">
+            <br>
+            <div class="card card-body">
+                <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+
+                    <div class="form-group">
+                        <input type="text" name = "name" [(ngModel)]="username" #name="ngModel" required class="form-control form-control-lg" placeholder="Username">
+
+                        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                            <div *ngIf="name.errors.required">
+                                Username Required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" name = "password" [(ngModel)]="userpassword" #password="ngModel" required class="form-control form-control-lg" placeholder="Password">
+
+                        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                            <div *ngIf="password.errors.required">
+                                Password Required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <button [disabled]="loginForm.invalid" type="submit" class="btn btn-Login btn-lg btn-block">Login</button>
+                </form>
+                <br>
+                <div>
+                    <small class="text-muted">New User?</small>
+                    <button type="button" [routerLink]="['/signup']" class="btn btn-link btn-lg">Sign Up</button>
+                    <br>
+                    <i class="fas fa-phone" aria-hidden="true"> </i>
+                    <small class="text-muted"> 08048428253 for password Recovery</small>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

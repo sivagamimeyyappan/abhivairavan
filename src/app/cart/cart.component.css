@@ -1,0 +1,149 @@
+.btnremove {
+    background-color: #555;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.btn-remove {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.btn-remove:hover {
+    color: lawngreen;
+    cursor: pointer;
+}
+
+.numSpinner {
+    width: 70px;
+    margin: 0px 4px;
+    padding: 4px;
+}
+
+.textDisc {
+    width: 70px;
+    margin: 0px 4px;
+    padding: 4px;
+}
+
+.cart-img-size {
+    width: 100px;
+    height: 100px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.btn-save,
+.btn-getQuote {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
+.btn-save:hover,
+.btn-getQuote:hover {
+    color: lawngreen;
+}
+
+
+/* .card {
+  box-shadow: 0px 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 300px;
+  float:left;
+  margin:5px;
+}
+
+.card a{
+  text-decoration: none; 
+  color: black;
+}
+
+
+.container {
+  padding: 2px 16px;
+  min-height: 125px;
+  max-height: 125px;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.cartIcons{
+  margin-bottom: 8px;
+  max-width: 290px;
+  margin-left: auto;
+}
+
+.cartcontainer{
+  max-width: 1250px;
+  margin:auto;
+}
+
+.btnremove{
+  background-color:#555;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.btnremove:hover{
+  color:lawngreen;
+  cursor:pointer;
+}
+
+.numSpinner{
+  width: 40px;
+  margin:0px 4px;
+  padding: 4px;
+}
+
+.priceId{
+  margin-right: 2px;
+}
+
+.cartTotal{
+  font-family: cursive;
+}
+
+.cartNoitems{
+  top: 40%;
+  left: 35%;
+  font-family: cursive;
+  position: absolute;
+} */
+
+
+/*  .itemImage{
+    width:100px;
+    height:100px;
+    position: absolute;
+  }
+  .itemDetails{
+    position: relative;
+    margin-left: 100px;
+    padding: 12px;
+    min-height: 100px;
+    margin-bottom: 12px;
+  }
+  .itemPrice{
+    color:red;
+    position: absolute;
+    left:600px;
+    top:20px;
+  } */

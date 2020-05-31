@@ -1,0 +1,153 @@
+<!-- <div class="cartcontainer">
+  <div *ngIf="cartService.cartTotal==0">
+    <h1 class="cartNoitems">Add Items To Your Cart</h1>
+  </div>
+  <div *ngIf="cartService.cartTotal>0">
+    <h1 class="cartTotal">Cart Total: {{cartService.cartTotal}}</h1>
+    <div *ngFor="let product of cartService.items" class="card">
+      <a [routerLink]="['/products/product', product.id]">
+        <img src={{product.img}} alt={{product.alt}}>
+      </a>
+      <div class="container">
+        <h4><b>{{product.brand}}</b></h4> 
+        <p><i>{{product.desc}}</i></p>
+      </div>
+      <div class="cartIcons">
+        <label class="priceId"><b>MRP:</b></label>{{product.mrp | currency:"₹"}}
+        <label class="QtyId"><b>Qty:</b></label>
+        <input type="number" [(ngModel)]="product.qty" (change)="qtyChange(product)" min=0 value={{product.qty}} class="numSpinner">
+        <button class="btnremove" (click)="remove(product)">Remove</button>
+      </div>
+    </div>
+  </div>
+  
+</div> -->
+
+<!-- <div *ngFor="let item of items">
+  <div class="item">
+    <div class="itemImage"> 
+      <a style="text-decoration: none; color: black;" [routerLink]="['/products/product', item.id]">
+        <img src={{item.img}} alt={{item.alt}} style="width: 100px;height:100px;">
+      </a>
+    </div>
+    <div class="itemDetails">
+      <h4><b>{{item.name}}</b></h4> 
+      <p>{{item.desc}}</p>
+      <input type="text"/>
+      <input type="text"/>
+      <div class="itemPrice">{{item.price}}</div>
+    </div>
+  </div>
+  
+</div> -->
+<!-- <div class="cartcontainer">
+  <table>
+    <tr>
+      <th *ngfor="let col of columns">{{col}}</th>
+    </tr>
+    <tr *ngFor="let item of items" class="card">
+      <td><img src={{item.img}} alt={{item.alt}}></td>
+      <td>{{item.name}}</td>
+      <td>{{item.desc}}</td>
+      <td>{{item.price}}</td>
+      <td>Remove</td>
+    </tr>
+  </table>
+</div> -->
+
+<br>
+
+<div class="container">
+    <div class="row">
+        <br>
+    </div>
+    <div class="row">
+        <div *ngIf="order.items.length == 0" style="color: rgba(0, 0, 0, 0.6);" class="col-12">
+            <h1 class="text-center"><i>Add Items To Cart</i>&nbsp;<i class="fa fa-shopping-cart fa-lg"></i></h1>
+        </div>
+        <div *ngIf="order.items.length >0" class="col-12">
+            <h1 class="text-center">QUOTATION</h1>
+            <br>
+            <div>
+                <table class="table table-responsive text-center">
+                    <thead>
+                        <tr>
+                            <th [ngStyle]="{'width': (col=='Qty' || col=='Disc')? '12%' : 'initial'}" *ngFor="let col of colHeadings" class="text-center">{{col}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of order.items;let i = index">
+                            <td>{{i+1}}</td>
+                            <td>
+                                <a [routerLink]="['/products/product', product.id]">
+                                    <img src={{product.img}} alt={{product.alt}} class="img-fluid img-thumbnail">
+                                </a>
+                            </td>
+                            <td class="text-justify"><b><span *ngIf="product.brand.length != 0">{{product.brand}}~</span>{{product.model}}~{{product.productId}}</b><br>{{product.desc}}</td>
+                            <td>{{product.tax}}%</td>
+                            <td *ngIf="mode === 'view'">{{product.qty}}</td>
+                            <td *ngIf="mode === 'edit'"><input type="number" [(ngModel)]="product.qty" (change)="qtyChange(product)" min=0 value={{product.qty}} class="numSpinner"><small>{{product.qtyType}}</small></td>
+                            <td>{{product.mrp | currency:"₹"}}</td>
+                            <td *ngIf="mode === 'view'">{{product.disc}}</td>
+                            <td *ngIf="mode === 'edit'"><input type="text" [(ngModel)]="product.disc" (change)="applyChanges(product)" class="textDisc">%</td>
+                            <td>{{product.mrp - ((product.disc/100)*product.mrp) | currency:"₹"}}</td>
+                            <td>{{(product.mrp - ((product.disc/100)*product.mrp)) * product.qty | currency:"₹"}}</td>
+                            <td *ngIf="mode === 'edit'"><span class="btn-remove" (click)="remove(product)"><i class="fas fa-trash fa-lg"></i></span></td>
+                            <!-- <td><button class="btnremove" (click)="remove(product)">Remove</button></td> -->
+                        </tr>
+                        <tr>
+                            <td colspan="8" class="text-right">
+                                <h6>Total Amount:</h6>
+                            </td>
+                            <td colspan="2" class="text-right">
+                                <h6>{{order.cartTotal| currency:"₹"}}</h6>
+                            </td>
+                        </tr>
+                        <tr *ngFor="let item of order.taxPercentages | keyvalue">
+                            <td colspan="8" class="text-right">
+                                <h6>SGST @ {{convertToInt(item.key)/2}}% - Output Tax on {{ item.value | currency:"₹" }}:</h6>
+                            </td>
+                            <td colspan="2" class="text-right">
+                                <h6>{{ getTax(item) | currency:"₹" }}</h6>
+                            </td>
+                        </tr>
+                        <tr *ngFor="let item of order.taxPercentages | keyvalue">
+                            <td colspan="8" class="text-right">
+                                <h6>CGST @ {{convertToInt(item.key)/2}}% - Output Tax on {{ item.value | currency:"₹" }}:</h6>
+                            </td>
+                            <td colspan="2" class="text-right">
+                                <h6>{{ getTax(item) | currency:"₹" }}</h6>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="8" class="text-right">
+                                <h6>Amount With Tax:</h6>
+                            </td>
+                            <td colspan="2" class="text-right">
+                                <h6>{{(order.cartTotal + getTotalTax()).toFixed(2)}}</h6>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="8" class="text-right">
+                                <h6>Final Amount Rounded Off To:</h6>
+                            </td>
+                            <td colspan="2" class="text-right">
+                                <h6>{{getFinalAmount()}}</h6>
+                            </td>
+                        </tr>
+                        <tr *ngIf="mode === 'edit' && commonService.isAdmin">
+                            <td colspan="10" class="text-right">
+                                <button type="submit" class="btn btn-save">Save</button>
+                            </td>
+                        </tr>
+                        <tr *ngIf="mode === 'edit' && !commonService.isAdmin">
+                            <td colspan="10" class="text-right">
+                                <button type="submit" class="btn btn-getQuote" (click)="geQuote()">Save & GetQuote</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

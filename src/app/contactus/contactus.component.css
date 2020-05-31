@@ -1,0 +1,13 @@
+.btn-contact-us{
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+}
+
+.btn-contact-us:hover{
+    color: lawngreen;
+}
+
+.btn-contact-us:disabled{
+    background-color: #ddd;
+    color: black;
+}

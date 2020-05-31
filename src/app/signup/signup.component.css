@@ -1,0 +1,19 @@
+.btn-signup{
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
+.btn-signup:hover{
+    color: lawngreen;
+}
+
+.btn-signup:disabled{
+    background-color: #ddd;
+    color: black;
+}
+
+.card{
+    background-color: white;
+    border: 1px solid;
+    border-color: #555;
+}

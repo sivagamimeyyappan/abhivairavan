@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "abhivairams": {
+      "hosting": {
+        "ecommerce": [
+          "abhivairams"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "abhivairams"
+  }
+}

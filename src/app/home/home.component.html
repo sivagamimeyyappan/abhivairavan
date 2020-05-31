@@ -1,0 +1,19 @@
+<div class="bgtheme">
+    <div *ngFor="let product of products">
+        <div class="modelHeading">
+            <a>{{product.brand}}&nbsp;{{product.category}}</a>               
+        </div>
+        <div  class="productlist">
+            <div *ngFor="let model of product.models">
+                <div class="card" style="min-height: 300px; min-width: 300px;">
+                    <a [routerLink]="['/products/productlist/', {category:'BathroomCPFittings',model:model.name}]" style="margin: auto;">
+                        <img src={{model.img}} alt={{model.name}} style="min-height: 298px; min-width: 298px;" class="img-fluid">
+                    </a>
+                    <div style="text-align: center; font-weight: bold;">
+                        <p>{{product.brand}}-{{model.name}}</p>
+                    </div>
+                </div>
+            </div>        
+        </div>
+    </div>
+</div>

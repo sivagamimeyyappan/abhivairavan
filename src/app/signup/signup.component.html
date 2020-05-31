@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-4 offset-md-4">
+            <br>
+            <div class="card card-body">
+
+                <form #signupForm="ngForm" (ngSubmit)="onSubmit()">
+
+                    <div class="form-group">
+
+                        <input type="text" name = "name" [(ngModel)]="username" #name="ngModel" required minlength="8" class="form-control form-control-lg" placeholder="Username">
+
+                        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                            <div *ngIf="name.errors.required">
+                                Username Required.
+                            </div>
+                            <div *ngIf="name.errors.minlength">
+                                Minimum 8 characters.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <input type="password" name = "password" [(ngModel)]="userpassword" #password="ngModel" required minlength="8" class="form-control form-control-lg" placeholder="Password">
+
+                        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                            <div *ngIf="password.errors.required">
+                                Password Required.
+                            </div>
+                            <div *ngIf="password.errors.minlength">
+                                Minimum 8 characters.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        
+                        <input type="password" name = "conpassword" [(ngModel)]="userconpassword" #conpassword="ngModel" required cnfrmpaswrd="password" class="form-control form-control-lg" placeholder="Confirm Password">
+
+                        <div *ngIf="conpassword.invalid && (conpassword.dirty || conpassword.touched)" class="alert alert-danger">
+                            <div *ngIf="conpassword.errors.required">
+                                Confirm your Password.
+                            </div>
+                            <div *ngIf="conpassword.errors.notEqual && !conpassword.errors.required">
+                                Confirm password not matching.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            </div>
+                            <input type="email" name = "email" [(ngModel)]="useremail" #email="ngModel" required email class="form-control z-depth-1" placeholder="Email">
+                        </div>
+    
+                        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                            <div *ngIf="email.errors.required">
+                                Email is required.
+                            </div>
+                            <div *ngIf="email.errors.email">
+                                Enter valid email.
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                              </div>
+                            <input type="tel" name = "phone" [(ngModel)]="userPhone" #phone="ngModel" required [pattern]="mobNumberPattern" class="form-control z-depth-1" placeholder="Phone">
+                        </div>
+                        <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+                            <div *ngIf="phone.errors.required">
+                                Phone is required.
+                            </div>
+                            <div *ngIf="phone.errors.pattern">
+                                Enter valid phone number.
+                            </div>
+                        </div>
+                    </div>
+
+                    <button [disabled]="signupForm.invalid" type="submit" class="btn btn-signup btn-lg btn-block">Register</button>
+                </form>
+                <div>
+                    <br>
+                    <small class="text-muted">Already have an account?</small>
+                    <button type="button" [routerLink]="['/login']" class="btn btn-link btn-lg">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+{
+    "no": 1000,
+    "name": "order1",
+    "customerid": 101,
+    "customername": "customer1",
+    "date": "\"2014-01-01T23:28:56.782Z\"",
+    "status": "Completed",
+    "cartTotal": 26244,
+    "taxPercentages": { "12": 18224, "18": 8020 },
+    "items": [{ "alt": "F330022", "brand": "Hindware", "category": "BathroomCPFittings", "desc": " Wall Mixer 3 In 1 With Provision Overhead Shower", "disc": 0, "img": "/assets/images/F330022.jpg", "model": "Contessa", "mrp": 4245, "price": 4245, "productId": "F330022", "qty": 1, "qtyType": "No", "tax": 18, "unit": 1 },
+        { "alt": "F330020", "brand": "Hindware", "category": "BathroomCPFittings", "desc": "Wall Mixer With Provision For Overhead Shower", "disc": 0, "img": "/assets/images/F330020.jpg", "model": "Contessa", "mrp": 3775, "price": 3775, "productId": "F330020", "qty": 1, "qtyType": "No", "tax": 18, "unit": 1 },
+        { "alt": "20650", "brand": "CRI", "category": "DomesticPumpsAndMotors", "desc": "Motor 0.5HP A5/AJ5", "disc": 0, "img": "/assets/images/20650.jpg", "model": "JetPumps", "mrp": 8753, "price": 8753, "productId": "20650", "qty": 1, "qtyType": "No", "tax": 12, "unit": 1 },
+        { "alt": "20681", "brand": "CRI", "category": "DomesticPumpsAndMotors", "desc": "Motor 1 HP A12/AJ2S", "disc": 0, "img": "/assets/images/20681.jpg", "model": "JetPumps", "mrp": 9471, "price": 9471, "productId": "20681", "qty": 1, "qtyType": "No", "tax": 12, "unit": 1 }
+    ]
+}

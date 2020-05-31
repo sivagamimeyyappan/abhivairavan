@@ -1,0 +1,33 @@
+[{
+    "category": "BathroomCPFittings",
+    "brand": "Hindware",
+    "models": [
+        { "name": "Amazon", "img": "/assets/images/Amazon.jpg" },
+        { "name": "Armada", "img": "/assets/images/Armada.jpg" },
+        { "name": "Avior", "img": "/assets/images/Avior.jpg" },
+        { "name": "AXXIS", "img": "/assets/images/Axxis.jpg" },
+        { "name": "Oros", "img": "/assets/images/Oros.jpg" },
+        { "name": "Kylis", "img": "/assets/images/Kylis.jpg" },
+        { "name": "Monroe", "img": "/assets/images/Monroe.jpg" },
+        { "name": "Edge", "img": "/assets/images/Edge.jpg" },
+        { "name": "Cora", "img": "/assets/images/Cora.jpg" },
+        { "name": "Quadra", "img": "/assets/images/Quadra.jpg" },
+        { "name": "BarrelNeo", "img": "/assets/images/BarrelNeo.jpg" },
+        { "name": "Fluid", "img": "/assets/images/Fluid.jpg" },
+        { "name": "Element", "img": "/assets/images/Element.jpg" },
+        { "name": "Immacula", "img": "/assets/images/Immacula.jpg" },
+        { "name": "Elegance", "img": "/assets/images/ELEGANCE.jpg" },
+        { "name": "EssenceNeo", "img": "/assets/images/EssenceNeo.jpg" },
+        { "name": "Skipper", "img": "/assets/images/Skipper.jpg" },
+        { "name": "Flora", "img": "/assets/images/Flora.jpg" },
+        { "name": "Starc", "img": "/assets/images/STARC.jpg" },
+        { "name": "Cedar", "img": "/assets/images/Cedar.jpg" },
+        { "name": "Dove", "img": "/assets/images/Dove.jpg" },
+        { "name": "CONTESSA NEO", "img": "/assets/images/CONTESSA NEO.jpg" },
+        { "name": "CLASSIK FT", "img": "/assets/images/CLASSIK FT.jpg" },
+        { "name": "Classik", "img": "/assets/images/Classik.jpg" },
+        { "name": "CONTESSA PLUS", "img": "/assets/images/Contessa.jpg" },
+        { "name": "Pressmatic & Sensor Faucet", "img": "/assets/images/Pressmatic & Sensor Faucet.jpg" },
+        { "name": "Nebula", "img": "/assets/images/Nebula.jpg" }
+    ]
+}]

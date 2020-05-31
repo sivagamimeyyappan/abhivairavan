@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 table-responsive">
+            <table class="table text-center table-hover mx-auto w-auto">
+                <thead>
+                    <th *ngFor="let col of colHeadings" class="">{{col}}</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let order of orders;let i = index">
+                        <td>{{order.no}}</td>
+                        <td>{{order.name}}</td>
+                        <td *ngIf="customerId == undefined">{{order.customerid}}</td>
+                        <td *ngIf="customerId == undefined">{{order.customername}}</td>
+                        <td>{{commonService.getDateObject(order.date)| date:'dd-MMM-yyyy @ hh:MM:ss'}}</td>
+                        <td [ngStyle]="(order.status == 'Pending')?{'color':'Red'}:{'color':'Green'}">{{order.status}}</td>
+                        <td>
+                            <span [routerLink]="['/cart', order.no,{mode:'view'}]" class="btn-view"><i class="fas fa-eye fa-lg"></i></span>
+                            <span [routerLink]="['/cart', order.no,{mode:'edit'}]" class="btn-edit"><i class="fas fa-pencil-alt fa-lg"></i></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
