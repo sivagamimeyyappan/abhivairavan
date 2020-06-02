@@ -55,7 +55,7 @@
             <div class="cartIcons">
                 <label class="priceId"><b>MRP:</b></label>{{product.mrp | currency:"₹"}}
                 <label class="QtyId"><b>Qty:</b></label>
-                <input type="number" (change)="qtyChange(product)" [(ngModel)]="product.qty" min=1 value=1 step={{product.unit}} class="numSpinner">
+                <input type="number" (change)="qtyChange(product)" [(ngModel)]="product.qty" min=0 value=0 step={{product.unit}} class="numSpinner">
                 <small>{{product.qtyType}}</small>
                 <span class="addcart" (click)="addToCart(product)"><i class="fa fa-shopping-cart fa-lg"></i></span>
             </div>

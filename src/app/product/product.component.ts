@@ -29,7 +29,8 @@ export class ProductComponent implements OnInit {
   'BrassValvesandFittings': {'min-width': '298px', 'min-height':'298px'},
   'WaterTanks': {'min-width': '298px', 'min-height':'298px'},
   'DomesticPumpsAndMotors': {'min-width': '298px', 'min-height':'298px'},
-  'WaterHeaters': {'min-width': '298px', 'min-height':'298px'}};
+  'WaterHeaters': {'min-width': '298px', 'min-height':'298px'},
+  'MirrorCabinet': {'min-width': '298px', 'min-height':'298px'}};
 
   cardWidthByCategory = {'BathroomCPFittings': {'width': '300px'},
   'Sanitaryware': {'width': '300px'},
@@ -41,7 +42,8 @@ export class ProductComponent implements OnInit {
   'BrassValvesandFittings': {'width': '300px'},
   'WaterTanks': {'width': '300px'},
   'DomesticPumpsAndMotors': {'width': '300px'},
-  'WaterHeaters': {'width': '300px'}};
+  'WaterHeaters': {'width': '300px'},
+  'MirrorCabinet': {'width': '300px'}};
   
   constructor(private route: ActivatedRoute, public cs: CartService, public commonService: CommonService) {
     
@@ -141,7 +143,8 @@ export class ProductComponent implements OnInit {
   }
 
   qtyChange(product){
-    // product.price = product.qty * product.mrp;
+    if(product.qty % product.unit != 0)
+      this.toast();
   }
 
   addToCart(product) {
@@ -149,6 +152,12 @@ export class ProductComponent implements OnInit {
     if(product.qty == 0){
       return;
     }
+
+    if(product.qty % product.unit != 0){
+      this.toast();
+      return;
+    }
+      
 
     let productExist = this.cs.order.items.filter(function(ele){ return ele.productId == product.productId; })[0];
     let DiscountedPrice;
