@@ -4,6 +4,9 @@ import { ProductService } from '../services/product.service';
 import { CartService } from '../services/cart.service';
 import { CommonService } from '../services/common.service';
 import { BehaviorSubject } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Action } from 'rxjs/internal/scheduler/Action';
+
 
 @Component({
   selector: 'app-product',
@@ -18,6 +21,7 @@ export class ProductComponent implements OnInit {
   category: string;
   model: string;
   showSidepanel: boolean;
+  snackbarRef: any;
 
   imgWidthByCategory = {'BathroomCPFittings': {'min-width': '298px', 'min-height':'298px'},
   'Sanitaryware': {'min-width': '298px', 'min-height':'298px'},
@@ -45,7 +49,7 @@ export class ProductComponent implements OnInit {
   'WaterHeaters': {'width': '300px'},
   'MirrorCabinet': {'width': '300px'}};
   
-  constructor(private route: ActivatedRoute, public cs: CartService, public commonService: CommonService) {
+  constructor(private route: ActivatedRoute, public cs: CartService, public commonService: CommonService, private snackbar: MatSnackBar) {
     
   }
 
@@ -107,24 +111,47 @@ export class ProductComponent implements OnInit {
         this.commonService.setShowSidepanel(false);
   }
 
-  setFilter(filteredOption, selected){
+  setFilter(filteredOption, selected, filterOption){
+    
+    console.log('Start');
+
     if(!this.filteredOptions.includes(filteredOption) && selected){
+
+      if(!filteredOption.includes('All Models')){
+        var index = this.filteredOptions.indexOf(filterOption.brand+'-All Models');
+        if(index != -1){
+          this.filteredOptions.splice(index,1);
+          filterOption.models[0].selected = false;
+        }
+      }
+
+      if(filteredOption.includes('All Models')){
+        for(var i=1; i<filterOption.models.length; i++){
+          filterOption.models[i].selected = false;
+          var index = this.filteredOptions.indexOf(filterOption.brand+'-'+filterOption.models[i].modelname);
+          if(index != -1){
+            this.filteredOptions.splice(index,1);
+            alert('splicing');
+          }
+        }
+      }
       this.filteredOptions.push(filteredOption);
+      console.log(this.filteredOptions);
     }
     else{
       var index = this.filteredOptions.indexOf(filteredOption);
       this.filteredOptions.splice(index,1);
     }
-
-
+    
     var self = this;
     this.products = this.allProducts.filter(function(product){
-      var filter = product.brand+'-'+product.model;
-      if(self.filteredOptions.includes(filter))
+      if(self.filteredOptions.includes(product.brand+'-'+product.model) || self.filteredOptions.includes(product.brand+'-All Models'))
       {
          return true;
       }
     });
+
+    console.log('End');
   }
 
   applyFilter(){
@@ -143,8 +170,15 @@ export class ProductComponent implements OnInit {
   }
 
   qtyChange(product){
-    if(product.qty % product.unit != 0)
-      this.toast();
+    if(product.qty % product.unit != 0){
+      this.snackbarRef = this.snackbar.open(product.brand+"~"+product.model+"~"+product.productId+" Quantity should be in multiple of "+product.unit,'dismiss',
+      {panelClass: ['error-snackbar'], verticalPosition: 'top'});
+      this.snackbarRef.afterDismissed().subscribe(()=>{
+        this.snackbarRef = null;
+      });
+      return;
+    }
+      
   }
 
   addToCart(product) {
@@ -154,10 +188,15 @@ export class ProductComponent implements OnInit {
     }
 
     if(product.qty % product.unit != 0){
-      this.toast();
+      if(this.snackbarRef == null){
+        this.snackbarRef = this.snackbar.open(product.brand+"~"+product.model+"~"+product.productId+" Quantity should be in multiple of "+product.unit,'dismiss',
+        {panelClass: ['error-snackbar'], verticalPosition: 'top'});
+        this.snackbarRef.afterDismissed().subscribe(()=>{
+          this.snackbarRef = null;
+      });
+      }
       return;
     }
-      
 
     let productExist = this.cs.order.items.filter(function(ele){ return ele.productId == product.productId; })[0];
     let DiscountedPrice;
@@ -193,7 +232,7 @@ export class ProductComponent implements OnInit {
     
     product.qty = 1;
 
-    this.toast();
+    this.snackbar.open('Added To Cart', '', {panelClass: ['success-snackbar'], verticalPosition: 'top', duration:2000});
   }
 
   toast(){

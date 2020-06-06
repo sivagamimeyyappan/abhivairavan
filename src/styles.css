@@ -1,4 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
-body{
+
+body {
     margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.error-snackbar {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
+.error-snackbar .mat-button-wrapper {
+    color: lawngreen;
+}
+
+.error-snackbar .mat-simple-snackbar-action:hover {
+    font-weight: bold;
+}
+
+.success-snackbar {
+    background-color: rgb(5, 185, 5);
+    color: white;
 }

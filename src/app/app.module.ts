@@ -21,6 +21,8 @@ import { ProfilemenuComponent } from './profilemenu/profilemenu.component';
 import { OrdersComponent } from './orders/orders.component';
 import { EnquiriesComponent } from './enquiries/enquiries.component';
 import { HomeComponent } from './home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

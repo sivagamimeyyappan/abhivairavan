@@ -17,7 +17,7 @@
                 <div class="models" *ngIf="filterOption.show">
                     <div *ngFor="let model of filterOption.models">
                         <label class="container">{{model.modelname}}
-                        <input type="checkbox" [(ngModel)]="model.selected" (change)="setFilter(filterOption.brand+'-'+model.modelname, model.selected)">
+                        <input type="checkbox" [(ngModel)]="model.selected" (change)="setFilter(filterOption.brand+'-'+model.modelname, model.selected, filterOption)">
                         <span class="checkmark"></span>
                         </label>
                     </div>

@@ -54,7 +54,7 @@ export class ProductResolverService implements Resolve<any>{
               );
     
               if(filterOption == undefined){
-                    filterOptions.push({"brand":products[i].brand, "show": true, "models":[{modelname:products[i].model,selected:false}]});
+                    filterOptions.push({"brand":products[i].brand, "show": true, "models":[{modelname:'All Models',selected:false},{modelname:products[i].model,selected:false}]});
               }
               else if(filterOption.models.find(function(item){if(products[i].model == item.modelname){return true}}) == undefined){
                 filterOption.models.push({modelname:products[i].model,selected:false});
