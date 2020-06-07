@@ -226,7 +226,7 @@ export class ProductComponent implements OnInit {
       delete this.cs.order.taxPercentages[product.tax.toString()];
     }
     
-    product.qty = 1;
+    product.qty = 0;
 
     this.snackbar.open('Added To Cart', '', {panelClass: ['success-snackbar'], verticalPosition: 'bottom', horizontalPosition:'center', duration:2000});
   }
