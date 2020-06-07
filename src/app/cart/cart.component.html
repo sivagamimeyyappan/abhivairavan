@@ -54,23 +54,44 @@
     </tr>
   </table>
 </div> -->
-
-<br>
-
 <div class="container">
-    <div class="row">
-        <br>
-    </div>
     <div class="row">
         <div *ngIf="order.items.length == 0" style="color: rgba(0, 0, 0, 0.6);" class="col-12">
             <h1 class="text-center"><i>Add Items To Cart</i>&nbsp;<i class="fa fa-shopping-cart fa-lg"></i></h1>
         </div>
         <div *ngIf="order.items.length >0" class="col-12">
-            <h1 class="text-center">QUOTATION</h1>
-            <br>
             <div>
+                <div style="display: flex;flex-direction: row;">
+                    <div class="text-right">
+                        <img src="/assets/images/tap.png" class="img-fluid" style="height: 100px; width: 100px;">
+                    </div>
+                    <div style="font-weight: bold;">
+                        <span style="color:orangered; font-size: 50px;">Abhi</span>&nbsp;
+                        <span style="color: blue; font-size: 50px;">Vairavan</span>
+                        <h6>Authorised distributors for plumbing materials</h6>
+                    </div>
+                </div>
                 <table class="table table-responsive text-center">
                     <thead>
+                        <tr>
+                            <th colspan="10" style="color: green;">
+                                <h4>Contact Us For Discounts</h4>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="3">
+                                <span><b>Order Id:</b>&nbsp;</span>
+                                <span style="color: blue;">RTu123y56</span>
+                            </th>
+                            <th colspan="3">
+                                <span><b>Order Name:</b>&nbsp;</span>
+                                <span style="color: blue;">Flora Homes</span>
+                            </th>
+                            <th colspan="4">
+                                <span><b>Order Status:</b>&nbsp;</span>
+                                <span style="color: green;">Completed</span>
+                            </th>
+                        </tr>
                         <tr>
                             <th [ngStyle]="{'width': (col=='Qty' || col=='Disc')? '12%' : 'initial'}" *ngFor="let col of colHeadings" class="text-center">{{col}}</th>
                         </tr>
@@ -143,6 +164,24 @@
                         <tr *ngIf="mode === 'edit' && !commonService.isAdmin">
                             <td colspan="10" class="text-right">
                                 <button type="submit" class="btn btn-getQuote" (click)="geQuote()">Save & GetQuote</button>
+                            </td>
+                        </tr>
+                        <tr *ngIf="mode === 'edit'">
+                            <td colspan="5" class="text-left">
+                                <b>Delivery as per agreed schedule and terms.</b><br>
+                                <b>Rates are valid for 7 days.</b><br>
+                                <b>Uloading client scope.</b><br>
+                                <b>Frieght charges extra.</b><br>
+                                <b>Check payment only with a/c payee check in favor Abhivairavans Plumbing Co.,</b><br>
+                                <b>Branch: Kodambhakkam</b>
+                            </td>
+                            <td colspan="5" class="text-right">
+                                <b>Bank Account Details:-</b><br> Bank Name: ICICI Bank<br> Account No: 057751000001<br> IFS Code: ICIC0000577
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="10">
+                                <img src="/assets/images/cartBottomImage.png" class="img-fluid">
                             </td>
                         </tr>
                     </tbody>

@@ -15,8 +15,8 @@ body {
 }
 
 .error-snackbar {
-    background-color: red;
-    color: white;
+    background-color: crimson;
+    color: white
 }
 
 .error-snackbar .mat-button-wrapper {
@@ -28,6 +28,10 @@ body {
 }
 
 .success-snackbar {
-    background-color: green;
+    background-color: forestgreen;
     color: white;
+}
+
+.mat-snack-bar-container {
+    margin-top: 100px !important;
 }

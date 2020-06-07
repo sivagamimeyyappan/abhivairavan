@@ -168,7 +168,7 @@ export class ProductComponent implements OnInit {
   qtyChange(product){
     if(product.qty % product.unit != 0){
       this.snackbarRef = this.snackbar.open(product.brand+"~"+product.model+"~"+product.productId+" Quantity should be in multiple of "+product.unit,'dismiss',
-      {panelClass: ['error-snackbar'], verticalPosition: 'bottom'});
+      {panelClass: ['error-snackbar'], verticalPosition: 'top'});
       this.snackbarRef.afterDismissed().subscribe(()=>{
         this.snackbarRef = null;
       });
@@ -186,7 +186,7 @@ export class ProductComponent implements OnInit {
     if(product.qty % product.unit != 0){
       if(this.snackbarRef == null){
         this.snackbarRef = this.snackbar.open(product.brand+"~"+product.model+"~"+product.productId+" Quantity should be in multiple of "+product.unit,'dismiss',
-        {panelClass: ['error-snackbar'], verticalPosition: 'bottom'});
+        {panelClass: ['error-snackbar'], verticalPosition: 'top'});
         this.snackbarRef.afterDismissed().subscribe(()=>{
           this.snackbarRef = null;
       });
@@ -228,7 +228,7 @@ export class ProductComponent implements OnInit {
     
     product.qty = 0;
 
-    this.snackbar.open('Added To Cart', '', {panelClass: ['success-snackbar'], verticalPosition: 'bottom', horizontalPosition:'center', duration:2000});
+    this.snackbar.open('Added To Cart..', '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:1000});
   }
 
   toast(){

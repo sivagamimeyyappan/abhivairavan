@@ -5,6 +5,10 @@
     display: flex;
   } */
  
+ .sticky-top {
+     z-index: 500;
+ }
+ 
  .appBrand {
      display: flex;
      flex-direction: column;
@@ -55,7 +59,6 @@
  
  .navbar-light .navbar-toggler:focus {
      color: lawngreen;
-     border-color: lawngreen;
  }
  
  .navbar-light .navbar-toggler:hover {
@@ -64,8 +67,8 @@
  }
  
  button:focus {
-     outline: 1px dotted;
-     outline: 5px auto lawngreen;
+     /* outline: 1px dotted;
+     outline: 5px auto lawngreen; */
  }
  
  .dropdown-menu {
