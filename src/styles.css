@@ -15,7 +15,7 @@ body {
 }
 
 .error-snackbar {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: red;
     color: white;
 }
 
@@ -28,6 +28,6 @@ body {
 }
 
 .success-snackbar {
-    background-color: rgb(5, 185, 5);
+    background-color: green;
     color: white;
 }

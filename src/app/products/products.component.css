@@ -1,10 +1,6 @@
-.spinner{
-    margin-left:50%;
-    margin-top:10%;
-    color:lawngreen;
+.spinner {
+    margin-left: 50%;
+    margin-top: 10%;
+    color: lawngreen;
     font-size: 60px;
-}
-
-.bgtheme{
-    background-color: white;
 }

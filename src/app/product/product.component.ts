@@ -112,8 +112,6 @@ export class ProductComponent implements OnInit {
   }
 
   setFilter(filteredOption, selected, filterOption){
-    
-    console.log('Start');
 
     if(!this.filteredOptions.includes(filteredOption) && selected){
 
@@ -131,7 +129,6 @@ export class ProductComponent implements OnInit {
           var index = this.filteredOptions.indexOf(filterOption.brand+'-'+filterOption.models[i].modelname);
           if(index != -1){
             this.filteredOptions.splice(index,1);
-            alert('splicing');
           }
         }
       }
@@ -151,7 +148,6 @@ export class ProductComponent implements OnInit {
       }
     });
 
-    console.log('End');
   }
 
   applyFilter(){
@@ -172,7 +168,7 @@ export class ProductComponent implements OnInit {
   qtyChange(product){
     if(product.qty % product.unit != 0){
       this.snackbarRef = this.snackbar.open(product.brand+"~"+product.model+"~"+product.productId+" Quantity should be in multiple of "+product.unit,'dismiss',
-      {panelClass: ['error-snackbar'], verticalPosition: 'top'});
+      {panelClass: ['error-snackbar'], verticalPosition: 'bottom'});
       this.snackbarRef.afterDismissed().subscribe(()=>{
         this.snackbarRef = null;
       });
@@ -190,7 +186,7 @@ export class ProductComponent implements OnInit {
     if(product.qty % product.unit != 0){
       if(this.snackbarRef == null){
         this.snackbarRef = this.snackbar.open(product.brand+"~"+product.model+"~"+product.productId+" Quantity should be in multiple of "+product.unit,'dismiss',
-        {panelClass: ['error-snackbar'], verticalPosition: 'top'});
+        {panelClass: ['error-snackbar'], verticalPosition: 'bottom'});
         this.snackbarRef.afterDismissed().subscribe(()=>{
           this.snackbarRef = null;
       });
@@ -232,7 +228,7 @@ export class ProductComponent implements OnInit {
     
     product.qty = 1;
 
-    this.snackbar.open('Added To Cart', '', {panelClass: ['success-snackbar'], verticalPosition: 'top', duration:2000});
+    this.snackbar.open('Added To Cart', '', {panelClass: ['success-snackbar'], verticalPosition: 'bottom', horizontalPosition:'center', duration:2000});
   }
 
   toast(){

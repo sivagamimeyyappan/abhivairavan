@@ -4,78 +4,79 @@
     color: #f1f1f1;
     display: flex;
   } */
-  body{
-    height: 100%;
-  }
-
-  .appBrand{
-    display: flex;
-    flex-direction:column;
-    text-decoration: none;
-    color:lawngreen !important;
-  }
-  .appBrand:hover a{
-    color:lawngreen;
-  }
-  .app-heading{
-    font-size: x-large;
-    color:lawngreen;
-  }
-  .app-subtitle{
-    font-size: small;
-    color:lawngreen;
-  }
-
-  .bg-myapp{
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-  }
-
-  .bg-myapp a{
-    color: white;
-  }
-
-  .bg-myapp a:hover{
-    color: lawngreen;
-    cursor: pointer;
-  }
-  .navbar-light a{
-    color: white !important;
-  }
-  .navbar-light a:hover{
-    color:lawngreen !important;
-  }
-
-  .navbar-light .navbar-toggler {
-    color: white;
-    border-color: white;
-  }
-
-.navbar-light .navbar-toggler:focus {
-  color: lawngreen;
-  border-color: lawngreen;
-}
-.navbar-light .navbar-toggler:hover {
-  color: lawngreen;
-  border-color: lawngreen;
-}
-
-button:focus {
-  outline: 1px dotted;
-  outline: 5px auto lawngreen;
-}
-
-  .dropdown-menu {
-    right: 0 !important;
-    left: unset;
-    /* background-color: rgba(0, 0, 0, 0.0); */
-  }
-
-  /* .dropdown:hover .dropdown-menu {
+ 
+ .appBrand {
+     display: flex;
+     flex-direction: column;
+     text-decoration: none;
+     color: lawngreen !important;
+ }
+ 
+ .appBrand:hover a {
+     color: lawngreen;
+ }
+ 
+ .app-heading {
+     font-size: x-large;
+     color: lawngreen;
+ }
+ 
+ .app-subtitle {
+     font-size: small;
+     color: lawngreen;
+ }
+ 
+ .bg-myapp {
+     background-color: rgba(0, 0, 0, 0.6);
+     color: white;
+ }
+ 
+ .bg-myapp a {
+     color: white;
+ }
+ 
+ .bg-myapp a:hover {
+     color: lawngreen;
+     cursor: pointer;
+ }
+ 
+ .navbar-light a {
+     color: white !important;
+ }
+ 
+ .navbar-light a:hover {
+     color: lawngreen !important;
+ }
+ 
+ .navbar-light .navbar-toggler {
+     color: white;
+     border-color: white;
+ }
+ 
+ .navbar-light .navbar-toggler:focus {
+     color: lawngreen;
+     border-color: lawngreen;
+ }
+ 
+ .navbar-light .navbar-toggler:hover {
+     color: lawngreen;
+     border-color: lawngreen;
+ }
+ 
+ button:focus {
+     outline: 1px dotted;
+     outline: 5px auto lawngreen;
+ }
+ 
+ .dropdown-menu {
+     right: 0 !important;
+     left: unset;
+     /* background-color: rgba(0, 0, 0, 0.0); */
+ }
+ /* .dropdown:hover .dropdown-menu {
     display: block;
   }  */
-
-  /*  .app-nav{
+ /*  .app-nav{
     float: left;
     color:white;
     text-align: center;
@@ -92,50 +93,87 @@ button:focus {
     color:lawngreen;
     font-weight: bold;
   } */
-
-   /* The snackbar - position it at the bottom and in the middle of the screen */
-#snackbar {
-  visibility: hidden; /* Hidden by default. Visible on click */
-  min-width: 250px; /* Set a default minimum width */
-  margin-left: -125px; /* Divide value of min-width by 2 */
-  background-color: #4CAF50;; /* Black background color */
-  color:white; /* White text color */
-  text-align: center; /* Centered text */
-  border-radius: 10px; /* Rounded borders */
-  padding: 16px; /* Padding */
-  position: fixed; /* Sit on top of the screen */
-  z-index: 3000; /* Add a z-index if needed */
-  left: 50%; /* Center the snackbar */
-  top: 30px; /* 30px from the bottom */
-}
-
-/* Show the snackbar when clicking on a button (class added with JavaScript) */
-#snackbar.show {
-  visibility: visible; /* Show the snackbar */
-  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+ /* The snackbar - position it at the bottom and in the middle of the screen */
+ 
+ #snackbar {
+     visibility: hidden;
+     /* Hidden by default. Visible on click */
+     min-width: 250px;
+     /* Set a default minimum width */
+     margin-left: -125px;
+     /* Divide value of min-width by 2 */
+     background-color: #4CAF50;
+     ;
+     /* Black background color */
+     color: white;
+     /* White text color */
+     text-align: center;
+     /* Centered text */
+     border-radius: 10px;
+     /* Rounded borders */
+     padding: 16px;
+     /* Padding */
+     position: fixed;
+     /* Sit on top of the screen */
+     z-index: 3000;
+     /* Add a z-index if needed */
+     left: 50%;
+     /* Center the snackbar */
+     top: 30px;
+     /* 30px from the bottom */
+ }
+ /* Show the snackbar when clicking on a button (class added with JavaScript) */
+ 
+ #snackbar.show {
+     visibility: visible;
+     /* Show the snackbar */
+     /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
   However, delay the fade out process for 2.5 seconds */
-  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
-
-/* Animations to fade the snackbar in and out */
-@-webkit-keyframes fadein {
-  from {top: 0; opacity: 0;}
-  to {top: 30px; opacity: 1;}
-}
-
-@keyframes fadein {
-  from {top: 0; opacity: 0;}
-  to {top: 30px; opacity: 1;}
-}
-
-@-webkit-keyframes fadeout {
-  from {top: 30px; opacity: 1;}
-  to {top: 0; opacity: 0;}
-}
-
-@keyframes fadeout {
-  from {top: 30px; opacity: 1;}
-  to {top: 0; opacity: 0;}
-}
-
+     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+     animation: fadein 0.5s, fadeout 0.5s 2.5s;
+ }
+ /* Animations to fade the snackbar in and out */
+ 
+ @-webkit-keyframes fadein {
+     from {
+         top: 0;
+         opacity: 0;
+     }
+     to {
+         top: 30px;
+         opacity: 1;
+     }
+ }
+ 
+ @keyframes fadein {
+     from {
+         top: 0;
+         opacity: 0;
+     }
+     to {
+         top: 30px;
+         opacity: 1;
+     }
+ }
+ 
+ @-webkit-keyframes fadeout {
+     from {
+         top: 30px;
+         opacity: 1;
+     }
+     to {
+         top: 0;
+         opacity: 0;
+     }
+ }
+ 
+ @keyframes fadeout {
+     from {
+         top: 30px;
+         opacity: 1;
+     }
+     to {
+         top: 0;
+         opacity: 0;
+     }
+ }
