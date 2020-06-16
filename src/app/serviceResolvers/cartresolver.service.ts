@@ -30,6 +30,7 @@ export class CartresolverService {
         take(1),
         mergeMap((order: any)=> {
           if(mode == "edit"){
+            console.log(order);
             this.cs.order = order;
             return of({order:this.cs.order});
           }

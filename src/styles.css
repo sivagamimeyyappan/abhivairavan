@@ -35,3 +35,11 @@ body {
 .mat-snack-bar-container {
     margin-top: 100px !important;
 }
+
+@media print {
+    #cart {
+        width: auto;
+        height: auto;
+        overflow: visible;
+    }
+}

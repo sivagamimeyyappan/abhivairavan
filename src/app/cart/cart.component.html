@@ -57,11 +57,13 @@
 <div class="container">
     <div class="row">
         <div *ngIf="order.items.length == 0" style="color: rgba(0, 0, 0, 0.6);" class="col-12">
+            <br>
+            <br>
             <h1 class="text-center"><i>Add Items To Cart</i>&nbsp;<i class="fa fa-shopping-cart fa-lg"></i></h1>
         </div>
-        <div *ngIf="order.items.length >0" class="col-12">
+        <div *ngIf="order.items.length >0" class="col-12" id="cart">
             <div>
-                <div style="display: flex;flex-direction: row;">
+                <!-- <div style="display: flex;flex-direction: row;">
                     <div class="text-right">
                         <img src="/assets/images/tap.png" class="img-fluid" style="height: 100px; width: 100px;">
                     </div>
@@ -70,26 +72,47 @@
                         <span style="color: blue; font-size: 50px;">Vairavan</span>
                         <h6>Authorised distributors for plumbing materials</h6>
                     </div>
-                </div>
-                <table class="table table-responsive text-center">
+                </div> -->
+                <table class="table table-responsive text-center align-middle">
                     <thead>
+                        <tr>
+                            <th colspan="10">
+                                <img src="/assets/images/AbhiVairamLogo.png" class="img-fluid">
+                            </th>
+                        </tr>
                         <tr>
                             <th colspan="10" style="color: green;">
                                 <h4>Contact Us For Discounts</h4>
                             </th>
                         </tr>
                         <tr>
-                            <th colspan="3">
-                                <span><b>Order Id:</b>&nbsp;</span>
-                                <span style="color: blue;">RTu123y56</span>
+                            <th colspan="3" class="align-middle">
+                                <span><b>OrderId:</b>&nbsp;&nbsp;</span>
+                                <span>
+                                    {{order.orderId}}
+                                </span>
                             </th>
-                            <th colspan="3">
-                                <span><b>Order Name:</b>&nbsp;</span>
-                                <span style="color: blue;">Flora Homes</span>
+                            <th colspan="3" class="align-middle">
+                                <span><b>OrderName:</b>&nbsp;&nbsp;</span>
+                                <span *ngIf="mode === 'view'">{{order.name}}</span>
+                                <span *ngIf="mode === 'edit'">
+                                    <mat-form-field floatLabel = "never">
+                                        <input matInput [(ngModel)]="order.name" placeholder="Enter Order Name" required>
+                                    </mat-form-field>
+                                </span>
                             </th>
-                            <th colspan="4">
-                                <span><b>Order Status:</b>&nbsp;</span>
-                                <span style="color: green;">Completed</span>
+                            <th colspan="4" class="align-middle">
+                                <span><b>OrderStatus:</b>&nbsp;&nbsp;</span>
+                                <span *ngIf="mode === 'view' || !commonService.user.isAdmin">{{order.status}}</span>
+                                <span *ngIf="mode === 'edit' && commonService.user.isAdmin">
+                                    <mat-form-field>
+                                        <mat-select [(value)]="order.status">
+                                          <mat-option value="Pending">Pending</mat-option>
+                                          <mat-option value="Completed">Completed</mat-option>
+                                          <mat-option value="Cancelled">Cancelled</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </span>
                             </th>
                         </tr>
                         <tr>
@@ -114,77 +137,94 @@
                             <td>{{product.mrp - ((product.disc/100)*product.mrp) | currency:"₹"}}</td>
                             <td>{{(product.mrp - ((product.disc/100)*product.mrp)) * product.qty | currency:"₹"}}</td>
                             <td *ngIf="mode === 'edit'"><span class="btn-remove" (click)="remove(product)"><i class="fas fa-trash fa-lg"></i></span></td>
+                            <td *ngIf="mode === 'view'"></td>
                             <!-- <td><button class="btnremove" (click)="remove(product)">Remove</button></td> -->
                         </tr>
                         <tr>
                             <td colspan="8" class="text-right">
                                 <h6>Total Amount:</h6>
                             </td>
-                            <td colspan="2" class="text-right">
+                            <td colspan="1" class="text-right">
                                 <h6>{{order.cartTotal| currency:"₹"}}</h6>
+                            </td>
+                            <td colspan="1">
                             </td>
                         </tr>
                         <tr *ngFor="let item of order.taxPercentages | keyvalue">
                             <td colspan="8" class="text-right">
                                 <h6>SGST @ {{convertToInt(item.key)/2}}% - Output Tax on {{ item.value | currency:"₹" }}:</h6>
                             </td>
-                            <td colspan="2" class="text-right">
+                            <td colspan="1" class="text-right">
                                 <h6>{{ getTax(item) | currency:"₹" }}</h6>
+                            </td>
+                            <td colspan="1">
                             </td>
                         </tr>
                         <tr *ngFor="let item of order.taxPercentages | keyvalue">
                             <td colspan="8" class="text-right">
                                 <h6>CGST @ {{convertToInt(item.key)/2}}% - Output Tax on {{ item.value | currency:"₹" }}:</h6>
                             </td>
-                            <td colspan="2" class="text-right">
+                            <td colspan="1" class="text-right">
                                 <h6>{{ getTax(item) | currency:"₹" }}</h6>
+                            </td>
+                            <td colspan="1">
                             </td>
                         </tr>
                         <tr>
                             <td colspan="8" class="text-right">
                                 <h6>Amount With Tax:</h6>
                             </td>
-                            <td colspan="2" class="text-right">
+                            <td colspan="1" class="text-right">
                                 <h6>{{(order.cartTotal + getTotalTax()).toFixed(2)}}</h6>
+                            </td>
+                            <td colspan="1">
                             </td>
                         </tr>
                         <tr>
                             <td colspan="8" class="text-right">
                                 <h6>Final Amount Rounded Off To:</h6>
                             </td>
-                            <td colspan="2" class="text-right">
+                            <td colspan="1" class="text-right">
                                 <h6>{{getFinalAmount()}}</h6>
                             </td>
+                            <td colspan="1">
+                            </td>
                         </tr>
-                        <tr *ngIf="mode === 'edit' && commonService.isAdmin">
+                        <!-- <tr *ngIf="mode === 'edit' && commonService.user.isAdmin">
                             <td colspan="10" class="text-right">
                                 <button type="submit" class="btn btn-save">Save</button>
                             </td>
-                        </tr>
-                        <tr *ngIf="mode === 'edit' && !commonService.isAdmin">
-                            <td colspan="10" class="text-right">
-                                <button type="submit" class="btn btn-getQuote" (click)="geQuote()">Save & GetQuote</button>
+                        </tr> -->
+                        <tr>
+                            <td colspan="5">
+
+                            </td>
+                            <td colspan="5" class="text-right">
+                                <button *ngIf="mode === 'edit'" type="submit" class="btn btn-getQuote" (click)="clearCart()">Clear Cart</button>&nbsp;&nbsp;
+                                <button type="submit" class="btn btn-getQuote" (click)="print()">Print</button>&nbsp;&nbsp;
+                                <button *ngIf="mode === 'edit' && commonService.user.isAdmin" type="submit" class="btn btn-save">Save</button>
+                                <button *ngIf="mode === 'edit' && !commonService.user.isAdmin" type="submit" class="btn btn-getQuote" (click)="geQuote()">Save & GetQuote</button>
                             </td>
                         </tr>
-                        <tr *ngIf="mode === 'edit'">
+                        <tr>
                             <td colspan="5" class="text-left">
                                 <b>Delivery as per agreed schedule and terms.</b><br>
                                 <b>Rates are valid for 7 days.</b><br>
-                                <b>Uloading client scope.</b><br>
+                                <b>Unloading client scope.</b><br>
                                 <b>Frieght charges extra.</b><br>
-                                <b>Check payment only with a/c payee check in favor Abhivairavans Plumbing Co.,</b><br>
+                                <b>Cheque payment only with a/c payee check in favor Abhivairavans Plumbing Co.,</b><br>
                                 <b>Branch: Kodambhakkam</b>
                             </td>
                             <td colspan="5" class="text-right">
                                 <b>Bank Account Details:-</b><br> Bank Name: ICICI Bank<br> Account No: 057751000001<br> IFS Code: ICIC0000577
                             </td>
                         </tr>
-                        <tr>
-                            <td colspan="10">
-                                <img src="/assets/images/cartBottomImage.png" class="img-fluid">
-                            </td>
-                        </tr>
                     </tbody>
+                    <tfoot>
+                        <td colspan="10">
+                            <img src="/assets/images/cartBottomImage.png" class="img-fluid">
+                        </td>
+                    </tfoot>
                 </table>
             </div>
         </div>

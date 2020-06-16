@@ -1,8 +1,7 @@
 {
-    "no": 1000,
-    "name": "order1",
-    "customerid": 101,
-    "customername": "customer1",
+    "oderId": "1592-057456-3924",
+    "name": "Appasamy Realestate Flora Homes",
+    "userid": 101,
     "date": "\"2014-01-01T23:28:56.782Z\"",
     "status": "Completed",
     "cartTotal": 26244,

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
+import { User } from '../Models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +9,8 @@ export class CommonService {
 
   showFilterIcon: boolean = false;
   showSidepanel: boolean = false;
-  isAdmin: boolean = true;
-  customerId: string = "101";
+  user: User = new User();
+  redirectUrl: any =  [];
 
   private filterIcon = new BehaviorSubject<boolean>(this.showFilterIcon);
   public observeFilterIcon = this.filterIcon.asObservable();

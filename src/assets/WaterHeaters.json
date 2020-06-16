@@ -57,5 +57,102 @@
     { "productId": "AWHJaq-55", "mrp": 139000, "price": 139000, "category": "WaterHeaters", "model": " Instant", "brand": "Jaquar", "alt": "AWHJaq-55", "desc": "Integra -x  split Pump 200  litre instant  Water Heater ", "img": "/assets/images/AWHJaq-55.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
     { "productId": "AWHJaq-56", "mrp": 158000, "price": 158000, "category": "WaterHeaters", "model": " Instant", "brand": "Jaquar", "alt": "AWHJaq-56", "desc": "Integra -x  split Pump 300  litre instant  Water Heater ", "img": "/assets/images/AWHJaq-56.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
     { "productId": "AWHJaq-57", "mrp": 199000, "price": 199000, "category": "WaterHeaters", "model": " Instant", "brand": "Jaquar", "alt": "AWHJaq-57", "desc": "Integra -x  split Pump 400  litre instant  Water Heater ", "img": "/assets/images/AWHJaq-57.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-58", "mrp": 243000, "price": 243000, "category": "WaterHeaters", "model": " Instant", "brand": "Jaquar", "alt": "AWHJaq-58", "desc": "Integra -x  split Pump 500  litre instant  Water Heater ", "img": "/assets/images/AWHJaq-58.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-1", "mrp": 15600, "price": 15600, "category": "WaterHeaters", "model": "Digital", "brand": "Jaquar", "alt": "AWHJaq-1", "desc": "Insta Prime 9KwDigital Water Heater Single Phase", "img": "/assets/images/AWHJaq-1.jpg", "qty": 0, "qtyType": "No", "tax": 18, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-2", "mrp": 19800, "price": 19800, "category": "WaterHeaters", "model": "Digital", "brand": "Jaquar", "alt": "AWHJaq-2", "desc": "Insta Prime 9Kw Digital Water Heater three Phase", "img": "/assets/images/AWHJaq-2.jpg", "qty": 0, "qtyType": "No", "tax": 18, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-3", "mrp": 22400, "price": 22400, "category": "WaterHeaters", "model": "Digital", "brand": "Jaquar", "alt": "AWHJaq-3", "desc": "Insta Prime 12Kw Digital Water Heater three Phase", "img": "/assets/images/AWHJaq-3.jpg", "qty": 0, "qtyType": "No", "tax": 18, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-4", "mrp": 26300, "price": 26300, "category": "WaterHeaters", "model": "Digital", "brand": "Jaquar", "alt": "AWHJaq-4", "desc": "Insta Prime 18Kw Digital Water Heater three Phase", "img": "/assets/images/AWHJaq-4.jpg", "qty": 0, "qtyType": "No", "tax": 18, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-5", "mrp": 29100, "price": 29100, "category": "WaterHeaters", "model": "Digital", "brand": "Jaquar", "alt": "AWHJaq-5", "desc": "Insta Prime 24Kw Digital Water Heater three Phase", "img": "/assets/images/AWHJaq-5.jpg", "qty": 0, "qtyType": "No", "tax": 18, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-6", "mrp": 3150, "price": 3150, "category": "WaterHeaters", "model": "Instant", "brand": "Jaquar", "alt": "AWHJaq-6", "desc": "Insta 1 Liter 3kw Instant Water Heater ", "img": "/assets/images/AWHJaq-6.jpg", "qty": 0, "qtyType": "No", "tax": 18, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-7", "mrp": 3150, "price": 3150, "category": "WaterHeaters", "model": "Instant", "brand": "Jaquar", "alt": "AWHJaq-7", "desc": "Insta 1 Liter 4.5kw Instant Water Heater ", "img": "/assets/images/AWHJaq-7.jpg", "qty": 0, "qtyType": "No", "tax": 18, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-8", "mrp": 3600, "price": 3600, "category": "WaterHeaters", "model": "Instant", "brand": "Jaquar", "alt": "AWHJaq-8", "desc": "Insta 3 Litre 3kw Instant Water Heater ", "img": "/assets/images/AWHJaq-8.jpg", "qty": 0, "qtyType": "No", "tax": 18, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-9", "mrp": 3600, "price": 3600, "category": "WaterHeaters", "model": "Instant", "brand": "Jaquar", "alt": "AWHJaq-9", "desc": "Insta 3 Litre 4.5kw Instant Water Heater ", "img": "/assets/images/AWHJaq-9.jpg", "qty": 0, "qtyType": "No", "tax": 18, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-10", "mrp": 6000, "price": 6000, "category": "WaterHeaters", "model": "InsTant", "brand": "Jaquar", "alt": "AWHJaq-10", "desc": "Insta Gas6 litre NG Instant Water Heater ", "img": "/assets/images/AWHJaq-10.jpg", "qty": 0, "qtyType": "No", "tax": 18, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-11", "mrp": 9500, "price": 9500, "category": "WaterHeaters", "model": "InsTant ", "brand": "Jaquar", "alt": "AWHJaq-11", "desc": "Insta Gas 10 litre NG Instant Water Heater ", "img": "/assets/images/AWHJaq-11.jpg", "qty": 0, "qtyType": "No", "tax": 18, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-12", "mrp": 15750, "price": 15750, "category": "WaterHeaters", "model": "InsTant ", "brand": "Jaquar", "alt": "AWHJaq-12", "desc": "Insta Gas 16 litre NG Instant Water Heater ", "img": "/assets/images/AWHJaq-12.jpg", "qty": 0, "qtyType": "No", "tax": 18, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-13", "mrp": 6000, "price": 6000, "category": "WaterHeaters", "model": "InsTant ", "brand": "Jaquar", "alt": "AWHJaq-13", "desc": "Insta Gas 6 litre LPG Instant Water Heater ", "img": "/assets/images/AWHJaq-13.jpg", "qty": 0, "qtyType": "No", "tax": 18, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-14", "mrp": 9500, "price": 9500, "category": "WaterHeaters", "model": "InsTant ", "brand": "Jaquar", "alt": "AWHJaq-14", "desc": "Insta Gas 10 litre LPG Instant Water Heater ", "img": "/assets/images/AWHJaq-14.jpg", "qty": 0, "qtyType": "No", "tax": 18, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-15", "mrp": 7650, "price": 7650, "category": "WaterHeaters", "model": "Manual", "brand": "Jaquar", "alt": "AWHJaq-15", "desc": "Erica vertical  6 LitreManualWater Heater ", "img": "/assets/images/AWHJaq-15.jpg", "qty": 0, "qtyType": "No", "tax": 18, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-16", "mrp": 8400, "price": 8400, "category": "WaterHeaters", "model": "Manual", "brand": "Jaquar", "alt": "AWHJaq-16", "desc": "Erica vertical  10 Litremanual Water Heater ", "img": "/assets/images/AWHJaq-16.jpg", "qty": 0, "qtyType": "No", "tax": 18, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-17", "mrp": 9450, "price": 9450, "category": "WaterHeaters", "model": "Manual", "brand": "Jaquar", "alt": "AWHJaq-17", "desc": "Erica vertical  15 Litremanual Water Heater ", "img": "/assets/images/AWHJaq-17.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-18", "mrp": 11400, "price": 11400, "category": "WaterHeaters", "model": "Manual", "brand": "Jaquar", "alt": "AWHJaq-18", "desc": "Erica vertical  25 LitreManual Water Heater ", "img": "/assets/images/AWHJaq-18.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-19", "mrp": 13000, "price": 13000, "category": "WaterHeaters", "model": "Digital", "brand": "Jaquar", "alt": "AWHJaq-19", "desc": "Erica vertical  15LitreDgital Water Heater ", "img": "/assets/images/AWHJaq-19.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-20", "mrp": 15300, "price": 15300, "category": "WaterHeaters", "model": " Digital", "brand": "Jaquar", "alt": "AWHJaq-20", "desc": "Erica vertical  25 Litre  Dgital Water Heater ", "img": "/assets/images/AWHJaq-20.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-21", "mrp": 7800, "price": 7800, "category": "WaterHeaters", "model": "Manual", "brand": "Jaquar", "alt": "AWHJaq-21", "desc": "Elena prime vertical 6  Litremanual Water Heater ", "img": "/assets/images/AWHJaq-21.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-22", "mrp": 8600, "price": 8600, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-22", "desc": "Elena prime vertical 10 Litremanuall Water Heater ", "img": "/assets/images/AWHJaq-22.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-23", "mrp": 9800, "price": 9800, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-23", "desc": "Elena prime vertical 15  Litremanual Water Heater ", "img": "/assets/images/AWHJaq-23.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-24", "mrp": 10700, "price": 10700, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-24", "desc": "Elena prime vertical 25  LitreManual Water Heater ", "img": "/assets/images/AWHJaq-24.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-25", "mrp": 6800, "price": 6800, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-25", "desc": "Elena vertical 6  LitreManual Water Heater ", "img": "/assets/images/AWHJaq-25.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-26", "mrp": 7800, "price": 7800, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-26", "desc": "Elena vertical 10  Litre Manual Water Heater ", "img": "/assets/images/AWHJaq-26.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-27", "mrp": 8750, "price": 8750, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-27", "desc": "Elena vertical 15 Litre Manual Water Heater ", "img": "/assets/images/AWHJaq-27.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-28", "mrp": 10200, "price": 10200, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-29", "desc": "Elena vertical 25  Litremanual Water Heater ", "img": "/assets/images/AWHJaq-28.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-29", "mrp": 7150, "price": 7150, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-29", "desc": "Elena6  Litre manual Water Heater ", "img": "/assets/images/AWHJaq-29.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-30", "mrp": 8400, "price": 8400, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-30", "desc": "Elena 10  Litre manual Water Heater ", "img": "/assets/images/AWHJaq-30.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-31", "mrp": 8300, "price": 8300, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-31", "desc": "Elena Horizontal  15  Litre manual Water Heater ", "img": "/assets/images/AWHJaq-31.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-32", "mrp": 9750, "price": 9750, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-32", "desc": "Elena Horizontal  25 Litre manual Water Heater ", "img": "/assets/images/AWHJaq-32.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-33", "mrp": 18600, "price": 18600, "category": "WaterHeaters", "model": " Digital", "brand": "Jaquar", "alt": "AWHJaq-33", "desc": "Alexa plus Horizontal  20 litre digital Water Heater ", "img": "/assets/images/AWHJaq-33.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-34", "mrp": 10700, "price": 10700, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-34", "desc": "versa  vertical  40 litre manual Water Heater ", "img": "/assets/images/AWHJaq-34.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-35", "mrp": 13100, "price": 13100, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-35", "desc": "versa  vertical 60 litre manual Water Heater ", "img": "/assets/images/AWHJaq-35.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-36", "mrp": 15000, "price": 15000, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-36", "desc": "versa  vertical 80 litre manual Water Heater ", "img": "/assets/images/AWHJaq-36.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-37", "mrp": 15500, "price": 15500, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-37", "desc": "versa  vertical 100 litre manual Water Heater ", "img": "/assets/images/AWHJaq-37.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-38", "mrp": 10700, "price": 10700, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-38", "desc": "versa  Horizontal 40 litre manual Water Heater ", "img": "/assets/images/AWHJaq-38.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-39", "mrp": 13100, "price": 13100, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-39", "desc": "versa  Horizontal 60 litre manual Water Heater ", "img": "/assets/images/AWHJaq-39.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-40", "mrp": 15000, "price": 15000, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-40", "desc": "versa  Horizontal 80 litre manual Water Heater ", "img": "/assets/images/AWHJaq-40.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-41", "mrp": 15500, "price": 15500, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-41", "desc": "versa  Horizontal 100 litre manual Water Heater ", "img": "/assets/images/AWHJaq-41.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-42", "mrp": 14100, "price": 14100, "category": "WaterHeaters", "model": " Digital", "brand": "Jaquar", "alt": "AWHJaq-42", "desc": "versa  40 litre digital Water Heater ", "img": "/assets/images/AWHJaq-42.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-43", "mrp": 15600, "price": 15600, "category": "WaterHeaters", "model": " Digital", "brand": "Jaquar", "alt": "AWHJaq-43", "desc": "versa  60 litre digital Water Heater ", "img": "/assets/images/AWHJaq-43.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-44", "mrp": 16900, "price": 16900, "category": "WaterHeaters", "model": " Digital", "brand": "Jaquar", "alt": "AWHJaq-44", "desc": "versa  80 litre digital Water Heater ", "img": "/assets/images/AWHJaq-44.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-45", "mrp": 18500, "price": 18500, "category": "WaterHeaters", "model": " Digital", "brand": "Jaquar", "alt": "AWHJaq-45", "desc": "versa  100 litre Digital Water Heater ", "img": "/assets/images/AWHJaq-45.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-46", "mrp": 46500, "price": 46500, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-46", "desc": "verna floor mounting  200 litre manual  Water Heater ", "img": "/assets/images/AWHJaq-46.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-47", "mrp": 55200, "price": 55200, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-47", "desc": "verna floor mounting  300  litre manual  Water Heater ", "img": "/assets/images/AWHJaq-47.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-48", "mrp": 63000, "price": 63000, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-48", "desc": "verna floor mounting  400  litre manual  Water Heater ", "img": "/assets/images/AWHJaq-48.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-49", "mrp": 82400, "price": 82400, "category": "WaterHeaters", "model": " Manual", "brand": "Jaquar", "alt": "AWHJaq-49", "desc": "verna floor mounting  500  litre manual  Water Heater ", "img": "/assets/images/AWHJaq-49.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-50", "mrp": 136000, "price": 136000, "category": "WaterHeaters", "model": " Instant", "brand": "Jaquar", "alt": "AWHJaq-50", "desc": "Integra   Monobloc Pump 200  litre instant  Water Heater ", "img": "/assets/images/AWHJaq-50.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-51", "mrp": 176000, "price": 176000, "category": "WaterHeaters", "model": " Instant", "brand": "Jaquar", "alt": "AWHJaq-51", "desc": "Integra   Monobloc Pump 300  litre instant  Water Heater ", "img": "/assets/images/AWHJaq-51.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-52", "mrp": 169000, "price": 169000, "category": "WaterHeaters", "model": " Instant", "brand": "Jaquar", "alt": "AWHJaq-52", "desc": "Integra   split Pump 300  litre instant  Water Heater ", "img": "/assets/images/AWHJaq-52.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-53", "mrp": 181000, "price": 181000, "category": "WaterHeaters", "model": " Instant", "brand": "Jaquar", "alt": "AWHJaq-53", "desc": "Integra   split Pump 400  litre instant  Water Heater ", "img": "/assets/images/AWHJaq-53.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-54", "mrp": 218000, "price": 218000, "category": "WaterHeaters", "model": " Instant", "brand": "Jaquar", "alt": "AWHJaq-54", "desc": "Integra   split Pump 500 litre instant  Water Heater ", "img": "/assets/images/AWHJaq-54.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-55", "mrp": 139000, "price": 139000, "category": "WaterHeaters", "model": " Instant", "brand": "Jaquar", "alt": "AWHJaq-55", "desc": "Integra -x  split Pump 200  litre instant  Water Heater ", "img": "/assets/images/AWHJaq-55.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-56", "mrp": 158000, "price": 158000, "category": "WaterHeaters", "model": " Instant", "brand": "Jaquar", "alt": "AWHJaq-56", "desc": "Integra -x  split Pump 300  litre instant  Water Heater ", "img": "/assets/images/AWHJaq-56.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
+    { "productId": "AWHJaq-57", "mrp": 199000, "price": 199000, "category": "WaterHeaters", "model": " Instant", "brand": "Jaquar", "alt": "AWHJaq-57", "desc": "Integra -x  split Pump 400  litre instant  Water Heater ", "img": "/assets/images/AWHJaq-57.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 },
     { "productId": "AWHJaq-58", "mrp": 243000, "price": 243000, "category": "WaterHeaters", "model": " Instant", "brand": "Jaquar", "alt": "AWHJaq-58", "desc": "Integra -x  split Pump 500  litre instant  Water Heater ", "img": "/assets/images/AWHJaq-58.jpg", "qty": 0, "qtyType": "No", "tax": 17, "disc": 0, "unit": 1 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ]

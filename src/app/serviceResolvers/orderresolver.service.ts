@@ -20,22 +20,22 @@ export class OrderresolverService implements Resolve<any>{
   constructor(private os: OrderService, private router: Router) { }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
 
-    var customerId = route.paramMap.get('customerId');
+    var userId = route.paramMap.get('userId');
 
-    if(customerId == undefined){
+    if(userId == undefined){
       return this.os.getAllOrders().pipe(
         take(1),
         mergeMap((orders: any)=> {
-          this.colHeadings = ['Order No','Order Name','Customer ID','Customer Name','Order Date','Order Status','Actions'];
-          return of({orders:orders, colHeadings:this.colHeadings});
+          this.colHeadings = ['Order ID','Order Name','Customer ID','Customer Name','Order Date','Order Status','Actions'];
+          return of({orders:orders.Data, colHeadings:this.colHeadings});
         })
       );
     }
     else{
-      return this.os.getCustomerOrders(customerId).pipe(
+      return this.os.getCustomerOrders(userId).pipe(
         take(1),
         mergeMap((orders: any)=> {
-          this.colHeadings = ['Order No','Order Name','Order Date','Order Status','Actions'];
+          this.colHeadings = ['Order ID','Order Name','Order Date','Order Status','Actions'];
           return of({orders:orders, colHeadings:this.colHeadings});
         })
       );

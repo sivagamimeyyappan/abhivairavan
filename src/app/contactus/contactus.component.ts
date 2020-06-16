@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpClientJsonpModule } from '@angular/common/http';
-import { enquirydata } from './enquirydata';
+import { enquiry } from '../Models/enquiry';
 import { HttpHeaders } from '@angular/common/http';
+import { ResponseData } from '../Models/response';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    'Access-Control-Allow-Origin': '*'
-  })
-};
+// const httpOptions = {
+//   headers: new HttpHeaders({
+//     'Content-Type':  'application/json',
+//     'Access-Control-Allow-Origin': '*'
+//   })
+// };
 
 @Component({
   selector: 'app-contactus',
@@ -21,22 +23,30 @@ export class ContactusComponent implements OnInit {
   public userPhone: string;
   public userrequest: string;
   public mobNumberPattern = "^((\\+91-?)|0)?[0-9]{10}$"; 
-  public postEnquiryUrl = "http://localhost:5000/Api/ContactUs";
-  public postData: enquirydata = new enquirydata();
+  public postEnquiryUrl = "http://216.10.249.130:5000/PostEnquiry";
+  public postData: enquiry = new enquiry();
+  private response: ResponseData  = new ResponseData();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private snackbar: MatSnackBar) {
   }
 
   ngOnInit(): void {
   }
 
   onSubmit() { 
-    this.postData.Description = this.userrequest;
-    this.postData.Email = this.useremail;
-    this.postData.Phone = this.userPhone;
-    var data = {"Description":this.userrequest,"Email":this.useremail,"Phone":this.userPhone};
-    this.http.post(this.postEnquiryUrl, data,httpOptions).subscribe(data => {
-      alert('data posted successfully');
+    this.postData.question = this.userrequest;
+    this.postData.email = this.useremail;
+    this.postData.phone = this.userPhone;
+    this.postData.date = new Date();
+    this.postData.status = "Pending";
+    this.http.post(this.postEnquiryUrl, this.postData).subscribe(data => {
+    this.response = data as ResponseData;
+     if(this.response.Status == 1){
+      this.snackbar.open('Your Enquiry Submitted Successfully..We will contact you shortly', '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:3000});
+     }
+     else{
+      this.snackbar.open('Error While Processing Request. '+ this.response.Message+ ' Please try after some time or call us on 08048428253', 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});
+     }
     })
    };
   

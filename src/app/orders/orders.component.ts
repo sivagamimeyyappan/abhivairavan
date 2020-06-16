@@ -11,14 +11,14 @@ export class OrdersComponent implements OnInit {
 
   colHeadings = [];
   orders: any ;
-  customerId: string;
+  userId: string;
 
   constructor(private route: ActivatedRoute, public commonService: CommonService) { }
 
   ngOnInit(): void {
 
     this.route.paramMap.subscribe(params => {
-      this.customerId = params.get('customerId');
+      this.userId = params.get('userId');
     });
 
     this.route.data.subscribe((data) => {

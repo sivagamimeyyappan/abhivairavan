@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { CommonService } from '../services/common.service';
-import { ActivatedRoute } from '@angular/router';
-import { Order } from './order';
+import { ActivatedRoute, RouterStateSnapshot, Router } from '@angular/router';
+import { Order } from '../Models/order';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { HttpClient, HttpClientJsonpModule } from '@angular/common/http';
+import { ResponseData } from '../Models/response';
 
 @Component({
   selector: 'app-cart',
@@ -13,14 +16,16 @@ export class CartComponent implements OnInit {
 
   public order: Order;
   colHeadings = ['S.No','Image','Item Name','Tax','Qty','MRP','Disc','Discounted Rate','Total',''];
-  constructor(private route: ActivatedRoute, public commonService: CommonService) { }
+
+  constructor(private route: ActivatedRoute, private router: Router, public commonService: CommonService, public cartService: CartService, private http: HttpClient, private snackbar: MatSnackBar) { }
   public mode: string;
+  private postOrderUrl: string = "http://216.10.249.130:5000/PostOrder";
+  private response: ResponseData  = new ResponseData();
 
   ngOnInit(): void {
 
     this.route.paramMap.subscribe(params => {
       this.mode = params.get('mode');
-      console.log(this.mode);
     });
 
     this.route.data.subscribe((data) => {
@@ -86,9 +91,31 @@ export class CartComponent implements OnInit {
     this.order.cartTotal += product.price;
   }
 
+  clearCart(){
+    this.order = new Order();
+    this.cartService.order = new Order();
+  }
+
   geQuote(){
-
+    this.order.date = new Date();
+    this.order.userId = this.commonService.user.userId;
     console.log(this.order);
-
+    if(this.commonService.user.loggedIn){
+      this.http.post(this.postOrderUrl, this.order).subscribe(data => {
+        this.response = data as ResponseData;
+         if(this.response.Status == 1){
+          this.snackbar.open('your GetQuoteRequest Placed Successfully.', '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:3000});
+         }
+         else{
+          this.snackbar.open('Error While Processing Request. '+ this.response.Message + ' Please try after some time or call us on 08048428253.', 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});
+         }
+        })
+    }else{
+      this.commonService.redirectUrl = ['/cart',{mode:'edit'}];
+      this.router.navigate(['/login']);
+    }
+  }
+  print(){
+    window.print();
   }
 }

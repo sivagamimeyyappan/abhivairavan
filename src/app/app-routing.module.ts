@@ -23,7 +23,7 @@ const routes: Routes = [{path: 'contactus', component: ContactusComponent},
 {path: 'cart', component: CartComponent, resolve: {response: CartresolverService}},
 {path: 'enquiries', component: EnquiriesComponent},
 {path: 'orders', component: OrdersComponent, resolve: {response: OrderresolverService}},
-{path: 'orders/:customerId', component: OrdersComponent, resolve: {response: OrderresolverService}},
+{path: 'orders/:userId', component: OrdersComponent, resolve: {response: OrderresolverService}},
 {path: 'signup', component: SignupComponent},
 
 {path: 'products', component: ProductsComponent,

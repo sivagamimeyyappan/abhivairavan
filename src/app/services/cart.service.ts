@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Order } from '../cart/order';
+import { Order } from '../Models/order';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,6 @@ export class CartService {
   }
 
   clearCart() {
-    this.order.items = [];
-    return this.order.items;
+    this.order = new Order();
   }
 }

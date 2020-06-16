@@ -4,12 +4,12 @@
             <br>
             <h1>Enquiry</h1>
             <br>
-            <form #contactusForm="ngForm" (ngSubmit)="onSubmit()">
+            <form #contactusForm="ngForm" (ngSubmit)="onSubmit();contactusForm.reset()">
 
                 <div class="form-group shadow-textarea">
 
-                    <textarea name = "request" [(ngModel)]="userrequest" #request="ngModel" required class="form-control z-depth-1" rows="3" placeholder="How can we help you?"></textarea>
-                    
+                    <textarea name="request" [(ngModel)]="userrequest" #request="ngModel" required class="form-control z-depth-1" rows="3" placeholder="How can we help you?"></textarea>
+
                     <div *ngIf="request.invalid && (request.dirty || request.touched)" class="alert alert-danger">
                         <div *ngIf="request.errors.required">
                             Please Fill your question.
@@ -24,7 +24,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                         </div>
-                        <input type="email" name = "email" [(ngModel)]="useremail" #email="ngModel" required email class="form-control z-depth-1" placeholder="Email">
+                        <input type="email" name="email" [(ngModel)]="useremail" #email="ngModel" required email class="form-control z-depth-1" placeholder="Email">
                     </div>
 
                     <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
@@ -41,8 +41,8 @@
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                          </div>
-                        <input type="tel" name = "phone" [(ngModel)]="userPhone" #phone="ngModel" required [pattern]="mobNumberPattern" class="form-control z-depth-1" placeholder="Phone">
+                        </div>
+                        <input type="tel" name="phone" [(ngModel)]="userPhone" #phone="ngModel" required [pattern]="mobNumberPattern" class="form-control z-depth-1" placeholder="Phone">
                     </div>
                     <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
                         <div *ngIf="phone.errors.required">
