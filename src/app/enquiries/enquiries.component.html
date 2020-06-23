@@ -1,2 +1,19 @@
-<div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 table-responsive">
+            <table class="table text-center table-hover mx-auto w-auto">
+                <thead>
+                    <th *ngFor="let col of colHeadings" class="">{{col}}</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let enquiry of enquiries;let i = index">
+                        <td>{{enquiry.question}}</td>
+                        <td>{{enquiry.email}}</td>
+                        <td>{{enquiry.phone}}</td>
+                        <td>{{enquiry.date| date:'dd-MMM-yyyy @ hh:MM:ss'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

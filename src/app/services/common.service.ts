@@ -12,6 +12,13 @@ export class CommonService {
   user: User = new User();
   redirectUrl: any =  [];
 
+  statusColors: object = {
+    'Pending':{'color': 'red'}, 
+    'Completed':{'color':'Green'}, 
+    'Cancelled':{'color':'red'},
+    'In Cart':{'color':'blue'}
+  };
+
   private filterIcon = new BehaviorSubject<boolean>(this.showFilterIcon);
   public observeFilterIcon = this.filterIcon.asObservable();
 

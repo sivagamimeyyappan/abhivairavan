@@ -15,15 +15,18 @@ import { HomeComponent } from './home/home.component';
 import { OrderresolverService } from './serviceResolvers/orderresolver.service';
 import { CartresolverService } from './serviceResolvers/cartresolver.service';
 import { CanActivatecartGuard } from './guards/can-activatecart.guard';
+import { EnquiriesresolverService } from './serviceResolvers/enquiriesresolver.service';
+import { AuthGuard } from './guards/auth.guard';
+import { AdminGuard } from './guards/admin.guard';
 
 
 const routes: Routes = [{path: 'contactus', component: ContactusComponent},
 {path: 'login', component: LoginComponent},
-{path: 'cart/:orderId', component: CartComponent, resolve: {response: CartresolverService}, canActivate: [CanActivatecartGuard]},
+{path: 'cart/:orderId', component: CartComponent, resolve: {response: CartresolverService}, canActivate: [AuthGuard, CanActivatecartGuard]},
 {path: 'cart', component: CartComponent, resolve: {response: CartresolverService}},
-{path: 'enquiries', component: EnquiriesComponent},
-{path: 'orders', component: OrdersComponent, resolve: {response: OrderresolverService}},
-{path: 'orders/:userId', component: OrdersComponent, resolve: {response: OrderresolverService}},
+{path: 'enquiries', component: EnquiriesComponent, resolve: {response: EnquiriesresolverService}, canActivate: [AdminGuard]},
+{path: 'orders', component: OrdersComponent, resolve: {response: OrderresolverService}, canActivate: [AdminGuard]},
+{path: 'orders/:userId', component: OrdersComponent, resolve: {response: OrderresolverService}, canActivate: [AuthGuard]},
 {path: 'signup', component: SignupComponent},
 
 {path: 'products', component: ProductsComponent,

@@ -2,7 +2,7 @@
     <a *ngIf="!commonService.user.loggedIn" [routerLink]="['/login']" class="dropdown-item">Sign In</a>
     <a *ngIf="!commonService.user.loggedIn" [routerLink]="['/signup']" class="dropdown-item">Sign Up</a>
     <a *ngIf="commonService.user.loggedIn" [routerLink]="['/products']" (click)="signOut()" class="dropdown-item">Sign Out</a>
-    <a *ngIf="commonService.user.loggedIn" [routerLink]="['/orders', commonService.user.userId]" class="dropdown-item">Orders</a>
+    <a *ngIf="commonService.user.loggedIn" [routerLink]="['/orders', commonService.user.userId]" class="dropdown-item">My Orders</a>
 </div>
 
 <!-- <div style="display: flex; flex-direction: row; justify-content: flex-start;" class="profile-menu">

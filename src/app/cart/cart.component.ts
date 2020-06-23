@@ -6,12 +6,14 @@ import { Order } from '../Models/order';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient, HttpClientJsonpModule } from '@angular/common/http';
 import { ResponseData } from '../Models/response';
+import {FormControl, FormGroupDirective, NgForm, Validators, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
+
 export class CartComponent implements OnInit {
 
   public order: Order;
@@ -21,6 +23,9 @@ export class CartComponent implements OnInit {
   public mode: string;
   private postOrderUrl: string = "http://216.10.249.130:5000/PostOrder";
   private response: ResponseData  = new ResponseData();
+  public cartForm: FormGroup = new FormGroup({
+    orderName: new FormControl(this.cartService.order.name, Validators.required)
+  });
 
   ngOnInit(): void {
 
@@ -62,7 +67,7 @@ export class CartComponent implements OnInit {
   }
 
   getFinalAmount(){
-    return Math.round(this.order.cartTotal + this.getTotalTax());
+    return Math.round(this.order.cartTotal + this.getTotalTax() - this.order.cashDiscount);
   }
 
   remove(product){
@@ -91,20 +96,28 @@ export class CartComponent implements OnInit {
     this.order.cartTotal += product.price;
   }
 
+  ngOnDestroy(){
+    this.order.name = this.cartForm.value.orderName;
+  }
+
   clearCart(){
     this.order = new Order();
     this.cartService.order = new Order();
   }
 
-  geQuote(){
-    this.order.date = new Date();
-    this.order.userId = this.commonService.user.userId;
-    console.log(this.order);
+  getQuote(){
+    console.log(this.cartService.order);
     if(this.commonService.user.loggedIn){
+      this.order.date = new Date();
+      this.order.name = this.cartForm.value.orderName;
+      if(this.order.userId == undefined || this.order.userId == '')
+        this.order.userId = this.commonService.user.userId;
+      this.order.lastModifiedBy = this.commonService.user.userId;
       this.http.post(this.postOrderUrl, this.order).subscribe(data => {
         this.response = data as ResponseData;
          if(this.response.Status == 1){
-          this.snackbar.open('your GetQuoteRequest Placed Successfully.', '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:3000});
+           this.clearCart();
+          this.snackbar.open('your GetQuoteRequest Placed Successfully.', '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:2000});
          }
          else{
           this.snackbar.open('Error While Processing Request. '+ this.response.Message + ' Please try after some time or call us on 08048428253.', 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});

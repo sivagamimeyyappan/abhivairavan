@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         this.commonService.redirectUrl = [];
         this.router.navigate(redirectUrl);
       }
-      this.snackbar.open('you SignedIn Successfully.', '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:3000});
+      this.snackbar.open('you SignedIn Successfully.', '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:2000});
      }
      else{
       this.snackbar.open(this.response.Message, 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});

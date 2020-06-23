@@ -34,7 +34,9 @@ export class ProductComponent implements OnInit {
   'WaterTanks': {'min-width': '298px', 'min-height':'298px'},
   'DomesticPumpsAndMotors': {'min-width': '298px', 'min-height':'298px'},
   'WaterHeaters': {'min-width': '298px', 'min-height':'298px'},
-  'MirrorCabinet': {'min-width': '298px', 'min-height':'298px'}};
+  'MirrorCabinet': {'min-width': '298px', 'min-height':'298px'},
+  'SteamGenerator': {'min-width': '298px', 'min-height':'298px'}
+};
 
   cardWidthByCategory = {'BathroomCPFittings': {'width': '300px'},
   'Sanitaryware': {'width': '300px'},
@@ -47,7 +49,9 @@ export class ProductComponent implements OnInit {
   'WaterTanks': {'width': '300px'},
   'DomesticPumpsAndMotors': {'width': '300px'},
   'WaterHeaters': {'width': '300px'},
-  'MirrorCabinet': {'width': '300px'}};
+  'MirrorCabinet': {'width': '300px'},
+  'SteamGenerator': {'width': '300px'}
+};
   
   constructor(private route: ActivatedRoute, public cs: CartService, public commonService: CommonService, private snackbar: MatSnackBar) {
     
