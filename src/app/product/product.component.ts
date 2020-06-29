@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { CartService } from '../services/cart.service';
@@ -6,6 +6,8 @@ import { CommonService } from '../services/common.service';
 import { BehaviorSubject } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Action } from 'rxjs/internal/scheduler/Action';
+import { DeferLoadModule } from '@trademe/ng-defer-load';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @Component({
@@ -14,7 +16,7 @@ import { Action } from 'rxjs/internal/scheduler/Action';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  products: any;
+  products: any = [];
   allProducts: any;
   filterOptions: any = [];
   filteredOptions:any = [];
@@ -22,20 +24,22 @@ export class ProductComponent implements OnInit {
   model: string;
   showSidepanel: boolean;
   snackbarRef: any;
+  onScreenProducts: any = [];
+  onScreenoffset=10;
 
-  imgWidthByCategory = {'BathroomCPFittings': {'min-width': '298px', 'min-height':'298px'},
-  'Sanitaryware': {'min-width': '298px', 'min-height':'298px'},
-  'ShowerEnclosure': {'min-width': '298px', 'min-height':'298px'},
-  'ShowerPanel': {'min-width': '298px', 'min-height':'298px'},
-  'BathTub': {'min-width': '298px', 'min-height':'298px'},
-  'KitchenSink': {'min-width': '298px', 'min-height':'298px'},
-  'PipesandFittings': {'min-width': '298px', 'min-height':'298px'},
-  'BrassValvesandFittings': {'min-width': '298px', 'min-height':'298px'},
-  'WaterTanks': {'min-width': '298px', 'min-height':'298px'},
-  'DomesticPumpsAndMotors': {'min-width': '298px', 'min-height':'298px'},
-  'WaterHeaters': {'min-width': '298px', 'min-height':'298px'},
-  'MirrorCabinet': {'min-width': '298px', 'min-height':'298px'},
-  'SteamGenerator': {'min-width': '298px', 'min-height':'298px'}
+  imgWidthByCategory = {'BathroomCPFittings': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'Sanitaryware': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'ShowerEnclosure': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'ShowerPanel': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'BathTub': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'KitchenSink': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'PipesandFittings': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'BrassValvesandFittings': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'WaterTanks': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'DomesticPumpsAndMotors': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'WaterHeaters': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'MirrorCabinet': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'SteamGenerator': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'}
 };
 
   cardWidthByCategory = {'BathroomCPFittings': {'width': '300px'},
@@ -82,8 +86,13 @@ export class ProductComponent implements OnInit {
     this.route.data.subscribe((data) => {
       this.allProducts = data.response.products;
       this.products = [];
+      if(this.commonService.products[this.category].retainProducts.length > 0)
+        this.products = this.commonService.products[this.category].retainProducts;
       this.filterOptions = data.response.filterOptions;
       this.filteredOptions = [];
+      console.log("inside product");
+      console.log(this.products);
+      console.log(this.filterOptions);
       var self = this;
       if(this.model != undefined){
         this.products = this.allProducts.filter(function(product){
@@ -110,9 +119,23 @@ export class ProductComponent implements OnInit {
     });
   }
 
+  /* @HostListener("window:scroll", [])
+  onScroll(): void {
+    if (this.bottomReached()) {
+      console.log("screenoffset: "+this.onScreenoffset);
+      console.log("product length: "+ this.products.length);
+      for(var i= this.onScreenoffset; i<this.onScreenoffset+10 && i<this.products.length; i++)
+        this.onScreenProducts.push(this.products[i]);
+    }
+  } */
+
+  bottomReached(): boolean {
+    return (window.innerHeight + window.scrollY) >= document.body.offsetHeight;
+  }
+
   ngOnDestroy(){
     this.commonService.setShowFilterIcon(false);
-        this.commonService.setShowSidepanel(false);
+    this.commonService.setShowSidepanel(false);
   }
 
   setFilter(filteredOption, selected, filterOption){
@@ -152,12 +175,17 @@ export class ProductComponent implements OnInit {
       }
     });
 
+    this.commonService.products[this.category].retainProducts = this.products;
+    // for(var i=0; i<10; i++){
+    //   this.onScreenProducts.push(this.products[i]);
+    // }
+
   }
 
   applyFilter(){
     var self = this;
     this.products = this.allProducts.filter(function(product){
-      var filter = product.brand+'-'+product.model;
+      var filter = product.brand.trim()+'-'+product.model.trim();
       if(self.filteredOptions.includes(filter))
       {
          return true;
@@ -230,7 +258,7 @@ export class ProductComponent implements OnInit {
       delete this.cs.order.taxPercentages[product.tax.toString()];
     }
     
-    product.qty = 0;
+    //product.qty = 0;
 
     this.snackbar.open('Added To Cart..', '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:1000});
   }

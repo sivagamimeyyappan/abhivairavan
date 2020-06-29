@@ -17,6 +17,7 @@ import {FormControl, FormGroupDirective, NgForm, Validators, FormGroup} from '@a
 export class CartComponent implements OnInit {
 
   public order: Order;
+  private OrderId: string;
   colHeadings = ['S.No','Image','Item Name','Tax','Qty','MRP','Disc','Discounted Rate','Total',''];
 
   constructor(private route: ActivatedRoute, private router: Router, public commonService: CommonService, public cartService: CartService, private http: HttpClient, private snackbar: MatSnackBar) { }
@@ -31,6 +32,7 @@ export class CartComponent implements OnInit {
 
     this.route.paramMap.subscribe(params => {
       this.mode = params.get('mode');
+      this.OrderId = params.get('orderId');
     });
 
     this.route.data.subscribe((data) => {
@@ -109,6 +111,8 @@ export class CartComponent implements OnInit {
     console.log(this.cartService.order);
     if(this.commonService.user.loggedIn){
       this.order.date = new Date();
+      if(this.OrderId == undefined)
+        this.order.status = 'Submitted';
       this.order.name = this.cartForm.value.orderName;
       if(this.order.userId == undefined || this.order.userId == '')
         this.order.userId = this.commonService.user.userId;
@@ -117,7 +121,7 @@ export class CartComponent implements OnInit {
         this.response = data as ResponseData;
          if(this.response.Status == 1){
            this.clearCart();
-          this.snackbar.open('your GetQuoteRequest Placed Successfully.', '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:2000});
+          this.snackbar.open('GetQuoteRequest Placed Successfully.', '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:2000});
          }
          else{
           this.snackbar.open('Error While Processing Request. '+ this.response.Message + ' Please try after some time or call us on 08048428253.', 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});

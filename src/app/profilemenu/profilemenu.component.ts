@@ -22,6 +22,6 @@ export class ProfilemenuComponent implements OnInit {
     this.commonService.user = new User();
     this.cartService.order = new Order();
     this.router.navigate(['/products']);
-    this.snackbar.open('you SignedOut Successfully.', '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:3000});
+    this.snackbar.open('SignedOut Successfully.', '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:3000});
   }
 }

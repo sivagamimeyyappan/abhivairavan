@@ -14,7 +14,7 @@
                         <i class="fas fa-chevron-up"></i>
                     </span>
                 </div>
-                <div class="models" *ngIf="filterOption.show">
+                <div class="models" *ngIf="filterOption.show || filterOption.brand.length == 0">
                     <div *ngFor="let model of filterOption.models">
                         <label class="container">{{model.modelname}}
                         <input type="checkbox" [(ngModel)]="model.selected" (change)="setFilter(filterOption.brand+'-'+model.modelname, model.selected, filterOption)">
@@ -46,7 +46,7 @@
     <div *ngFor="let product of products">
         <div class="card" [ngStyle]="cardWidthByCategory[category]">
             <a style="margin: auto;">
-                <img src={{product.img}} alt={{product.alt}} [ngStyle]="imgWidthByCategory[category]" class="img-fluid">
+                <img src={{product.img}} loading="lazy" alt={{product.alt}} [ngStyle]="imgWidthByCategory[category]" class="img-fluid">
             </a>
             <div class="mycontainer">
                 <h6><span *ngIf="product.brand.length != 0">{{product.brand}}~</span>{{product.model}}~{{product.productId}}</h6>

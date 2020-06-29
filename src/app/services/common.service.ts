@@ -11,12 +11,14 @@ export class CommonService {
   showSidepanel: boolean = false;
   user: User = new User();
   redirectUrl: any =  [];
+  products: any={};
 
   statusColors: object = {
-    'Pending':{'color': 'red'}, 
+    'Pending':{'color': 'orange'}, 
     'Completed':{'color':'Green'}, 
     'Cancelled':{'color':'red'},
-    'In Cart':{'color':'blue'}
+    'In Cart':{'color':'blue'},
+    'Submitted':{'color':'deepskyblue'}
   };
 
   private filterIcon = new BehaviorSubject<boolean>(this.showFilterIcon);

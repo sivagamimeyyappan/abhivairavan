@@ -112,6 +112,7 @@
                                 <span *ngIf="mode === 'edit' && commonService.user.isAdmin">
                                     <mat-form-field [ngStyle]="commonService.statusColors[order.status]">
                                         <mat-select [(value)] = "order.status" [ngStyle]="commonService.statusColors[order.status]">
+                                          <mat-option style = "color:deepskyblue" value="Cancelled">Submitted</mat-option>
                                           <mat-option style = "color:orange" value="Pending">Pending</mat-option>
                                           <mat-option style = "color:green" value="Completed">Completed</mat-option>
                                           <mat-option style = "color:red" value="Cancelled">Cancelled</mat-option>
@@ -239,9 +240,11 @@
                         </tr>
                     </tbody>
                     <tfoot>
-                        <td colspan="10">
-                            <img src="/assets/images/cartBottomImage.png" class="img-fluid">
-                        </td>
+                        <tr>
+                            <td colspan="10">
+                                <img src="/assets/images/cartBottomImage.png" class="img-fluid">
+                            </td>
+                        </tr>
                     </tfoot>
                 </table>
             </div>

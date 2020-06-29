@@ -38,7 +38,7 @@ export class CartresolverService {
               this.cs.order = response.Data;
               console.log(response);
               console.log(this.cs.order);
-              if(this.cs.order.status == 'In Cart' && this.commonService.user.isAdmin){
+              if(this.cs.order.status == 'Submitted' && this.commonService.user.isAdmin){
                 this.cs.order.status = 'Pending';
               }
               return of({order:this.cs.order});
