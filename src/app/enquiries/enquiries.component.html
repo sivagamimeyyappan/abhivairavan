@@ -3,7 +3,7 @@
         <div class="col-12 table-responsive">
             <table class="table text-center table-hover mx-auto w-auto">
                 <thead>
-                    <th *ngFor="let col of colHeadings" class="">{{col}}</th>
+                    <th [ngStyle]="{'width': (col=='Question')?'40%':'initial'}" *ngFor="let col of colHeadings" class="">{{col}}</th>
                 </thead>
                 <tbody>
                     <tr *ngFor="let enquiry of enquiries;let i = index">

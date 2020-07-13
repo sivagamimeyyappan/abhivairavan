@@ -9,9 +9,9 @@ export class OrderService {
 
 
   private response: ResponseData  = new ResponseData();
-  public GetOrdersUrl = "http://216.10.249.130:5000/GetOrders";
-  public GetOrdersbyUserUrl = "http://216.10.249.130:5000/GetOrdersbyUserId/";
-  public GetOrderUrl = "http://216.10.249.130:5000/GetOrder/";
+  public GetOrdersUrl = "https://216.10.249.130:5000/orders/GetOrders";
+  public GetOrdersbyUserUrl = "https://216.10.249.130:5000/orders/GetOrdersbyUserId/";
+  public GetOrderUrl = "https://216.10.249.130:5000/orders/GetOrder/";
 
   constructor(private http: HttpClient) { }
 

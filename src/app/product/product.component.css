@@ -239,3 +239,7 @@
  ::-webkit-scrollbar-thumb:hover {
     background: white;
 }
+
+.viewportContainer {
+    height: 100vh;
+}

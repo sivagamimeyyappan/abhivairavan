@@ -39,18 +39,12 @@ export class ProductResolverService implements Resolve<any>{
         }));
     }
     if(this.commonService.products[this.category] != undefined){
-      console.log('vaue already there');
-      console.log(this.commonService.products);
       var productsbycat = this.commonService.products[this.category];
       return of({products:productsbycat.products, filterOptions:productsbycat.filterOptions, retainProducts: productsbycat.retainProducts});
     }
     return this.ps.getProducts(this.category).pipe(
       take(1),
       mergeMap((products: any)=> {
-
-        console.log("i am here");
-        console.log(products);
-
         if (products) {
 
           for(var i=0; i<products.length;i++){
@@ -69,9 +63,6 @@ export class ProductResolverService implements Resolve<any>{
                 filterOption.models.push({modelname:products[i].model,selected:false});
               }
         }
-        console.log("Final");
-        console.log(products);
-        console.log(filterOptions);
         this.commonService.products[this.category] = {products:products, filterOptions:filterOptions, retainProducts:[]};
         return of({products:products, filterOptions:filterOptions, retainProducts:[]});
         

@@ -60,8 +60,8 @@ export class ProductService {
       case "MirrorCabinet":
         return this.http.get('assets/MirrorCabinet.json');
         break;
-      case "SteamGenerator":
-        return this.http.get('assets/SteamGenerator.json');
+      case "Accessories":
+        return this.http.get('assets/Accessories.json');
         break;
       default:
         return this.http.get('assets/products.json');

@@ -85,7 +85,7 @@
                                 "output": "/assets/"
                             },
                             {
-                                "glob": "SteamGenerator.json",
+                                "glob": "Accessories.json",
                                 "input": "src/assets/",
                                 "output": "/assets/"
                             },

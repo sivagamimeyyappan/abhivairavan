@@ -1,12 +1,12 @@
 <div class="bgtheme">
-    <div *ngFor="let product of products">
+    <div *ngFor="let product of onScreenProducts" scrollTracker (scrollingFinished)="onScrollingFinished()">
         <div class="modelHeading">
-            <a>{{product.brand}}&nbsp;{{product.category}}</a>
+            <a style="text-decoration: none;color:black" [routerLink]="['/products/productlist/', {category:product.category}]">{{product.brand}}&nbsp;{{product.category}}</a>
         </div>
         <div class="productlist">
             <div *ngFor="let model of product.models">
                 <div class="card" style="width: 250px;">
-                    <a [routerLink]="['/products/productlist/', {category:'BathroomCPFittings',model:model.name}]" style="margin: auto;">
+                    <a [routerLink]="['/products/productlist/', {category:product.category,brand:product.brand,model:model.name}]" style="margin: auto;">
                         <img src={{model.img}} alt={{model.name}} style="min-height: 249px; min-width: 249px;" class="img-fluid">
                     </a>
                     <div style="text-align: center; font-weight: bold;">

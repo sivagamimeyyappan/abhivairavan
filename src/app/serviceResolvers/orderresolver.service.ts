@@ -33,7 +33,7 @@ export class OrderresolverService implements Resolve<any>{
             return of({orders:response.Data, colHeadings:this.colHeadings});
           }
           else{
-            this.snackbar.open(response.Message, '', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:3000});
+            this.snackbar.open(response.Message, '', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:2000});
 
             return of({orders:[], colHeadings:this.colHeadings});
           }
@@ -49,7 +49,7 @@ export class OrderresolverService implements Resolve<any>{
             return of({orders:response.Data, colHeadings:this.colHeadings});
           }
           else{
-            this.snackbar.open(response.Message, '', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:3000});
+            this.snackbar.open(response.Message, '', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:2000});
             return of({orders:[], colHeadings:this.colHeadings});
           }
         })

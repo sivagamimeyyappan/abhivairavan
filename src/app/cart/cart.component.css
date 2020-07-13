@@ -20,15 +20,21 @@
 }
 
 .numSpinner {
-    width: 70px;
+    width: 60px;
     margin: 0px 4px;
     padding: 4px;
 }
 
 .textDisc {
-    width: 70px;
+    width: 40px;
     margin: 0px 4px;
     padding: 4px;
+}
+
+.cashDisc {
+    margin: 0px 4px;
+    padding: 4px;
+    width: 80px;
 }
 
 .cart-img-size {
@@ -57,6 +63,44 @@ input[type=number]#cashDisc::-webkit-inner-spin-button,
 input[type=number]#cashDisc::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+.table td,
+.table th {
+    padding: .25rem;
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
+}
+
+#btns {
+    display: table-row;
+}
+
+#cartFooter {
+    display: none;
+}
+
+#cartHeader {
+    display: none;
+}
+
+#beginingSpace {
+    display: table-row;
+}
+
+@media print {
+    #btns {
+        display: none;
+    }
+    #cartFooter {
+        display: table-row;
+    }
+    #cartHeader {
+        display: table-row;
+    }
+    #beginingSpace {
+        display: none;
+    }
 }
 
 

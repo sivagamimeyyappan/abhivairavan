@@ -26,7 +26,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { DeferLoadModule } from '@trademe/ng-defer-load';
+import { ScrollTrackerDirective } from './shared/scrollTracker.directive';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,8 @@ import { DeferLoadModule } from '@trademe/ng-defer-load';
     ProfilemenuComponent,
     OrdersComponent,
     EnquiriesComponent,
-    HomeComponent
+    HomeComponent,
+    ScrollTrackerDirective
   ],
   imports: [
     BrowserModule,
@@ -59,8 +60,8 @@ import { DeferLoadModule } from '@trademe/ng-defer-load';
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
-    ReactiveFormsModule,
-    DeferLoadModule
+    ReactiveFormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

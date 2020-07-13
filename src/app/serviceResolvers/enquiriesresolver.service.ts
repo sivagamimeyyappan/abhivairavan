@@ -29,7 +29,7 @@ export class EnquiriesresolverService  implements Resolve<any>{
           return of({enquiries:response.Data, colHeadings:this.colHeadings});
         }
         else{
-          this.snackbar.open(response.Message, '', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:3000});
+          this.snackbar.open(response.Message, '', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:2000});
 
           return of({enquiries:[], colHeadings:this.colHeadings});
         }

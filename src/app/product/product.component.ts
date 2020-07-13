@@ -1,13 +1,8 @@
-import { Component, OnInit,HostListener } from '@angular/core';
+import { Component, OnInit,HostListener, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../services/product.service';
 import { CartService } from '../services/cart.service';
 import { CommonService } from '../services/common.service';
-import { BehaviorSubject } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Action } from 'rxjs/internal/scheduler/Action';
-import { DeferLoadModule } from '@trademe/ng-defer-load';
-import { BrowserModule } from '@angular/platform-browser';
 
 
 @Component({
@@ -22,10 +17,10 @@ export class ProductComponent implements OnInit {
   filteredOptions:any = [];
   category: string;
   model: string;
+  brand: string;
   showSidepanel: boolean;
   snackbarRef: any;
   onScreenProducts: any = [];
-  onScreenoffset=10;
 
   imgWidthByCategory = {'BathroomCPFittings': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
   'Sanitaryware': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
@@ -38,8 +33,7 @@ export class ProductComponent implements OnInit {
   'WaterTanks': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
   'DomesticPumpsAndMotors': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
   'WaterHeaters': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
-  'MirrorCabinet': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
-  'SteamGenerator': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'}
+  'Accessories': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'}
 };
 
   cardWidthByCategory = {'BathroomCPFittings': {'width': '300px'},
@@ -53,11 +47,10 @@ export class ProductComponent implements OnInit {
   'WaterTanks': {'width': '300px'},
   'DomesticPumpsAndMotors': {'width': '300px'},
   'WaterHeaters': {'width': '300px'},
-  'MirrorCabinet': {'width': '300px'},
-  'SteamGenerator': {'width': '300px'}
+  'Accessories': {'width': '300px'}
 };
   
-  constructor(private route: ActivatedRoute, public cs: CartService, public commonService: CommonService, private snackbar: MatSnackBar) {
+  constructor(private route: ActivatedRoute, public cs: CartService, public commonService: CommonService, private snackbar: MatSnackBar, private ele: ElementRef) {
     
   }
 
@@ -67,6 +60,7 @@ export class ProductComponent implements OnInit {
 
       this.category = params.get('category');
       this.model = params.get('model');
+      this.brand = params.get('brand');
 
       this.commonService.observeSidepanel.subscribe(value => {this.showSidepanel = value});
 
@@ -79,58 +73,34 @@ export class ProductComponent implements OnInit {
       }
 
       this.products = [];
+      this.onScreenProducts = [];
       this.filteredOptions = [];
     });
     
 
     this.route.data.subscribe((data) => {
       this.allProducts = data.response.products;
-      this.products = [];
-      if(this.commonService.products[this.category].retainProducts.length > 0)
-        this.products = this.commonService.products[this.category].retainProducts;
       this.filterOptions = data.response.filterOptions;
+      this.products = [];
       this.filteredOptions = [];
-      console.log("inside product");
-      console.log(this.products);
-      console.log(this.filterOptions);
       var self = this;
+
       if(this.model != undefined){
         this.products = this.allProducts.filter(function(product){
-          if(product.category == self.category && product.model == self.model)
+          if(product.category == self.category && product.model == self.model && product.brand == self.brand)
           {
              return true;
           }
         });
+        this.onScreenProducts = [];
+        this.getNextItems();
       }
-      /* console.log(this.brand);
-      if(this.brand != null)
-      {
-        this.products = data.productsList.filter((product)=>{ console.log(product.brand); return product.brand == this.brand});
+      else if(this.commonService.products[this.category].retainProducts.length > 0){
+        this.products = this.commonService.products[this.category].retainProducts;
+        this.getNextItems();
       }
-      else if(this.category == 'All' && this.subCategory === null){
-        this.products = data.productsList;
-      }
-      else if(this.subCategory === null){
-        this.products = data.productsList.filter((product)=>{ return product.category == this.category});
-      }
-      else{
-        this.products = data.productsList.filter((product)=>{ return product.category == this.category && product.subCategory == this.subCategory});
-      } */
+      
     });
-  }
-
-  /* @HostListener("window:scroll", [])
-  onScroll(): void {
-    if (this.bottomReached()) {
-      console.log("screenoffset: "+this.onScreenoffset);
-      console.log("product length: "+ this.products.length);
-      for(var i= this.onScreenoffset; i<this.onScreenoffset+10 && i<this.products.length; i++)
-        this.onScreenProducts.push(this.products[i]);
-    }
-  } */
-
-  bottomReached(): boolean {
-    return (window.innerHeight + window.scrollY) >= document.body.offsetHeight;
   }
 
   ngOnDestroy(){
@@ -160,7 +130,6 @@ export class ProductComponent implements OnInit {
         }
       }
       this.filteredOptions.push(filteredOption);
-      console.log(this.filteredOptions);
     }
     else{
       var index = this.filteredOptions.indexOf(filteredOption);
@@ -176,21 +145,21 @@ export class ProductComponent implements OnInit {
     });
 
     this.commonService.products[this.category].retainProducts = this.products;
-    // for(var i=0; i<10; i++){
-    //   this.onScreenProducts.push(this.products[i]);
-    // }
+    this.onScreenProducts = [];
+    this.getNextItems();
 
   }
 
-  applyFilter(){
-    var self = this;
-    this.products = this.allProducts.filter(function(product){
-      var filter = product.brand.trim()+'-'+product.model.trim();
-      if(self.filteredOptions.includes(filter))
-      {
-         return true;
-      }
-    })
+  onScrollingFinished() {
+    this.getNextItems();
+  }
+
+  getNextItems() {
+    //console.log(this.onScreenProducts.length+" "+this.products.length);
+    if (this.onScreenProducts.length < this.products.length) {
+      const remainingLength = Math.min(20, this.products.length - this.onScreenProducts.length);
+      this.onScreenProducts.push(...this.products.slice(this.onScreenProducts.length, this.onScreenProducts.length + remainingLength));
+    }
   }
 
   closefilter(){
@@ -206,7 +175,6 @@ export class ProductComponent implements OnInit {
       });
       return;
     }
-      
   }
 
   addToCart(product) {

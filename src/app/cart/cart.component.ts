@@ -22,7 +22,7 @@ export class CartComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router, public commonService: CommonService, public cartService: CartService, private http: HttpClient, private snackbar: MatSnackBar) { }
   public mode: string;
-  private postOrderUrl: string = "http://216.10.249.130:5000/PostOrder";
+  private postOrderUrl: string = "https://216.10.249.130:5000/orders/PostOrder";
   private response: ResponseData  = new ResponseData();
   public cartForm: FormGroup = new FormGroup({
     orderName: new FormControl(this.cartService.order.name, Validators.required)
@@ -48,6 +48,12 @@ export class CartComponent implements OnInit {
 
     if(product.qty == 0){
       this.remove(product);
+      return;
+    }
+    if(product.qty % product.unit != 0){
+      this.snackbar.open(product.brand+"~"+product.model+"~"+product.productId+" Quantity should be in multiple of "+product.unit,'dismiss',
+      {panelClass: ['error-snackbar'], verticalPosition: 'top'});
+      product.qty = product.qty - (product.qty % product.unit);
       return;
     }
     this.applyChanges(product);
@@ -122,6 +128,7 @@ export class CartComponent implements OnInit {
          if(this.response.Status == 1){
            this.clearCart();
           this.snackbar.open('GetQuoteRequest Placed Successfully.', '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:2000});
+          this.router.navigate(['/orders/'+this.commonService.user.userId]);
          }
          else{
           this.snackbar.open('Error While Processing Request. '+ this.response.Message + ' Please try after some time or call us on 08048428253.', 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});

@@ -47,7 +47,7 @@ export class CartresolverService {
               return of({order:response.Data});
           }
           else{
-            this.snackbar.open(response.Message, '', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:3000});
+            this.snackbar.open(response.Message, '', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:2000});
             return of({order:[]});
           }
         })

@@ -75,57 +75,61 @@
                 </div> -->
                 <table class="table table-responsive text-center align-middle">
                     <thead>
-                        <tr>
+                        <tr id="cartHeader">
                             <th colspan="10">
-                                <img src="/assets/images/AbhiVairamLogo.png" class="img-fluid">
+                                <img src="/assets/images/AbhiVairamLogo.png" class="img-fluid" style="width: 100%; height: 50%;">
                             </th>
                         </tr>
-                        <tr>
+                        <tr id="beginingSpace">
+                            <br><br>
+                        </tr>
+                        <tr *ngIf="order.status == 'In Cart'">
                             <th colspan="10" style="color: green;">
                                 <h4>The below Quotation is on MRP. For Discounts Contact Us.</h4>
                             </th>
                         </tr>
                         <tr>
-                            <th colspan="3" class="align-middle">
-                                <span><b>OrderId:</b>&nbsp;&nbsp;</span>
-                                <span>
-                                    {{order.orderId}}
-                                </span>
-                            </th>
-                            <th colspan="3" class="align-middle">
-                                <form [formGroup]="cartForm">
-                                    <span><b>OrderName:</b>&nbsp;&nbsp;</span>
+                            <th colspan="10" class="align-middle">
+                                <div style="display: flex;align-items: center; justify-content:center">
+                                    <span style="margin-right: 5%" [ngStyle]="{'margin-top': (mode == 'edit')?'-4px':'0px'}">
+                                        <b>OrderId:</b>&nbsp;&nbsp;{{order.orderId}}
+                                    </span>
+                                    <span style="margin-right: 5%;">
+                                        <form [formGroup]="cartForm">
+                                            <span><b>OrderName:</b>&nbsp;&nbsp;</span>
                                     <span *ngIf="mode === 'view'">{{order.name}}</span>
                                     <span *ngIf="mode === 'edit'">
-                                        <mat-form-field floatLabel = "never">
-                                            <input matInput formControlName ="orderName" placeholder="Enter Order Name"  required>
-                                            <mat-error>
-                                                Please specify name for order
-                                            </mat-error>
-                                        </mat-form-field>
+                                                <mat-form-field floatLabel = "never">
+                                                    <input matInput formControlName ="orderName" placeholder="Enter Order Name"  required>
+                                                    <mat-error>
+                                                        Please specify name for order
+                                                    </mat-error>
+                                                </mat-form-field>
+                                            </span>
+                                    </form>
                                     </span>
-                                </form>
-                            </th>
-                            <th colspan="4" class="align-middle">
-                                <span><b>OrderStatus:</b>&nbsp;&nbsp;</span>
-                                <span *ngIf="mode === 'view' || !commonService.user.isAdmin" [ngStyle]="commonService.statusColors[order.status]">{{order.status}}</span>
-                                <span *ngIf="mode === 'edit' && commonService.user.isAdmin">
-                                    <mat-form-field [ngStyle]="commonService.statusColors[order.status]">
-                                        <mat-select [(value)] = "order.status" [ngStyle]="commonService.statusColors[order.status]">
-                                          <mat-option style = "color:deepskyblue" value="Cancelled">Submitted</mat-option>
-                                          <mat-option style = "color:orange" value="Pending">Pending</mat-option>
-                                          <mat-option style = "color:green" value="Completed">Completed</mat-option>
-                                          <mat-option style = "color:red" value="Cancelled">Cancelled</mat-option>
-                                        </mat-select>
-                                    </mat-form-field>
-                                </span>
+                                    <span>
+                                        <span><b>OrderStatus:</b>&nbsp;&nbsp;</span>
+                                    <span *ngIf="mode === 'view' || !commonService.user.isAdmin" [ngStyle]="commonService.statusColors[order.status]">{{order.status}}</span>
+                                    <span *ngIf="mode === 'edit' && commonService.user.isAdmin">
+                                            <mat-form-field [ngStyle]="commonService.statusColors[order.status]">
+                                                <mat-select [(value)] = "order.status" [ngStyle]="commonService.statusColors[order.status]">
+                                                  <mat-option style = "color:deepskyblue" value="Cancelled">Submitted</mat-option>
+                                                  <mat-option style = "color:orange" value="Pending">Pending</mat-option>
+                                                  <mat-option style = "color:green" value="Completed">Completed</mat-option>
+                                                  <mat-option style = "color:red" value="Cancelled">Cancelled</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </span>
+                                    </span>
+                                </div>
                             </th>
                         </tr>
                         <tr>
-                            <th [ngStyle]="{'width': (col=='Qty' || col=='Disc')? '12%' : 'initial'}" *ngFor="let col of colHeadings" class="text-center">{{col}}</th>
+                            <th [ngStyle]="{'width': ((col=='Qty' && mode === 'edit') || (col=='Disc' && mode === 'edit') || (col=='Image' && mode === 'edit'))? '20%' : (col=='Image')?'10%':'initial'}" *ngFor="let col of colHeadings" class="text-center">{{col}}</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody style="text-align: center;">
                         <tr *ngFor="let product of order.items;let i = index">
                             <td>{{i+1}}</td>
                             <td>
@@ -137,11 +141,11 @@
                             <td>{{product.tax}}%</td>
                             <td *ngIf="mode === 'view'">{{product.qty}}</td>
                             <td *ngIf="mode === 'edit'"><input type="number" [(ngModel)]="product.qty" (change)="qtyChange(product)" min=0 value={{product.qty}} class="numSpinner"><small>{{product.qtyType}}</small></td>
-                            <td>{{product.mrp | currency:"₹"}}</td>
-                            <td *ngIf="mode === 'view' || !commonService.user.isAdmin">{{product.disc}}</td>
-                            <td *ngIf="mode === 'edit' && commonService.user.isAdmin"><input type="text" [(ngModel)]="product.disc" (change)="applyChanges(product)" class="textDisc">%</td>
-                            <td>{{product.mrp - ((product.disc/100)*product.mrp) | currency:"₹"}}</td>
-                            <td>{{(product.mrp - ((product.disc/100)*product.mrp)) * product.qty | currency:"₹"}}</td>
+                            <td style="text-align: right">{{product.mrp | currency:"₹"}}</td>
+                            <td *ngIf="mode === 'view' || !commonService.user.isAdmin">{{product.disc}}%</td>
+                            <td *ngIf="mode === 'edit' && commonService.user.isAdmin"><span><input type="text" [(ngModel)]="product.disc" (change)="applyChanges(product)" class="textDisc"></span>%</td>
+                            <td style="text-align: right;">{{product.mrp - ((product.disc/100)*product.mrp) | currency:"₹"}}</td>
+                            <td style="text-align: right;">{{(product.mrp - ((product.disc/100)*product.mrp)) * product.qty | currency:"₹"}}</td>
                             <td *ngIf="mode === 'edit'"><span class="btn-remove" (click)="remove(product)"><i class="fas fa-trash fa-lg"></i></span></td>
                             <td *ngIf="mode === 'view'"></td>
                             <!-- <td><button class="btnremove" (click)="remove(product)">Remove</button></td> -->
@@ -157,26 +161,26 @@
                             </td>
                         </tr>
                         <tr *ngFor="let item of order.taxPercentages | keyvalue">
-                            <td colspan="8" class="text-right" *ngIf="order.status != 'In Cart'">
+                            <td colspan="8" class="text-right" *ngIf="order.status != 'In Cart' && order.status != 'Submitted'">
                                 <h6>SGST @ {{convertToInt(item.key)/2}}% - Output Tax on {{ item.value | currency:"₹" }}:</h6>
                             </td>
-                            <td colspan="1" class="text-right" *ngIf="order.status != 'In Cart'">
+                            <td colspan="1" class="text-right" *ngIf="order.status != 'In Cart' && order.status != 'Submitted'">
                                 <h6>{{ getTax(item) | currency:"₹" }}</h6>
                             </td>
-                            <td colspan="1" *ngIf="order.status != 'In Cart'">
+                            <td colspan="1" *ngIf="order.status != 'In Cart' && order.status != 'Submitted'">
                             </td>
                         </tr>
                         <tr *ngFor="let item of order.taxPercentages | keyvalue">
-                            <td colspan="8" class="text-right" *ngIf="order.status != 'In Cart'">
+                            <td colspan="8" class="text-right" *ngIf="order.status != 'In Cart' && order.status != 'Submitted'">
                                 <h6>CGST @ {{convertToInt(item.key)/2}}% - Output Tax on {{ item.value | currency:"₹" }}:</h6>
                             </td>
-                            <td colspan="1" class="text-right" *ngIf="order.status != 'In Cart'">
+                            <td colspan="1" class="text-right" *ngIf="order.status != 'In Cart' && order.status != 'Submitted'">
                                 <h6>{{ getTax(item) | currency:"₹" }}</h6>
                             </td>
-                            <td colspan="1" *ngIf="order.status != 'In Cart'">
+                            <td colspan="1" *ngIf="order.status != 'In Cart' && order.status != 'Submitted'">
                             </td>
                         </tr>
-                        <tr *ngIf="order.status != 'In Cart'">
+                        <tr *ngIf="order.status != 'In Cart' && order.status != 'Submitted'">
                             <td colspan="8" class="text-right">
                                 <h6>Amount With Tax:</h6>
                             </td>
@@ -186,20 +190,20 @@
                             <td colspan="1">
                             </td>
                         </tr>
-                        <tr *ngIf="order.status != 'In Cart'">
+                        <tr *ngIf="order.status != 'In Cart' && order.status != 'Submitted'">
                             <td colspan="8" class="text-right">
                                 <h6>Cash Discount:</h6>
                             </td>
                             <td colspan="1" class="text-right">
                                 <span *ngIf="mode === 'edit' && commonService.user.isAdmin">
-                                    <input id='cashDisc' type="number" [(ngModel)]="order.cashDiscount" (change)="getFinalAmount()" class="textDisc">
+                                    <input id='cashDisc' type="number" [(ngModel)]="order.cashDiscount" (change)="getFinalAmount()" class="cashDisc">
                                 </span>
                                 <h6 *ngIf="mode === 'view' || !commonService.user.isAdmin">{{order.cashDiscount}}</h6>
                             </td>
                             <td colspan="1">
                             </td>
                         </tr>
-                        <tr *ngIf="order.status != 'In Cart'">
+                        <tr *ngIf="order.status != 'In Cart' && order.status != 'Submitted'">
                             <td colspan="8" class="text-right">
                                 <h6>Final Amount Rounded Off To:</h6>
                             </td>
@@ -214,12 +218,12 @@
                                 <button type="submit" class="btn btn-save">Save</button>
                             </td>
                         </tr> -->
-                        <tr>
+                        <tr id="btns">
                             <td colspan="5">
 
                             </td>
                             <td colspan="5" class="text-right">
-                                <button *ngIf="mode === 'edit'" type="submit" class="btn btn-getQuote" (click)="clearCart()">Cancel</button>&nbsp;&nbsp;
+                                <button *ngIf="mode === 'edit'" type="submit" class="btn btn-getQuote" (click)="clearCart()">Clear Cart</button>&nbsp;&nbsp;
                                 <button *ngIf="mode === 'view'" type="submit" class="btn btn-getQuote" (click)="print()">Print</button>&nbsp;&nbsp;
                                 <button [disabled]="cartForm.invalid" *ngIf="mode === 'edit' && commonService.user.isAdmin" type="submit" class="btn btn-save" (click)="getQuote()">Save</button>
                                 <button [disabled]="cartForm.invalid" *ngIf="mode === 'edit' && !commonService.user.isAdmin" type="submit" class="btn btn-getQuote" (click)="getQuote()">Save & GetQuote</button>
@@ -240,7 +244,7 @@
                         </tr>
                     </tbody>
                     <tfoot>
-                        <tr>
+                        <tr id="cartFooter" style="height:50%;">
                             <td colspan="10">
                                 <img src="/assets/images/cartBottomImage.png" class="img-fluid">
                             </td>

@@ -8,7 +8,7 @@ import { ResponseData } from '../Models/response';
 export class EnquiriesService {
 
   private response: ResponseData  = new ResponseData();
-  public GetEnquiriesUrl = "http://216.10.249.130:5000/GetEnquiries";
+  public GetEnquiriesUrl = "https://216.10.249.130:5000/enquiries/GetEnquiries";
 
   constructor(private http: HttpClient) { }
 

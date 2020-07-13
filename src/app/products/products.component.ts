@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,HostListener } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { Event, Router, NavigationStart, NavigationEnd, ActivatedRoute } from '@angular/router';
 

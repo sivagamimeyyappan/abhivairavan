@@ -21,7 +21,7 @@ export class SignupComponent implements OnInit {
   public mobNumberPattern = "^((\\+91-?)|0)?[0-9]{10}$"; 
   public postData: User = new User();
   private response: ResponseData  = new ResponseData();
-  public SignUpUrl = "http://216.10.249.130:5000/PostUser";
+  public SignUpUrl = "https://216.10.249.130:5000/users/PostUser";
 
   constructor(private http: HttpClient, private router: Router, private snackbar: MatSnackBar, private commonService: CommonService) { }
 
@@ -48,7 +48,7 @@ export class SignupComponent implements OnInit {
         this.commonService.redirectUrl = [];
         this.router.navigate(redirectUrl);
       }
-      this.snackbar.open('SignedUp Successfully.', '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:3000});
+      this.snackbar.open('SignedUp Successfully.', '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:2000});
      }
      else{
       this.snackbar.open(this.response.Message, 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});

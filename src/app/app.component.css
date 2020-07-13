@@ -74,7 +74,9 @@
  .dropdown-menu {
      right: 0 !important;
      left: unset;
-     /* background-color: rgba(0, 0, 0, 0.0); */
+     background-color: rgba(0, 0, 0, 0.0);
+     border: 0px;
+     margin: .400rem 0 0;
  }
  /* .dropdown:hover .dropdown-menu {
     display: block;

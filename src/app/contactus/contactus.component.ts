@@ -23,7 +23,7 @@ export class ContactusComponent implements OnInit {
   public userPhone: string;
   public userrequest: string;
   public mobNumberPattern = "^((\\+91-?)|0)?[0-9]{10}$"; 
-  public postEnquiryUrl = "http://216.10.249.130:5000/PostEnquiry";
+  public postEnquiryUrl = "https://216.10.249.130:5000/enquiries/PostEnquiry";
   public postData: enquiry = new enquiry();
   private response: ResponseData  = new ResponseData();
 
@@ -42,7 +42,7 @@ export class ContactusComponent implements OnInit {
     this.http.post(this.postEnquiryUrl, this.postData).subscribe(data => {
     this.response = data as ResponseData;
      if(this.response.Status == 1){
-      this.snackbar.open('Your Enquiry Submitted Successfully..We will contact you shortly', '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:3000});
+      this.snackbar.open('Your Enquiry Submitted Successfully..We will contact you shortly', '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:2000});
      }
      else{
       this.snackbar.open('Error While Processing Request. '+ this.response.Message+ ' Please try after some time or call us on 08048428253', 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});
