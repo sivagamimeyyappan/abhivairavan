@@ -23,7 +23,7 @@ export class ContactusComponent implements OnInit {
   public userPhone: string;
   public userrequest: string;
   public mobNumberPattern = "^((\\+91-?)|0)?[0-9]{10}$"; 
-  public postEnquiryUrl = "https://216.10.249.130:5000/enquiries/PostEnquiry";
+  public postEnquiryUrl = "https://avwebapi.abhivairavan.online/enquiries/PostEnquiry";
   public postData: enquiry = new enquiry();
   private response: ResponseData  = new ResponseData();
 

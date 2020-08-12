@@ -21,7 +21,7 @@ export class SignupComponent implements OnInit {
   public mobNumberPattern = "^((\\+91-?)|0)?[0-9]{10}$"; 
   public postData: User = new User();
   private response: ResponseData  = new ResponseData();
-  public SignUpUrl = "https://216.10.249.130:5000/users/PostUser";
+  public SignUpUrl = "https://avwebapi.abhivairavan.online/users/PostUser";
 
   constructor(private http: HttpClient, private router: Router, private snackbar: MatSnackBar, private commonService: CommonService) { }
 

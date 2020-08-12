@@ -75,13 +75,10 @@
                 </div> -->
                 <table class="table table-responsive text-center align-middle">
                     <thead>
-                        <tr id="cartHeader">
+                        <tr id="cartTableHeader">
                             <th colspan="10">
-                                <img src="/assets/images/AbhiVairamLogo.png" class="img-fluid" style="width: 100%; height: 50%;">
+
                             </th>
-                        </tr>
-                        <tr id="beginingSpace">
-                            <br><br>
                         </tr>
                         <tr *ngIf="order.status == 'In Cart'">
                             <th colspan="10" style="color: green;">
@@ -113,7 +110,7 @@
                                     <span *ngIf="mode === 'view' || !commonService.user.isAdmin" [ngStyle]="commonService.statusColors[order.status]">{{order.status}}</span>
                                     <span *ngIf="mode === 'edit' && commonService.user.isAdmin">
                                             <mat-form-field [ngStyle]="commonService.statusColors[order.status]">
-                                                <mat-select [(value)] = "order.status" [ngStyle]="commonService.statusColors[order.status]">
+                                                <mat-select [(value)] = "(order.status == 'In Cart')? 'In Cart': order.status" [ngStyle]="commonService.statusColors[order.status]">
                                                   <mat-option style = "color:deepskyblue" value="Cancelled">Submitted</mat-option>
                                                   <mat-option style = "color:orange" value="Pending">Pending</mat-option>
                                                   <mat-option style = "color:green" value="Completed">Completed</mat-option>
@@ -140,7 +137,7 @@
                             <td class="text-justify"><b><span *ngIf="product.brand.length != 0">{{product.brand}}~</span>{{product.model}}~{{product.productId}}</b><br>{{product.desc}}</td>
                             <td>{{product.tax}}%</td>
                             <td *ngIf="mode === 'view'">{{product.qty}}</td>
-                            <td *ngIf="mode === 'edit'"><input type="number" [(ngModel)]="product.qty" (change)="qtyChange(product)" min=0 value={{product.qty}} class="numSpinner"><small>{{product.qtyType}}</small></td>
+                            <td *ngIf="mode === 'edit'"><input type="number" [(ngModel)]="product.qty" (change)="qtyChange(product)" min=0 value={{product.qty}} step={{product.unit}} class="numSpinner"><small>{{product.qtyType}}</small></td>
                             <td style="text-align: right">{{product.mrp | currency:"₹"}}</td>
                             <td *ngIf="mode === 'view' || !commonService.user.isAdmin">{{product.disc}}%</td>
                             <td *ngIf="mode === 'edit' && commonService.user.isAdmin"><span><input type="text" [(ngModel)]="product.disc" (change)="applyChanges(product)" class="textDisc"></span>%</td>
@@ -223,7 +220,7 @@
 
                             </td>
                             <td colspan="5" class="text-right">
-                                <button *ngIf="mode === 'edit'" type="submit" class="btn btn-getQuote" (click)="clearCart()">Clear Cart</button>&nbsp;&nbsp;
+                                <button *ngIf="mode === 'edit'" type="submit" class="btn btn-getQuote" (click)="clearCart()"><span>{{order.status == 'In Cart' ? 'Clear Cart' : 'Cancel Editing'}}</span></button>&nbsp;&nbsp;
                                 <button *ngIf="mode === 'view'" type="submit" class="btn btn-getQuote" (click)="print()">Print</button>&nbsp;&nbsp;
                                 <button [disabled]="cartForm.invalid" *ngIf="mode === 'edit' && commonService.user.isAdmin" type="submit" class="btn btn-save" (click)="getQuote()">Save</button>
                                 <button [disabled]="cartForm.invalid" *ngIf="mode === 'edit' && !commonService.user.isAdmin" type="submit" class="btn btn-getQuote" (click)="getQuote()">Save & GetQuote</button>
@@ -244,13 +241,15 @@
                         </tr>
                     </tbody>
                     <tfoot>
-                        <tr id="cartFooter" style="height:50%;">
+                        <tr id="cartTableFooter">
                             <td colspan="10">
-                                <img src="/assets/images/cartBottomImage.png" class="img-fluid">
+
                             </td>
                         </tr>
                     </tfoot>
                 </table>
+                <div class="pageHeader"><img src="/assets/images/AbhiVairamLogo.png" class="img-fluid" style="height: 90px"></div>
+                <div class="pageFooter"><img src="/assets/images/cartBottomImage.png" class="img-fluid" style="height: 100px;width:92%"></div>
             </div>
         </div>
     </div>

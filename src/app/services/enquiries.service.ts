@@ -8,7 +8,7 @@ import { ResponseData } from '../Models/response';
 export class EnquiriesService {
 
   private response: ResponseData  = new ResponseData();
-  public GetEnquiriesUrl = "https://216.10.249.130:5000/enquiries/GetEnquiries";
+  public GetEnquiriesUrl = "https://avwebapi.abhivairavan.online/enquiries/GetEnquiries";
 
   constructor(private http: HttpClient) { }
 

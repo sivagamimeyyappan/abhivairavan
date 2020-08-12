@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   public userpassword: string;
   public postData: User = new User();
   private response: ResponseData  = new ResponseData();
-  public LoginUrl = "https://216.10.249.130:5000/users/Login";
+  public LoginUrl = "https://avwebapi.abhivairavan.online/users/Login";
 
   constructor(private http: HttpClient, private router: Router, private snackbar: MatSnackBar, private commonService: CommonService) { }
 

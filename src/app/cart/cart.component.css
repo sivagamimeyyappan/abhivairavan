@@ -76,30 +76,42 @@ input[type=number]#cashDisc::-webkit-outer-spin-button {
     display: table-row;
 }
 
-#cartFooter {
+.pageHeader,
+#cartTableHeader,
+.pageFooter,
+#cartTableFooter {
+    height: 25px;
+}
+
+.pageHeader {
+    position: fixed;
+    top: 0;
     display: none;
 }
 
-#cartHeader {
+.pageFooter {
+    position: fixed;
+    bottom: 0;
     display: none;
-}
-
-#beginingSpace {
-    display: table-row;
+    width: 100%;
 }
 
 @media print {
     #btns {
         display: none;
     }
-    #cartFooter {
-        display: table-row;
+    .pageHeader {
+        display: block;
+        margin-top: 5px;
     }
-    #cartHeader {
-        display: table-row;
+    .pageFooter {
+        display: block;
     }
-    #beginingSpace {
-        display: none;
+    .pageHeader,
+    #cartTableHeader,
+    .pageFooter,
+    #cartTableFooter {
+        height: 100px;
     }
 }
 
