@@ -41,13 +41,27 @@
 <!-- <div *ngIf="commonService.showSpinner">
     <i class="fas fa-spinner spinner fa-pulse"></i>
 </div> -->
-
 <div class="productlist" scrollTracker (scrollingFinished)="onScrollingFinished()">
     <div *ngFor="let product of onScreenProducts">
         <div class="card" [ngStyle]="cardWidthByCategory[category]">
-            <a style="margin: auto;">
+            <a style="margin: auto; cursor: pointer;" (click)="show($event, product)">
                 <img src={{product.img}} alt={{product.alt}} [ngStyle]="imgWidthByCategory[category]" class="img-fluid">
             </a>
+            <div [style.display]="showModal ? 'block' : 'none'" class="modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">Image preview</h4>
+                        </div>
+                        <div class="modal-body">
+                            <img src={{imagepath}} id="imagepreview" style="width: 75%; height: 75%;">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" (click)="hide()">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="mycontainer">
                 <h6><span *ngIf="product.brand.length != 0">{{product.brand}}~</span>{{product.model}}~{{product.productId}}</h6>
                 <p><i>{{product.desc}}</i></p>

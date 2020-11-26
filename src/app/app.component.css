@@ -13,7 +13,6 @@
      display: flex;
      flex-direction: column;
      text-decoration: none;
-     color: lawngreen !important;
  }
  
  .appBrand:hover a {
@@ -22,12 +21,10 @@
  
  .app-heading {
      font-size: x-large;
-     color: lawngreen;
  }
  
  .app-subtitle {
      font-size: small;
-     color: lawngreen;
  }
  
  .bg-myapp {

@@ -1,4 +1,4 @@
-import { Component, OnInit,HostListener, ElementRef } from '@angular/core';
+import { Component, OnInit,HostListener, ElementRef,Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../services/cart.service';
 import { CommonService } from '../services/common.service';
@@ -21,6 +21,10 @@ export class ProductComponent implements OnInit {
   showSidepanel: boolean;
   snackbarRef: any;
   onScreenProducts: any = [];
+  FilteredProducts: any = [];
+  title:string = 'Preview';
+  showModal: boolean = false;
+  @Input() imagepath: string; 
 
   imgWidthByCategory = {'BathroomCPFittings': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
   'Sanitaryware': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
@@ -55,14 +59,14 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.commonService.FilterText = "";
     this.route.paramMap.subscribe(params => {
 
       this.category = params.get('category');
       this.model = params.get('model');
       this.brand = params.get('brand');
 
-      this.commonService.observeSidepanel.subscribe(value => {this.showSidepanel = value});
+      this.commonService.observeSidepanel.subscribe(value => {this.showSidepanel = value;});
 
       if(this.model != undefined){
         this.commonService.setShowFilterIcon(false);
@@ -70,18 +74,40 @@ export class ProductComponent implements OnInit {
       else{
         this.commonService.setShowSidepanel(true);
         this.commonService.setShowFilterIcon(true);
+        this.commonService.setShowSearchIcon(true);
       }
 
       this.products = [];
       this.onScreenProducts = [];
+      this.FilteredProducts = [];
       this.filteredOptions = [];
     });
     
+    this.commonService.observeFilterText.subscribe(FltrTxt => {
+      if(FltrTxt!=''){
+        this.FilteredProducts = this.products.filter(function(product){
+          var searchtext=product.brand+' '+product.model+' '+product.productId+' '+product.desc;
+          searchtext = searchtext.toLowerCase();
+          FltrTxt = FltrTxt.toLowerCase();
+          console.log(searchtext.includes(FltrTxt));
+          if(searchtext.includes(FltrTxt)){
+            return true;
+          }
+        });
+      }
+      else{
+        this.FilteredProducts = this.products;
+      }
+      console.log(this.FilteredProducts);
+      this.onScreenProducts = [];
+      this.getNextItems();
+    });
 
     this.route.data.subscribe((data) => {
       this.allProducts = data.response.products;
       this.filterOptions = data.response.filterOptions;
       this.products = [];
+      this.FilteredProducts = [];
       this.filteredOptions = [];
       var self = this;
 
@@ -92,11 +118,14 @@ export class ProductComponent implements OnInit {
              return true;
           }
         });
+        this.FilteredProducts = this.products;
         this.onScreenProducts = [];
         this.getNextItems();
       }
       else if(this.commonService.products[this.category].retainProducts.length > 0){
         this.products = this.commonService.products[this.category].retainProducts;
+        this.FilteredProducts = this.products;
+        this.onScreenProducts = [];
         this.getNextItems();
       }
       
@@ -106,6 +135,8 @@ export class ProductComponent implements OnInit {
   ngOnDestroy(){
     this.commonService.setShowFilterIcon(false);
     this.commonService.setShowSidepanel(false);
+    this.commonService.setShowSearchIcon(false);
+    this.commonService.FilterTextChange("");
   }
 
   setFilter(filteredOption, selected, filterOption){
@@ -145,7 +176,9 @@ export class ProductComponent implements OnInit {
     });
 
     this.commonService.products[this.category].retainProducts = this.products;
+    this.FilteredProducts = this.products;
     this.onScreenProducts = [];
+    window.scrollTo(0, 0);
     this.getNextItems();
 
   }
@@ -156,9 +189,9 @@ export class ProductComponent implements OnInit {
 
   getNextItems() {
     //console.log(this.onScreenProducts.length+" "+this.products.length);
-    if (this.onScreenProducts.length < this.products.length) {
-      const remainingLength = Math.min(20, this.products.length - this.onScreenProducts.length);
-      this.onScreenProducts.push(...this.products.slice(this.onScreenProducts.length, this.onScreenProducts.length + remainingLength));
+    if (this.onScreenProducts.length < this.FilteredProducts.length) {
+      const remainingLength = Math.min(20, this.FilteredProducts.length - this.onScreenProducts.length);
+      this.onScreenProducts.push(...this.FilteredProducts.slice(this.onScreenProducts.length, this.onScreenProducts.length + remainingLength));
     }
   }
 
@@ -239,6 +272,18 @@ export class ProductComponent implements OnInit {
   
     // After 3 seconds, remove the show class from DIV
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 500);
+    
+  }
+  show(event, product)
+  {
+    this.imagepath = product.img;
+    this.showModal = true; // Show-Hide Modal Check
+
+  }
+  //Bootstrap Modal Close event
+  hide()
+  {
+    this.showModal = false;
   }
 
 }

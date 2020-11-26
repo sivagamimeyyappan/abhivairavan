@@ -1,19 +1,23 @@
 <!-- <div id="snackbar">Added to Cart...</div> -->
 <div>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-myapp" style="width: 100%">
-        <a [routerLink]="['/products']" class="appBrand" style="width: 60%;">
-            <a class="app-heading" style="color:lawngreen !important">ABHI VAIRAVAN'S
-    <a>
-      PLUMBING CO.
-    </a>
-        </a>
-        <a class="app-subtitle"> Plumbing Materials wholes salers in chennai</a>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="fas fa-bars"></span>
-</button>
+        <span class="appBrand" style="width: 50%;">
+            <span class="app-heading"><a [routerLink]="['/products']"><span style="color: lawngreen;">ABHI VAIRAVAN' S</span> PLUMBING CO.</a>
+            </span>
+        <span class="app-subtitle"> Plumbing Materials wholes salers in chennai</span>
+        </span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="fas fa-bars"></span></button>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item" *ngIf="showSearchIcon">
+                    <input style="float:left" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="commonService.FilterText">
+                </li>
+                <li class="nav-item" *ngIf="showSearchIcon">
+                    <a class="nav-link" (click)="commonService.FilterTextChange(commonService.FilterText)"><i class="fa fa-search"></i></a>
+                </li>
+                <!-- <li class="nav-item" *ngIf="showFilterIcon"> 
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="commonService.filterText">
+                </li> -->
                 <li class="nav-item dropdown" *ngIf="commonService.user.isAdmin">
                     <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
                     <div class="dropdown-menu" aria-labelledby="adminDropdown">
