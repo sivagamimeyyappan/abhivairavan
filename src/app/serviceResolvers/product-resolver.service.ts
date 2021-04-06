@@ -16,6 +16,8 @@ export class ProductResolverService implements Resolve<any>{
 
   category: string;
   model: string;
+  filterText: string;
+  brand: string;
   // productsbycategory: any = [];
   // filterOptions: any = [];
   data: any = {products:[], filterOptions:[]};
@@ -27,11 +29,17 @@ export class ProductResolverService implements Resolve<any>{
     var productsbycategory = [];
     var filterOptions = [];
 
+    console.log(route.paramMap);
     this.category = route.paramMap.get('category');
+    console.log(this.category);
     this.model = route.paramMap.get('model');
+    console.log(this.model);
+    this.brand = route.paramMap.get('brand');
+    console.log(this.brand);
+    this.filterText = route.paramMap.get('searchText');
+    console.log(this.filterText);
 
     if(this.category == undefined){
-
       return this.ps.getProducts('').pipe(
         take(1),
         mergeMap((products: any)=> {
@@ -68,8 +76,6 @@ export class ProductResolverService implements Resolve<any>{
         
         }
         return EMPTY;
-
-    
       })
     );
   }
