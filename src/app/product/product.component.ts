@@ -17,6 +17,7 @@ export class ProductComponent implements OnInit {
   filteredOptions:any = [];
   category: string;
   model: string;
+  filterText: string;
   brand: string;
   showSidepanel: boolean;
   snackbarRef: any;
@@ -59,14 +60,13 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.commonService.FilterText = "";
+    
+    this.commonService.observeSidepanel.subscribe(value => {this.showSidepanel = value;});
     this.route.paramMap.subscribe(params => {
-
+      
       this.category = params.get('category');
       this.model = params.get('model');
       this.brand = params.get('brand');
-
-      this.commonService.observeSidepanel.subscribe(value => {this.showSidepanel = value;});
 
       if(this.model != undefined){
         this.commonService.setShowFilterIcon(false);
@@ -98,19 +98,39 @@ export class ProductComponent implements OnInit {
       else{
         this.FilteredProducts = this.products;
       }
-      console.log(this.FilteredProducts);
       this.onScreenProducts = [];
       this.getNextItems();
     });
 
     this.route.data.subscribe((data) => {
+
       this.allProducts = data.response.products;
       this.filterOptions = data.response.filterOptions;
       this.products = [];
       this.FilteredProducts = [];
       this.filteredOptions = [];
       var self = this;
+      
+    //   if(this.filterText != undefined){
 
+    //     if(this.filterText != ''){
+    //       var FltrTxt = this.filterText;
+    //       this.FilteredProducts = this.allProducts.filter(function(product){
+    //         console.log(product);
+    //         var searchtext=product.brand+product.model+product.productId+product.desc;
+    //         searchtext = searchtext.toLowerCase();
+    //         FltrTxt = FltrTxt.toLowerCase();
+    //         if(searchtext.includes(FltrTxt)){
+    //           return true;
+    //         }
+    //       });
+    //     }
+    //     else{
+    //       this.FilteredProducts = this.products;
+    //     }
+    //     this.onScreenProducts = [];
+    //     this.getNextItems();
+    //   }
       if(this.model != undefined){
         this.products = this.allProducts.filter(function(product){
           if(product.category == self.category && product.model == self.model && product.brand == self.brand)

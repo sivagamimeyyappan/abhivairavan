@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
       this.products = data.response.products;
       this.Filteredproducts = this.products;
       this.onScreenProducts= [];
+      console.log("onrefresh -" + this.onScreenProducts.length);
       this.getNextItems();
     });
 
@@ -49,7 +50,7 @@ export class HomeComponent implements OnInit {
         this.Filteredproducts=this.products;
       }
       this.onScreenProducts = [];
-      window.scrollTo(0, 0);
+      //window.scrollTo(0, 0);
       this.getNextItems();
     });
     

@@ -32,6 +32,7 @@ const routes: Routes = [{path: 'contactus', component: ContactusComponent},
 {path: 'products', component: ProductsComponent,
 children: [
   {path: '', component: HomeComponent , resolve: {response: ProductResolverService}},
+  {path: 'search', component: ProductComponent , resolve: {response: ProductResolverService}},
   {path: 'productlist', component: ProductComponent , resolve: {response: ProductResolverService}},
   {path: 'product', component: ProductDetailComponent }
 ]},

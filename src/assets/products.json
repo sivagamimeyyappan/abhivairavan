@@ -1,588 +1,594 @@
 [{
-        "category": "BathroomCPFittings",
-        "brand": "Hindware",
-        "models": [
-            { "name": "Amazon", "img": "/assets/images/Amazon.jpg" },
-            { "name": "Armada", "img": "/assets/images/Armada.jpg" },
-            { "name": "Avior", "img": "/assets/images/Avior.jpg" },
-            { "name": "Axxis", "img": "/assets/images/Axxis.jpg" },
-            { "name": "Oros", "img": "/assets/images/Oros.jpg" },
-            { "name": "Kylis", "img": "/assets/images/Kylis.jpg" },
-            { "name": "Monroe", "img": "/assets/images/Monroe.jpg" },
-            { "name": "Edge", "img": "/assets/images/Edge.jpg" },
-            { "name": "Cora", "img": "/assets/images/Cora.jpg" },
-            { "name": "Quadra", "img": "/assets/images/Quadra.jpg" },
-            { "name": "BarrelNeo", "img": "/assets/images/BarrelNeo.jpg" },
-            { "name": "Fluid", "img": "/assets/images/Fluid.jpg" },
-            { "name": "Element", "img": "/assets/images/Element.jpg" },
-            { "name": "Immacula", "img": "/assets/images/Immacula.jpg" },
-            { "name": "Elegance", "img": "/assets/images/Elegance.jpg" },
-            { "name": "EssenceNeo", "img": "/assets/images/EssenceNeo.jpg" },
-            { "name": "Skipper", "img": "/assets/images/Skipper.jpg" },
-            { "name": "Flora", "img": "/assets/images/Flora.jpg" },
-            { "name": "Starc", "img": "/assets/images/Starc.jpg" },
-            { "name": "Cedar", "img": "/assets/images/Cedar.jpg" },
-            { "name": "Dove", "img": "/assets/images/Dove.jpg" },
-            { "name": "Classik", "img": "/assets/images/Classik.jpg" },
-            { "name": "Contessa", "img": "/assets/images/Contessa.jpg" },
-            { "name": "Pressmatic & Sensor Faucet", "img": "/assets/images/Pressmatic & Sensor Faucet.jpg" },
-            { "name": "Nebula", "img": "/assets/images/Nebula.jpg" }
-        ]
-    },
+    "category": "BathroomCPFittings",
+    "brand": "Hindware",
+    "models": [
+        { "name": "Amazon", "img": "/assets/images/Amazon.jpg" },
+        { "name": "Armada", "img": "/assets/images/Armada.jpg" },
+        { "name": "Avior", "img": "/assets/images/Avior.jpg" },
+        { "name": "Axxis", "img": "/assets/images/Axxis.jpg" },
+        { "name": "Oros", "img": "/assets/images/Oros.jpg" },
+        { "name": "Kylis", "img": "/assets/images/Kylis.jpg" },
+        { "name": "Monroe", "img": "/assets/images/Monroe.jpg" },
+        { "name": "Edge", "img": "/assets/images/Edge.jpg" },
+        { "name": "Cora", "img": "/assets/images/Cora.jpg" },
+        { "name": "Quadra", "img": "/assets/images/Quadra.jpg" },
+        { "name": "BarrelNeo", "img": "/assets/images/BarrelNeo.jpg" },
+        { "name": "Fluid", "img": "/assets/images/Fluid.jpg" },
+        { "name": "Element", "img": "/assets/images/Element.jpg" },
+        { "name": "Immacula", "img": "/assets/images/Immacula.jpg" },
+        { "name": "Elegance", "img": "/assets/images/Hindware-Elegance.jpg" },
+        { "name": "EssenceNeo", "img": "/assets/images/EssenceNeo.jpg" },
+        { "name": "Skipper", "img": "/assets/images/Skipper.jpg" },
+        { "name": "Flora", "img": "/assets/images/Flora.jpg" },
+        { "name": "Starc", "img": "/assets/images/Hindware-Starc.jpg" },
+        { "name": "Cedar", "img": "/assets/images/Cedar.jpg" },
+        { "name": "Dove", "img": "/assets/images/Dove.jpg" },
+        { "name": "Classik", "img": "/assets/images/Classik.jpg" },
+        { "name": "ContessaPlus", "img": "/assets/images/Contessa.jpg" },
+        { "name": "Pressmatic & Sensor Faucet", "img": "/assets/images/Pressmatic & Sensor Faucet.jpg" },
+        { "name": "Nebula", "img": "/assets/images/Nebula.jpg" }
+    ]
+},
 
-    {
-        "category": "BathroomCPFittings",
-        "brand": "Jaquar",
-        "models": [
-            { "name": "Alive", "img": "/assets/images/Alive.jpg" },
-            { "name": "Arc", "img": "/assets/images/Arc.jpg" },
-            { "name": "Aria", "img": "/assets/images/Aria.jpg" },
-            { "name": "Clarion", "img": "/assets/images/Clarion.jpg" },
-            { "name": "BathtubSpouts", "img": "/assets/images/BathtubSpouts.jpg" },
-            { "name": "Continental", "img": "/assets/images/Continental.jpg" },
-            { "name": "D'Arc", "img": "/assets/images/D'Arc.jpg" },
-            { "name": "Florentine", "img": "/assets/images/Florentine.jpg" },
-            { "name": "FlushValves", "img": "/assets/images/FlushValves.jpg" },
-            { "name": "Fonte", "img": "/assets/images/Fonte.jpg" },
-            { "name": "Fusion", "img": "/assets/images/Fusion.jpg" },
-            { "name": "iFlush", "img": "/assets/images/iFlush.jpg" },
-            { "name": "KubixPrime", "img": "/assets/images/KubixPrime.jpg" },
-            { "name": "Lyric", "img": "/assets/images/Lyric.jpg" },
-            { "name": "MediSeries", "img": "/assets/images/MediSeries.jpg" },
-            { "name": "OpalPrime", "img": "/assets/images/OpalPrime.jpg" },
-            { "name": "OrnamixPrime", "img": "/assets/images/OrnamixPrime.jpg" },
-            { "name": "Pressmatic", "img": "/assets/images/Pressmatic.jpg" },
-            { "name": "Queen’s", "img": "/assets/images/Queen’s.jpg" },
-            { "name": "SensorTaps", "img": "/assets/images/SensorTaps.jpg" },
-            { "name": "Solo", "img": "/assets/images/Solo.jpg" },
-            { "name": "SpoutOperatingTaps", "img": "/assets/images/SpoutOperatingTaps.jpg" },
-            { "name": "VignettePrime", "img": "/assets/images/VignettePrime.jpg" }
-        ]
-    },
+{
+    "category": "BathroomCPFittings",
+    "brand": "Jaquar",
+    "models": [
+        { "name": "Alive", "img": "/assets/images/Alive.jpg" },
+        { "name": "Arc", "img": "/assets/images/Arc.jpg" },
+        { "name": "Aria", "img": "/assets/images/Aria.jpg" },
+        { "name": "Clarion", "img": "/assets/images/Clarion.jpg" },
+        { "name": "BathtubSpouts", "img": "/assets/images/BathtubSpouts.jpg" },
+        { "name": "Continental", "img": "/assets/images/Continental.jpg" },
+        { "name": "D’Arc", "img": "/assets/images/Jaquar-DArc.jpg" },
+        { "name": "Florentine", "img": "/assets/images/Florentine.jpg" },
+        { "name": "Flushvalves", "img": "/assets/images/FlushValves.jpg" },
+        { "name": "Fonte", "img": "/assets/images/Fonte.jpg" },
+        { "name": "Fusion", "img": "/assets/images/Fusion.jpg" },
+        { "name": "iFlush", "img": "/assets/images/iFlush.jpg" },
+        { "name": "KubixPrime", "img": "/assets/images/KubixPrime.jpg" },
+        { "name": "Lyric", "img": "/assets/images/Lyric.jpg" },
+        { "name": "MediSeries", "img": "/assets/images/MediSeries.jpg" },
+        { "name": "OpalPrime", "img": "/assets/images/OpalPrime.jpg" },
+        { "name": "OrnamixPrime", "img": "/assets/images/OrnamixPrime.jpg" },
+        { "name": "Pressmatic", "img": "/assets/images/Pressmatic.jpg" },
+        { "name": "Queen’s", "img": "/assets/images/Jaquar-Queens.jpg" },
+        { "name": "Sensortaps", "img": "/assets/images/SensorTaps.jpg" },
+        { "name": "Solo", "img": "/assets/images/Solo.jpg" },
+        { "name": "Spoutoperatingtaps", "img": "/assets/images/SpoutOperatingTaps.jpg" },
+        { "name": "VignettePrime", "img": "/assets/images/VignettePrime.jpg" }
+    ]
+},
 
-    {
-        "category": "BathroomCPFittings",
-        "brand": "Waterman",
-        "models": [
-            { "name": "Aura", "img": "/assets/images/Aura.jpg" },
-            { "name": "Dell", "img": "/assets/images/Dell.jpg" },
-            { "name": "Aria", "img": "/assets/images/Aria.jpg" },
-            { "name": "Delux", "img": "/assets/images/Delux.jpg" },
-            { "name": "Eco", "img": "/assets/images/Eco.jpg" },
-            { "name": "Evoque", "img": "/assets/images/Evoque.jpg" },
-            { "name": "Ikon", "img": "/assets/images/Ikon.jpg" },
-            { "name": "Roman", "img": "/assets/images/Roman.jpg" },
-            { "name": "Accessories", "img": "/assets/images/Accessories.jpg" },
-            { "name": "Showers", "img": "/assets/images/Showers.jpg" }
-        ]
-    },
+{
+    "category": "BathroomCPFittings",
+    "brand": "Waterman",
+    "models": [
+        { "name": "Aura", "img": "/assets/images/Aura.jpg" },
+        { "name": "Dell", "img": "/assets/images/Dell.jpg" },
+        { "name": "Aria", "img": "/assets/images/Aria-Waterman.jpeg" },
+        { "name": "Deluxe", "img": "/assets/images/Waterman-Deluxe.jpg" },
+        { "name": "Eco", "img": "/assets/images/Eco.jpg" },
+        { "name": "Evoque", "img": "/assets/images/Evoque.jpg" },
+        { "name": "Ikon", "img": "/assets/images/Ikon.jpg" },
+        { "name": "Roman", "img": "/assets/images/Roman.jpg" },
+        { "name": "Accessories", "img": "/assets/images/Accessories.jpg" },
+        { "name": "Showers", "img": "/assets/images/Showers.jpg" }
+    ]
+},
 
-    {
-        "category": "BathroomCPFittings",
-        "brand": "Grohe",
-        "models": [
-            { "name": "Atrio", "img": "/assets/images/Atrio.jpg" },
-            { "name": "Allure Brilliant", "img": "/assets/images/Allure Brilliant.jpg" },
-            { "name": "Allure", "img": "/assets/images/Allure.jpg" },
-            { "name": "Grandera", "img": "/assets/images/Grandera.jpg" },
-            { "name": "Euro plus", "img": "/assets/images/Euro plus.jpg" },
-            { "name": "Lineare", "img": "/assets/images/Lineare.jpg" },
-            { "name": "Essence", "img": "/assets/images/Essence.jpg" },
-            { "name": "Euro cube joystick", "img": "/assets/images/Euro cube joystick.jpg" },
-            { "name": "Concetto", "img": "/assets/images/Concetto.jpg" },
-            { "name": "Eurostyle", "img": "/assets/images/Eurostyle.jpg" },
-            { "name": "Eurostyle Cosmopolitan", "img": "/assets/images/Eurostyle Cosmopolitan.jpg" },
-            { "name": "Eurosmart", "img": "/assets/images/Eurosmart.jpg" },
-            { "name": "Eurosmart Cosmopolitan", "img": "/assets/images/Eurosmart Cosmopolitan.jpg" },
-            { "name": "Thermostat", "img": "/assets/images/Thermostat.jpg" },
-            { "name": "Concealed Mixer", "img": "/assets/images/Concealed Mixer.jpg" },
-            { "name": "Bath Spout", "img": "/assets/images/Bath Spout.jpg" },
-            { "name": "Thermostats", "img": "/assets/images/Thermostats.jpg" },
-            { "name": "Kitchen Mixer", "img": "/assets/images/Kitchen Mixer.jpg" },
-            { "name": "SmartControl", "img": "/assets/images/SmartControl.jpg" },
-            { "name": "Veris", "img": "/assets/images/Veris.jpg" },
-            { "name": "Accessories", "img": "/assets/images/Accessories.jpg" },
-            { "name": "Showers", "img": "/assets/images/Showers.jpg" }
-        ]
-    },
+{
+    "category": "BathroomCPFittings",
+    "brand": "Grohe",
+    "models": [
+        { "name": "Atrio", "img": "/assets/images/Atrio.jpg" },
+        { "name": "Allure Brilliant", "img": "/assets/images/Allure Brilliant.jpg" },
+        { "name": "Allure", "img": "/assets/images/Allure.jpg" },
+        { "name": "Grandera", "img": "/assets/images/Grohe-Grandera.jpg" },
+        { "name": "Euro plus", "img": "/assets/images/Euro plus.jpg" },
+        { "name": "Lineare", "img": "/assets/images/Grohe-Lineare.jpg" },
+        { "name": "Essence", "img": "/assets/images/Essence.jpg" },
+        { "name": "Euro cube joystick", "img": "/assets/images/Grohe-Euro cube joystick.jpg" },
+        { "name": "Concetto", "img": "/assets/images/Concetto.jpg" },
+        { "name": "Eurostyle", "img": "/assets/images/Grohe-Eurostyle.jpg" },
+        { "name": "Eurostyle Cosmopolitan", "img": "/assets/images/Eurostyle Cosmopolitan.jpg" },
+        { "name": "Eurosmart", "img": "/assets/images/Eurosmart.jpg" },
+        { "name": "Eurosmart Cosmopolitan", "img": "/assets/images/Eurosmart Cosmopolitan.jpg" },
+        { "name": "Thermostat", "img": "/assets/images/Thermostat.jpg" },
+        { "name": "Concealed Mixer", "img": "/assets/images/Grohe-Concealed Mixer.jpg" },
+        { "name": "Bath Spout", "img": "/assets/images/Grohe-Bath Spout.jpg" },
+        { "name": "Thermostat", "img": "/assets/images/Thermostat.jpg" },
+        { "name": "Kitchen Mixer", "img": "/assets/images/Kitchen Mixer.jpg" },
+        { "name": "SmartControl", "img": "/assets/images/SmartControl.jpg" },
+        { "name": "Veris", "img": "/assets/images/Veris.jpg" },
+        { "name": "Accessories", "img": "/assets/images/Accessories.jpg" },
+        { "name": "Showers", "img": "/assets/images/Showers.jpg" }
+    ]
+},
 
-    {
-        "category": "BathroomCPFittings",
-        "brand": "Kohler",
-        "models": [
-            { "name": "Artifacts", "img": "/assets/images/Artifacts.jpg" },
-            { "name": "Components", "img": "/assets/images/Components.jpg" },
-            { "name": "Beitou", "img": "/assets/images/Beitou.jpg" },
-            { "name": "Stance", "img": "/assets/images/Stance.jpg" },
-            { "name": "Avid", "img": "/assets/images/Avid.jpg" },
-            { "name": "Composed", "img": "/assets/images/Composed.jpg" },
-            { "name": "Loure", "img": "/assets/images/Loure.jpg" },
-            { "name": "Purist", "img": "/assets/images/Purist.jpg" },
-            { "name": "Symbol", "img": "/assets/images/Symbol.jpg" },
-            { "name": "Fairfax", "img": "/assets/images/Fairfax.jpg" },
-            { "name": "Memoirs", "img": "/assets/images/Memoirs.jpg" },
-            { "name": "Strayt", "img": "/assets/images/Strayt.jpg" },
-            { "name": "Parallel", "img": "/assets/images/Parallel.jpg" },
-            { "name": "Aleo+", "img": "/assets/images/Aleo+.jpg" },
-            { "name": "Aleo", "img": "/assets/images/Aleo.jpg" },
-            { "name": "Vive", "img": "/assets/images/Vive.jpg" },
-            { "name": "Hone", "img": "/assets/images/Hone.jpg" }
-        ]
-    },
+{
+    "category": "BathroomCPFittings",
+    "brand": "Kohler",
+    "models": [
+        { "name": "Artifacts", "img": "/assets/images/Artifacts.jpg" },
+        { "name": "Components", "img": "/assets/images/Components.jpg" },
+        { "name": "Beitou", "img": "/assets/images/Beitou.jpg" },
+        { "name": "Stance", "img": "/assets/images/Stance.jpg" },
+        { "name": "Avid", "img": "/assets/images/Avid.jpg" },
+        { "name": "Composed", "img": "/assets/images/Kohler-Composed.jpg" },
+        { "name": "Loure", "img": "/assets/images/Loure.jpg" },
+        { "name": "Purist", "img": "/assets/images/Purist.jpg" },
+        { "name": "Symbol", "img": "/assets/images/Symbol.jpg" },
+        { "name": "Fairfax", "img": "/assets/images/Fairfax.jpg" },
+        { "name": "Memoirs", "img": "/assets/images/Memoirs.jpg" },
+        { "name": "Strayt", "img": "/assets/images/Strayt.jpg" },
+        { "name": "Parallel", "img": "/assets/images/Parallel.jpg" },
+        { "name": "Aleo+", "img": "/assets/images/Aleo+.jpg" },
+        { "name": "Aleo", "img": "/assets/images/Aleo.jpg" },
+        { "name": "Vive", "img": "/assets/images/Vive.jpg" },
+        { "name": "Hone", "img": "/assets/images/Hone.jpg" }
+    ]
+},
 
-    {
-        "category": "BathroomCPFittings",
-        "brand": "Queo",
-        "models": [
-            { "name": "F-Misura", "img": "/assets/images/F-Misura.jpg" },
-            { "name": "Felisa", "img": "/assets/images/Felisa.jpg" },
-            { "name": "Showers", "img": "/assets/images/Showers.jpg" },
-            { "name": "F-AcquaThermostate", "img": "/assets/images/F-AcquaThermostate.jpg" },
-            { "name": "Smartap", "img": "/assets/images/Smartap.jpg" },
-            { "name": "F-itouch", "img": "/assets/images/F-itouch.jpg" },
-            { "name": "Zelos", "img": "/assets/images/Zelos.jpg" },
-            { "name": "Marsala", "img": "/assets/images/Marsala.jpg" },
-            { "name": "Zinnia", "img": "/assets/images/Zinnia.jpg" },
-            { "name": "Orca", "img": "/assets/images/Orca.jpg" },
-            { "name": "AllaModa", "img": "/assets/images/AllaModa.jpg" },
-            { "name": "AlBano", "img": "/assets/images/AlBano.jpg" },
-            { "name": "Aster", "img": "/assets/images/Aster.jpg" },
-            { "name": "SensorFaucet", "img": "/assets/images/SensorFaucet.jpg" },
-            { "name": "Accessories", "img": "/assets/images/Accessories.jpg" },
-            { "name": "ChryseumCollection", "img": "/assets/images/ChryseumCollection.jpg" },
-            { "name": "F-Mosaico", "img": "/assets/images/F-Mosaico.jpg" },
-            { "name": "F-Clair", "img": "/assets/images/F-Clair.jpg" },
-            { "name": "F-Elegant", "img": "/assets/images/F-Elegant.jpg" },
-            { "name": "F-Linear", "img": "/assets/images/F-Linear.jpg" },
-            { "name": "F-Fiordo", "img": "/assets/images/F-Fiordo.jpg" },
-            { "name": "Arion", "img": "/assets/images/Arion.jpg" },
-            { "name": "F-Mosaico Oro", "img": "/assets/images/F-Mosaico Oro.jpg" }
-        ]
-    },
-    {
-        "category": "Sanitaryware",
-        "brand": "Jaquar",
-        "models": [
-            { "name": "WallMountingCloset", "img": "/assets/images/WallMountingCloset.jpg" },
-            { "name": "WallHungBasin", "img": "/assets/images/WallHungBasin.jpg" },
-            { "name": "FloorMountingCloset", "img": "/assets/images/FloorMountingCloset.jpg" },
-            { "name": "CounterBasin", "img": "/assets/images/CounterBasin.jpg" },
-            { "name": "Urinals", "img": "/assets/images/Urinals.jpg" },
-            { "name": "Cistern", "img": "/assets/images/Cistern.jpg" }
+{
+    "category": "BathroomCPFittings",
+    "brand": "Queo",
+    "models": [
+        { "name": "F-Misura", "img": "/assets/images/F-Misura.jpg" },
+        { "name": "Felisa", "img": "/assets/images/Felisa.jpg" },
+        { "name": "Showers", "img": "/assets/images/Showers.jpg" },
+        { "name": "F-AcquaThermostate", "img": "/assets/images/F-AcquaThermostate.jpg" },
+        { "name": "Smartap", "img": "/assets/images/Smartap.jpg" },
+        { "name": "F-itouch", "img": "/assets/images/F-itouch.jpg" },
+        { "name": "Zelos", "img": "/assets/images/Zelos.jpg" },
+        { "name": "Marsala", "img": "/assets/images/Marsala.jpg" },
+        { "name": "Zinnia", "img": "/assets/images/Zinnia.jpg" },
+        { "name": "Orca", "img": "/assets/images/Orca.jpg" },
+        { "name": "AllaModa", "img": "/assets/images/AllaModa.jpg" },
+        { "name": "AlBano", "img": "/assets/images/AlBano.jpg" },
+        { "name": "Aster", "img": "/assets/images/Aster.jpg" },
+        { "name": "SensorFaucet", "img": "/assets/images/Queo-SensorFaucet.jpg" },
+        { "name": "Accessories", "img": "/assets/images/Accessories.jpg" },
+        { "name": "ChryseumCollection", "img": "/assets/images/ChryseumCollection.jpg" },
+        { "name": "F-Mosaico", "img": "/assets/images/F-Mosaico.jpg" },
+        { "name": "F-Clair", "img": "/assets/images/F-Clair.jpg" },
+        { "name": "F-Elegant", "img": "/assets/images/F-Elegant.jpg" },
+        { "name": "F-Linear", "img": "/assets/images/F-Linear.jpg" },
+        { "name": "F-Fiordo", "img": "/assets/images/F-Fiordo.jpg" },
+        { "name": "Arion", "img": "/assets/images/Arion.jpg" },
+        { "name": "F-Mosaico Oro", "img": "/assets/images/F-Mosaico Oro.jpg" }
+    ]
+},
+{
+    "category": "Sanitaryware",
+    "brand": "Jaquar",
+    "models": [
+        { "name": "WallMountingCloset", "img": "/assets/images/WallMountingCloset.jpg" },
+        { "name": "WallHungBasin", "img": "/assets/images/WallHungBasin.jpg" },
+        { "name": "FloorMountingCloset", "img": "/assets/images/FloorMountingCloset.jpg" },
+        { "name": "CounterBasin", "img": "/assets/images/CounterBasin.jpg" },
+        { "name": "Urinals", "img": "/assets/images/Urinals.jpg" },
+        { "name": "Cistern", "img": "/assets/images/Cistern.jpg" }
 
-        ]
-    },
+    ]
+},
 
-    {
-        "category": "Sanitaryware",
-        "brand": "Kohler",
-        "models": [
-            { "name": "WallMountingCloset", "img": "/assets/images/WallMountingCloset.jpg" },
-            { "name": "WallHungBasin", "img": "/assets/images/WallHungBasin.jpg" },
-            { "name": "FloorMountingCloset", "img": "/assets/images/FloorMountingCloset.jpg" },
-            { "name": "CounterBasin", "img": "/assets/images/CounterBasin.jpg" },
-            { "name": "Urinals", "img": "/assets/images/Urinals.jpg" }
+{
+    "category": "Sanitaryware",
+    "brand": "Kohler",
+    "models": [
+        { "name": "WallMountingCloset", "img": "/assets/images/WallMountingCloset.jpg" },
+        { "name": "WallHungBasin", "img": "/assets/images/WallHungBasin.jpg" },
+        { "name": "FloorMountingCloset", "img": "/assets/images/FloorMountingCloset.jpg" },
+        { "name": "CounterBasin", "img": "/assets/images/CounterBasin.jpg" },
+        { "name": "Urinals", "img": "/assets/images/Urinals.jpg" }
 
-        ]
-    },
-    {
-        "category": "Sanitaryware",
-        "brand": "Hindware",
-        "models": [
-            { "name": "WallMountingCloset", "img": "/assets/images/WallMountingCloset.jpg" },
-            { "name": "WallHungBasin", "img": "/assets/images/WallHungBasin.jpg" },
-            { "name": "FloorMountingCloset", "img": "/assets/images/FloorMountingCloset.jpg" },
-            { "name": "CounterBasin", "img": "/assets/images/CounterBasin.jpg" },
-            { "name": "Urinals", "img": "/assets/images/Urinals.jpg" }
+    ]
+},
+{
+    "category": "Sanitaryware",
+    "brand": "Hindware",
+    "models": [
+        { "name": "WallMountingCloset", "img": "/assets/images/WallMountingCloset.jpg" },
+        { "name": "WallHungBasin", "img": "/assets/images/WallHungBasin.jpg" },
+        { "name": "FloorMountingCloset", "img": "/assets/images/FloorMountingCloset.jpg" },
+        { "name": "CounterBasin", "img": "/assets/images/CounterBasin.jpg" },
+        { "name": "Urinals", "img": "/assets/images/Urinals.jpg" },
+        { "name": "VanityCabinet", "img": "/assets/images/HMC.jpg" }
 
-        ]
-    },
-    {
-        "category": "Sanitaryware",
-        "brand": "Queo",
-        "models": [
-            { "name": "WallMountingCloset", "img": "/assets/images/WallMountingCloset.jpg" },
-            { "name": "WallHungBasin", "img": "/assets/images/WallHungBasin.jpg" },
-            { "name": "FloorMountingCloset", "img": "/assets/images/FloorMountingCloset.jpg" },
-            { "name": "CounterBasin", "img": "/assets/images/CounterBasin.jpg" },
-            { "name": "Urinals", "img": "/assets/images/Urinals.jpg" }
+    ]
+},
+{
+    "category": "Sanitaryware",
+    "brand": "Queo",
+    "models": [
+        { "name": "WallMountingCloset", "img": "/assets/images/WallMountingCloset.jpg" },
+        { "name": "WallHungBasin", "img": "/assets/images/WallHungBasin.jpg" },
+        { "name": "FloorMountingCloset", "img": "/assets/images/FloorMountingCloset.jpg" },
+        { "name": "CounterBasin", "img": "/assets/images/CounterBasin.jpg" },
+        { "name": "Urinals", "img": "/assets/images/Urinals.jpg" }
 
-        ]
-    },
-    {
-        "category": "Sanitaryware",
-        "brand": "Americanstandard",
-        "models": [
-            { "name": "WallMountingCloset", "img": "/assets/images/WallMountingCloset.jpg" },
-            { "name": "WallHungBasin", "img": "/assets/images/WallHungBasin.jpg" },
-            { "name": "FloorMountingCloset", "img": "/assets/images/FloorMountingCloset.jpg" },
-            { "name": "CounterBasin", "img": "/assets/images/CounterBasin.jpg" },
-            { "name": "Urinals", "img": "/assets/images/Urinals.jpg" }
+    ]
+},
+{
+    "category": "Sanitaryware",
+    "brand": "Americanstandard",
+    "models": [
+        { "name": "WallMountingCloset", "img": "/assets/images/WallMountingCloset.jpg" },
+        { "name": "WallHungBasin", "img": "/assets/images/WallHungBasin.jpg" },
+        { "name": "FloorMountingCloset", "img": "/assets/images/FloorMountingCloset.jpg" },
+        { "name": "CounterBasin", "img": "/assets/images/CounterBasin.jpg" },
+        { "name": "Urinals", "img": "/assets/images/Urinals.jpg" }
 
-        ]
-    },
-    {
-        "category": "Sanitaryware",
-        "brand": "Grohe",
-        "models": [
-            { "name": "WallMountingCloset", "img": "/assets/images/WallMountingCloset.jpg" },
-            { "name": "WallHungBasin", "img": "/assets/images/WallHungBasin.jpg" },
-            { "name": "FloorMountingCloset", "img": "/assets/images/FloorMountingCloset.jpg" },
-            { "name": "CounterBasin", "img": "/assets/images/CounterBasin.jpg" }
+    ]
+},
+{
+    "category": "Sanitaryware",
+    "brand": "Grohe",
+    "models": [
+        { "name": "WallMountingCloset", "img": "/assets/images/WallMountingCloset.jpg" },
+        { "name": "WallHungBasin", "img": "/assets/images/WallHungBasin.jpg" },
+        { "name": "FloorMountingCloset", "img": "/assets/images/FloorMountingCloset.jpg" },
+        { "name": "CounterBasin", "img": "/assets/images/CounterBasin.jpg" }
 
-        ]
-    },
-    {
-        "category": "ShowerEnclosure",
-        "brand": "All",
-        "models": [
-            { "name": "Amore", "img": "/assets/images/Amore.jpg" },
-            { "name": "Hindware", "img": "/assets/images/Hindware.jpg" },
-            { "name": "Jaquare", "img": "/assets/images/Jaquare.jpg" },
-            { "name": "Kohler", "img": "/assets/images/Kohler.jpg" },
-            { "name": "Oyster", "img": "/assets/images/Oyster.jpg" }
-        ]
+    ]
+},
+{
+    "category": "ShowerEnclosure",
+    "brand": "",
+    "models": [
+        { "name": "Amore", "img": "/assets/images/Amore-enclosure.jpeg" },
+        { "name": "Hindware", "img": "/assets/images/Hindware-enclosure.jpg" },
+        { "name": "Jaquar", "img": "/assets/images/Jaquare.jpg" },
+        { "name": "Kohler", "img": "/assets/images/Kohler-enclosure.jpg" },
+        { "name": "Oyster", "img": "/assets/images/Oyster-enclosure.jpg" }
+    ]
 
-    },
-    {
-        "category": "ShowerPanel",
-        "brand": "All",
-        "models": [
-            { "name": "Amore", "img": "/assets/images/Amore.jpg" },
-            { "name": "Oyster", "img": "/assets/images/Oyster.jpg" },
-            { "name": "Jaquare", "img": "/assets/images/Jaquare.jpg" }
-        ]
+},
+{
+    "category": "ShowerPanel",
+    "brand": "",
+    "models": [
+        { "name": "Amore", "img": "/assets/images/Amore-Panel.jpg" },
+        { "name": "Oyster", "img": "/assets/images/Oyster-Panel.jpg" },
+        { "name": "Jaquar", "img": "/assets/images/Jaquare-Panel.jpeg" }
+    ]
 
-    },
-    {
-        "category": "WaterTanks",
-        "brand": "Sintex",
-        "models": [
-            { "name": "OverHeadTankRenoDoubleLayer", "img": "/assets/images/OverHeadTankRenoDoubleLayer.jpg" },
-            { "name": "OverHeadTankNeo", "img": "/assets/images/OverHeadTankNeo.jpg" },
-            { "name": "LoftTank", "img": "/assets/images/LoftTank.jpg" },
-            { "name": "UnderGroundSumpTank", "img": "/assets/images/UnderGroundSumpTank.jpg" },
-            { "name": "OverHeadTankPureTripleLayer", "img": "/assets/images/OverHeadTankPureTripleLayer.jpg" },
-            { "name": "OverHeadTankAce", "img": "/assets/images/OverHeadTankAce.jpg" },
-            { "name": "OverHeadTankDoubleLayer", "img": "/assets/images/OverHeadTankDoubleLayer.jpg" },
-            { "name": "OverHeadTankTitusColour", "img": "/assets/images/OverHeadTankTitusColour.jpg" },
-            { "name": "OverHeadTankDoubleLayerISI", "img": "/assets/images/OverHeadTankDoubleLayerISI.jpg" }
-        ]
+},
+{
+    "category": "WaterTanks",
+    "brand": "Sintex",
+    "models": [
+        { "name": "OverHeadTankRenoDoubleLayer", "img": "/assets/images/OverHeadTankRenoDoubleLayer.jpg" },
+        { "name": "OverHeadTankNeo", "img": "/assets/images/OverHeadTankNeo.jpg" },
+        { "name": "LoftTank", "img": "/assets/images/LoftTank.jpg" },
+        { "name": "UnderGroundSumpTank", "img": "/assets/images/UnderGroundSumpTank.jpg" },
+        { "name": "OverHeadTankPureTripleLayer", "img": "/assets/images/Sintex-OverHeadTankPureTripleLayer.jpg" },
+        { "name": "OverHeadTankAce", "img": "/assets/images/OverHeadTankAce.jpg" },
+        { "name": "OverHeadTankDoubleLayer", "img": "/assets/images/OverHeadTankDoubleLayer.jpg" },
+        { "name": "OverHeadTankTitusColour", "img": "/assets/images/OverHeadTankTitusColour.jpg" },
+        { "name": "OverHeadTankDoubleLayerISI", "img": "/assets/images/OverHeadTankDoubleLayerISI.jpg" }
+    ]
 
-    },
-    {
-        "category": "KitchenSink",
-        "brand": "Hindware",
-        "models": [
-            { "name": "DesignerSinks", "img": "/assets/images/DesignerSinks.jpg" },
-            { "name": "FoodWasteDisposer", "img": "/assets/images/FoodWasteDisposer.jpg" },
-            { "name": "GraniteSinks", "img": "/assets/images/GraniteSinks.jpg" },
-            { "name": "HandmadeSinks", "img": "/assets/images/HandmadeSinks.jpg" },
-            { "name": "KitchenMixer", "img": "/assets/images/KitchenMixer.jpg" },
-            { "name": "PressedSinks", "img": "/assets/images/PressedSinks.jpg" },
-            { "name": "SinkAccesories", "img": "/assets/images/SinkAccesories.jpg" }
+},
+{
+    "category": "KitchenSink",
+    "brand": "Hindware",
+    "models": [
+        { "name": "DesignerSinks", "img": "/assets/images/DesignerSinks.jpg" },
+        { "name": "FoodWasteDisposer", "img": "/assets/images/FoodWasteDisposer.jpg" },
+        { "name": "GraniteSinks", "img": "/assets/images/GraniteSinks.jpg" },
+        { "name": "HandmadeSinks", "img": "/assets/images/HandmadeSinks.jpg" },
+        { "name": "KitchenSinkCock", "img": "/assets/images/KitchenMixer.jpg" },
+        { "name": "PressedSinks", "img": "/assets/images/PressedSinks.jpg" },
+        { "name": "SinkAccesories", "img": "/assets/images/SinkAccesories.jpg" }
 
-        ]
+    ]
 
-    },
-    {
-        "category": "KitchenSink",
-        "brand": "Prince",
-        "models": [
-            { "name": "GlobalSeries", "img": "/assets/images/GlobalSeries.jpg" },
-            { "name": "PlatinumSeries", "img": "/assets/images/PlatinumSeries.jpg" },
-            { "name": "PremiumSeries", "img": "/assets/images/PremiumSeries.jpg" },
-            { "name": "QuartzSeries", "img": "/assets/images/QuartzSeries.jpg" },
-            { "name": "Accesories", "img": "/assets/images/Accesories.jpg" }
+},
+{
+    "category": "KitchenSink",
+    "brand": "Prince",
+    "models": [
+        { "name": "GlobalSeries", "img": "/assets/images/GlobalSeries.jpg" },
+        { "name": "PlatinumSeries", "img": "/assets/images/PlatinumSeries.jpg" },
+        { "name": "PremiumSeries", "img": "/assets/images/PremiumSeries.jpg" },
+        { "name": "QuartzSeries", "img": "/assets/images/QuartzSeries.jpg" },
+        { "name": "Accesories", "img": "/assets/images/Prince-Accesories.jpg" }
 
-        ]
+    ]
 
-    },
-    {
-        "category": "KitchenSink",
-        "brand": "Nirali",
-        "models": [
-            { "name": "Dsigno", "img": "/assets/images/Dsigno.jpg" },
-            { "name": "Expell", "img": "/assets/images/Expell.jpg" },
-            { "name": "Magnus", "img": "/assets/images/Magnus.jpg" },
-            { "name": "Popular", "img": "/assets/images/Popular.jpg" },
-            { "name": "Quartz", "img": "/assets/images/Quartz.jpg" },
-            { "name": "SilentSquare", "img": "/assets/images/SilentSquare.jpg" },
-            { "name": "Accessories", "img": "/assets/images/Accessories.jpg" }
+},
+{
+    "category": "KitchenSink",
+    "brand": "Nirali",
+    "models": [
+        { "name": "Dsigno", "img": "/assets/images/Dsigno.jpg" },
+        { "name": "Expell", "img": "/assets/images/Expell.jpg" },
+        { "name": "Magnus", "img": "/assets/images/Magnus.jpg" },
+        { "name": "Popular", "img": "/assets/images/Popular.jpg" },
+        { "name": "Quartz", "img": "/assets/images/Quartz.jpg" },
+        { "name": "SilentSquare", "img": "/assets/images/SilentSquare.jpg" },
+        { "name": "Accessories", "img": "/assets/images/Accessories.jpg" }
 
-        ]
+    ]
 
-    },
-    {
-        "category": "KitchenSink",
-        "brand": "Crown",
-        "models": [
-            { "name": "Crown", "img": "/assets/images/Crown.jpg" },
-            { "name": "Jet", "img": "/assets/images/Jet.jpg" },
-            { "name": "Accesories", "img": "/assets/images/Accesories.jpg" }
+},
+{
+    "category": "KitchenSink",
+    "brand": "Crown",
+    "models": [
+        { "name": "Crown", "img": "/assets/images/Crown.jpg" },
+        { "name": "Jet", "img": "/assets/images/Jet.jpg" },
+        { "name": "Accesories", "img": "/assets/images/Crown-Accesories.jpg" }
 
-        ]
+    ]
 
-    },
-    {
-        "category": "PipesandFittings",
-        "brand": "Astral",
-        "models": [
+},
+{
+    "category": "PipesandFittings",
+    "brand": "AstralCpvcFitting",
+    "models": [
+        { "name": "3In1WallMixerAdaptor", "img": "/assets/images/AstralCpvcFitting3In1WallMixerAdaptor.jpg" },
+        { "name": "BallValve", "img": "/assets/images/AstralCpvcFittingBallValve.jpg" },
+        { "name": "BrassFittings", "img": "/assets/images/AstralCpvcFittingBrassFittings.jpg" },
+        { "name": "Clamp", "img": "/assets/images/AstralCpvcFittingClamp.jpg" },
+        { "name": "ConcealedValve", "img": "/assets/images/AstralCpvcFittingConcealedValve.jpg" },
+        { "name": "Coupling", "img": "/assets/images/AstralCpvcFittingCoupling.jpg" },
+        { "name": "Cross", "img": "/assets/images/AstralCpvcFittingCross.jpg" },
+        { "name": "Elbow", "img": "/assets/images/AstralCpvcFittingElbow.jpg" },
+        { "name": "EndCap", "img": "/assets/images/AstralCpvcFittingEndCap.jpg" },
+        { "name": "EndPlug", "img": "/assets/images/AstralCpvcFittingEndPlug.jpg" },
+        { "name": "Flange", "img": "/assets/images/AstralCpvcFittingFlange.jpg" },
+        { "name": "Fta", "img": "/assets/images/AstralCpvcFittingFta.jpg" },
+        { "name": "LongBend", "img": "/assets/images/AstralCpvcFittingLongBend.jpg" },
+        { "name": "Mta", "img": "/assets/images/AstralCpvcFittingMta.jpg" },
+        { "name": "Others", "img": "/assets/images/AstralCpvcFittingOthers.jpg" },
+        { "name": "ReducerFittings", "img": "/assets/images/AstralCpvcFittingReducerFittings.jpg" },
+        { "name": "Shoe", "img": "/assets/images/AstralCpvcFittingShoe.jpg" },
+        { "name": "Solution", "img": "/assets/images/AstralCpvcFittingSolution.jpg" },
+        { "name": "StepOverBend", "img": "/assets/images/AstralCpvcFittingStepOverBend.jpg" },
+        { "name": "TankAdaptor", "img": "/assets/images/AstralCpvcFittingTankAdaptor.jpg" },
+        { "name": "Tee", "img": "/assets/images/AstralCpvcFittingTee.jpg" },
+        { "name": "TransitionFittings", "img": "/assets/images/AstralCpvcFittingTransitionFittings.jpg" },
+        { "name": "Union", "img": "/assets/images/AstralCpvcFittingUnion.jpg" }
+    ]
+},
+{
+    "category": "PipesandFittings",
+    "brand": "AstralCpvcPipe",
+    "models": 
+    [
+        { "name": "Sch40-3Mtr", "img": "/assets/images/AstralCpvcPipeSch40-3Mtr.jpg" },
+        { "name": "Sch40-5Mtr", "img": "/assets/images/AstralCpvcPipeSch40-5Mtr.jpg" },
+        { "name": "Sch80-3Mtr", "img": "/assets/images/AstralCpvcPipeSch80-3Mtr.jpg" },
+        { "name": "Sch80-5Mtr", "img": "/assets/images/AstralCpvcPipeSch80-5Mtr.jpg" },
+        { "name": "Sdr11-3Mtr", "img": "/assets/images/AstralCpvcPipeSdr11-3Mtr.jpg" },
+        { "name": "Sdr11-5Mtr", "img": "/assets/images/AstralCpvcPipeSdr11-5Mtr.jpg" },
+        { "name": "Sdr13.5-3Mtr", "img": "/assets/images/AstralCpvcPipeSdr13.5-3Mtr.jpg" },
+        { "name": "Sdr13.5-5Mtr", "img": "/assets/images/AstralCpvcPipeSdr13.5-5Mtr.jpg" }
+        
+    ]
+},
+{
+    "category": "PipesandFittings",
+    "brand": "AstralPvcAgriFitting",
+    "models": 
+    [        
+        { "name": "AstralPvcAgriFittingMta", "img": "/assets/images/AstralPvcAgriFittingMta.jpg" },
+        { "name": "AstralPvcAgriFittingCoupling", "img": "/assets/images/AstralPvcAgriFittingCoupling.jpg" },
+        { "name": "AstralPvcAgriFittingElbow", "img": "/assets/images/AstralPvcAgriFittingElbow.jpg" },
+        { "name": "AstralPvcAgriFittingEndCap", "img": "/assets/images/AstralPvcAgriFittingEndCap.jpg" },
+        { "name": "AstralPvcAgriFittingFabricatedFittings", "img": "/assets/images/AstralPvcAgriFittingFabricatedFittings.jpg" },
+        { "name": "AstralPvcAgriFittingFlange", "img": "/assets/images/AstralPvcAgriFittingFlange.jpg" },
+        { "name": "AstralPvcAgriFittingFta", "img": "/assets/images/AstralPvcAgriFittingFta.jpg" },
+        { "name": "AstralPvcAgriFittingReducerFittings", "img": "/assets/images/AstralPvcAgriFittingReducerFittings.jpg" },
+        { "name": "AstralPvcAgriFittingShoe", "img": "/assets/images/AstralPvcAgriFittingShoe.jpg" },
+        { "name": "AstralPvcAgriFittingSolution", "img": "/assets/images/AstralPvcAgriFittingSolution.jpg" },
+        { "name": "AstralPvcAgriFittingTailPiece", "img": "/assets/images/AstralPvcAgriFittingTailPiece.jpg" },
+        { "name": "AstralPvcAgriFittingTee", "img": "/assets/images/AstralPvcAgriFittingTee.jpg" },
+        { "name": "AstralPvcAgriFittingYee", "img": "/assets/images/AstralPvcAgriFittingYee.jpg" },
+        { "name": "AstralPvcFoamcoreFittings", "img": "/assets/images/AstralPvcFoamcoreFittings.jpg" },
+        { "name": "AstralPvcFoamcorepipes-SN2", "img": "/assets/images/AstralPvcFoamcorepipes-SN2.jpg" },
+        { "name": "AstralPvcFoamcorePipes-SN8", "img": "/assets/images/AstralPvcFoamcorePipes-SN8.jpg" },
+        { "name": "AstralPvcFoamcorePipesSN8-RingFit", "img": "/assets/images/AstralPvcFoamcorePipesSN8-RingFit.jpg" },
+        { "name": "AstralPvcFoamcore-SN4", "img": "/assets/images/AstralPvcFoamcore-SN4.jpg" },
+        { "name": "AstralPvcFoamcoreSN4-RingFit", "img": "/assets/images/AstralPvcFoamcoreSN4-RingFit.jpg" },
+        { "name": "AstralPvcSwrFittingLongBend", "img": "/assets/images/AstralPvcSwrFittingLongBend.jpg" },
+        { "name": "AstralPvcSwrFittingOthers", "img": "/assets/images/AstralPvcSwrFittingOthers.jpg" },
+        { "name": "AstralPvcSwrFittingRubberRing", "img": "/assets/images/AstralPvcSwrFittingRubberRing.jpg" },
+        { "name": "AstralPvcSwrFittingSwrClamps", "img": "/assets/images/AstralPvcSwrFittingSwrClamps.jpg" },
+        { "name": "AstralPvcSwrFittingSwrCoupling", "img": "/assets/images/AstralPvcSwrFittingSwrCoupling.jpg" },
+        { "name": "AstralPvcSwrFittingSwrElbow", "img": "/assets/images/AstralPvcSwrFittingSwrElbow.jpg" },
+        { "name": "AstralPvcSwrFittingSwrReducerFittings", "img": "/assets/images/AstralPvcSwrFittingSwrReducerFittings.jpg" },
+        { "name": "AstralPvcSwrFittingSwrShoe", "img": "/assets/images/AstralPvcSwrFittingSwrShoe.jpg" },
+        { "name": "AstralPvcSwrFittingSwrSolution", "img": "/assets/images/AstralPvcSwrFittingSwrSolution.jpg" },
+        { "name": "AstralPvcSwrFittingSwrStepOverBend", "img": "/assets/images/AstralPvcSwrFittingSwrStepOverBend.jpg" },
+        { "name": "AstralPvcSwrFittingSwrTee", "img": "/assets/images/AstralPvcSwrFittingSwrTee.jpg" },
+        { "name": "AstralPvcSwrFittingSwrTraps", "img": "/assets/images/AstralPvcSwrFittingSwrTraps.jpg" },
+        { "name": "AstralPvcSwrFittingSwrVentCowl", "img": "/assets/images/AstralPvcSwrFittingSwrVentCowl.jpg" },
+        { "name": "AstralPvcSwrFittingSwrYee", "img": "/assets/images/AstralPvcSwrFittingSwrYee.jpg" },
+        { "name": "AstralPvcSwrFitting-RingfitCoupling", "img": "/assets/images/AstralPvcSwrFitting-RingfitCoupling.jpg" },
+        { "name": "AstralPvcSwrFitting-RingfitOthers", "img": "/assets/images/AstralPvcSwrFitting-RingfitOthers.jpg" },
+        { "name": "AstralPvcSwrFitting-RingfitElbow", "img": "/assets/images/AstralPvcSwrFitting-RingfitElbow.jpg" },
+        { "name": "AstralPvcSwrFitting-RingfitReducerFittings", "img": "/assets/images/AstralPvcSwrFitting-RingfitReducerFittings.jpg" },
+        { "name": "AstralPvcSwrFitting-RingfitShoe", "img": "/assets/images/AstralPvcSwrFitting-RingfitShoe.jpg" },
+        { "name": "AstralPvcSwrFitting-RingfitTee", "img": "/assets/images/AstralPvcSwrFitting-RingfitTee.jpg" },
+        { "name": "AstralPvcSwrFitting-RingfitYee", "img": "/assets/images/AstralPvcSwrFitting-RingfitYee.jpg" },
+        { "name": "AstralPvcSwrPipeType-A", "img": "/assets/images/AstralPvcSwrPipeType-A.jpg" },
+        { "name": "AstralPvcSwrPipeType-B", "img": "/assets/images/AstralPvcSwrPipeType-B.jpg" },
+        { "name": "AstralPvcSwrPipe-RingfitType-A-3Mtr", "img": "/assets/images/AstralPvcSwrPipe-RingfitType-A.jpg" },
+        { "name": "AstralPvcSwrPipe-RingfitType-B", "img": "/assets/images/AstralPvcSwrPipe-RingfitType-B.jpg" },
+        { "name": "AstralSilencioSilencioFittings", "img": "/assets/images/AstralSilencioSilencioFittings.jpg" },
+        { "name": "AstralSilencioSilencioPipes", "img": "/assets/images/AstralSilencioSilencioPipes.jpg" },
+        { "name": "AstralUpvcFittingBallValve", "img": "/assets/images/AstralUpvcFittingBallValve.jpg" },
+        { "name": "AstralUpvcFittingBrassFittings", "img": "/assets/images/AstralUpvcFittingBrassFittings.jpg" },
+        { "name": "AstralUpvcFittingClamps", "img": "/assets/images/AstralUpvcFittingClamps.jpg" },
+        { "name": "AstralUpvcFittingCoupling", "img": "/assets/images/AstralUpvcFittingCoupling.jpg" },
+        { "name": "AstralUpvcFittingCpvcFittingOthers", "img": "/assets/images/AstralUpvcFittingCpvcFittingOthers.jpg" },
+        { "name": "AstralUpvcFittingCpvcFittingSolution", "img": "/assets/images/AstralUpvcFittingCpvcFittingSolution.jpg" },
+        { "name": "AstralUpvcFittingElbow", "img": "/assets/images/AstralUpvcFittingElbow.jpg" },
+        { "name": "AstralUpvcFittingEndCap", "img": "/assets/images/AstralUpvcFittingEndCap.jpg" },
+        { "name": "AstralUpvcFittingFlange", "img": "/assets/images/AstralUpvcFittingFlange.jpg" },
+        { "name": "AstralUpvcFittingFta", "img": "/assets/images/AstralUpvcFittingFta.jpg" },
+        { "name": "AstralUpvcFittingMta", "img": "/assets/images/AstralUpvcFittingMta.jpg" },
+        { "name": "AstralUpvcFittingOthers", "img": "/assets/images/AstralUpvcFittingOthers.jpg" },
+        { "name": "AstralUpvcFittingReducerFittings", "img": "/assets/images/AstralUpvcFittingReducerFittings.jpg" },
+        { "name": "AstralUpvcFittingShoe", "img": "/assets/images/AstralUpvcFittingShoe.jpg" },
+        { "name": "AstralUpvcFittingSolution", "img": "/assets/images/AstralUpvcFittingSolution.jpg" },
+        { "name": "AstralUpvcFittingStepOverBend", "img": "/assets/images/AstralUpvcFittingStepOverBend.jpg" },
+        { "name": "AstralUpvcFittingTankAdaptor", "img": "/assets/images/AstralUpvcFittingTankAdaptor.jpg" },
+        { "name": "AstralUpvcFittingTee", "img": "/assets/images/AstralUpvcFittingTee.jpg" },
+        { "name": "AstralUpvcFittingUnion", "img": "/assets/images/AstralUpvcFittingUnion.jpg" },
+        { "name": "AstralUpvcPipeSch40-3Mtr", "img": "/assets/images/AstralUpvcPipeSch40-3Mtr.jpg" },
+        { "name": "AstralUpvcPipeSch40-6Mtr", "img": "/assets/images/AstralUpvcPipeSch40-6Mtr.jpg" },
+        { "name": "AstralUpvcPipeSch80-3Mtr", "img": "/assets/images/AstralUpvcPipeSch80-3Mtr.jpg" },
+        { "name": "AstralUpvcPipeSch80-6Mtr", "img": "/assets/images/AstralUpvcPipeSch80-6Mtr.jpg" }
+    ]
+},
+{
+    "category": "PipesandFittings",
+    "brand": "Star",
+    "models": [
+        { "name": "StarPvcAgriPipes", "img": "/assets/images/StarPvcAgriPipes.jpg" }
+    ]
 
-            { "name": "AstralCpvcFitting3In1WallMixerAdaptor", "img": "/assets/images/AstralCpvcFitting3In1WallMixerAdaptor.jpg" },
-            { "name": "AstralCpvcFittingBallValve", "img": "/assets/images/AstralCpvcFittingBallValve.jpg" },
-            { "name": "AstralCpvcFittingBrassFittings", "img": "/assets/images/AstralCpvcFittingBrassFittings.jpg" },
-            { "name": "AstralCpvcFittingClamp", "img": "/assets/images/AstralCpvcFittingClamp.jpg" },
-            { "name": "AstralCpvcFittingConcealedValve", "img": "/assets/images/AstralCpvcFittingConcealedValve.jpg" },
-            { "name": "AstralCpvcFittingCoupling", "img": "/assets/images/AstralCpvcFittingCoupling.jpg" },
-            { "name": "AstralCpvcFittingCross", "img": "/assets/images/AstralCpvcFittingCross.jpg" },
-            { "name": "AstralCpvcFittingElbow", "img": "/assets/images/AstralCpvcFittingElbow.jpg" },
-            { "name": "AstralCpvcFittingEndCap", "img": "/assets/images/AstralCpvcFittingEndCap.jpg" },
-            { "name": "AstralCpvcFittingEndPlug", "img": "/assets/images/AstralCpvcFittingEndPlug.jpg" },
-            { "name": "AstralCpvcFittingFlange", "img": "/assets/images/AstralCpvcFittingFlange.jpg" },
-            { "name": "AstralCpvcFittingFta", "img": "/assets/images/AstralCpvcFittingFta.jpg" },
-            { "name": "AstralCpvcFittingLongBend", "img": "/assets/images/AstralCpvcFittingLongBend.jpg" },
-            { "name": "AstralCpvcFittingMta", "img": "/assets/images/AstralCpvcFittingMta.jpg" },
-            { "name": "AstralCpvcFittingOthers", "img": "/assets/images/AstralCpvcFittingOthers.jpg" },
-            { "name": "AstralCpvcFittingReducerFittings", "img": "/assets/images/AstralCpvcFittingReducerFittings.jpg" },
-            { "name": "AstralCpvcFittingShoe", "img": "/assets/images/AstralCpvcFittingShoe.jpg" },
-            { "name": "AstralCpvcFittingSolution", "img": "/assets/images/AstralCpvcFittingSolution.jpg" },
-            { "name": "AstralCpvcFittingStepOverBend", "img": "/assets/images/AstralCpvcFittingStepOverBend.jpg" },
-            { "name": "AstralCpvcFittingTankAdaptor", "img": "/assets/images/AstralCpvcFittingTankAdaptor.jpg" },
-            { "name": "AstralCpvcFittingTee", "img": "/assets/images/AstralCpvcFittingTee.jpg" },
-            { "name": "AstralCpvcFittingTransitionFittings", "img": "/assets/images/AstralCpvcFittingTransitionFittings.jpg" },
-            { "name": "AstralCpvcFittingUnion", "img": "/assets/images/AstralCpvcFittingUnion.jpg" },
-            { "name": "AstralCpvcPipeSch40-3Mtr", "img": "/assets/images/AstralCpvcPipeSch40-3Mtr.jpg" },
-            { "name": "AstralCpvcPipeSch40-5Mtr", "img": "/assets/images/AstralCpvcPipeSch40-5Mtr.jpg" },
-            { "name": "AstralCpvcPipeSch80-3Mtr", "img": "/assets/images/AstralCpvcPipeSch80-3Mtr.jpg" },
-            { "name": "AstralCpvcPipeSch80-5Mtr", "img": "/assets/images/AstralCpvcPipeSch80-5Mtr.jpg" },
-            { "name": "AstralCpvcPipeSdr11-3Mtr", "img": "/assets/images/AstralCpvcPipeSdr11-3Mtr.jpg" },
-            { "name": "AstralCpvcPipeSdr11-5Mtr", "img": "/assets/images/AstralCpvcPipeSdr11-5Mtr.jpg" },
-            { "name": "AstralCpvcPipeSdr13.5-3Mtr", "img": "/assets/images/AstralCpvcPipeSdr13.5-3Mtr.jpg" },
-            { "name": "AstralCpvcPipeSdr13.5-5Mtr", "img": "/assets/images/AstralCpvcPipeSdr13.5-5Mtr.jpg" },
-            { "name": "AstralPvcAgriFittingMta", "img": "/assets/images/AstralPvcAgriFittingMta.jpg" },
-            { "name": "AstralPvcAgriFittingCoupling", "img": "/assets/images/AstralPvcAgriFittingCoupling.jpg" },
-            { "name": "AstralPvcAgriFittingElbow", "img": "/assets/images/AstralPvcAgriFittingElbow.jpg" },
-            { "name": "AstralPvcAgriFittingEndCap", "img": "/assets/images/AstralPvcAgriFittingEndCap.jpg" },
-            { "name": "AstralPvcAgriFittingFabricatedFittings", "img": "/assets/images/AstralPvcAgriFittingFabricatedFittings.jpg" },
-            { "name": "AstralPvcAgriFittingFlange", "img": "/assets/images/AstralPvcAgriFittingFlange.jpg" },
-            { "name": "AstralPvcAgriFittingFta", "img": "/assets/images/AstralPvcAgriFittingFta.jpg" },
-            { "name": "AstralPvcAgriFittingReducerFittings", "img": "/assets/images/AstralPvcAgriFittingReducerFittings.jpg" },
-            { "name": "AstralPvcAgriFittingShoe", "img": "/assets/images/AstralPvcAgriFittingShoe.jpg" },
-            { "name": "AstralPvcAgriFittingSolution", "img": "/assets/images/AstralPvcAgriFittingSolution.jpg" },
-            { "name": "AstralPvcAgriFittingTailPiece", "img": "/assets/images/AstralPvcAgriFittingTailPiece.jpg" },
-            { "name": "AstralPvcAgriFittingTee", "img": "/assets/images/AstralPvcAgriFittingTee.jpg" },
-            { "name": "AstralPvcAgriFittingYee", "img": "/assets/images/AstralPvcAgriFittingYee.jpg" },
-            { "name": "AstralPvcFoamcoreFittings", "img": "/assets/images/AstralPvcFoamcoreFittings.jpg" },
-            { "name": "AstralPvcFoamcorepipes-SN2", "img": "/assets/images/AstralPvcFoamcorepipes-SN2.jpg" },
-            { "name": "AstralPvcFoamcorePipes-SN8", "img": "/assets/images/AstralPvcFoamcorePipes-SN8.jpg" },
-            { "name": "AstralPvcFoamcorePipesSN8-RingFit", "img": "/assets/images/AstralPvcFoamcorePipesSN8-RingFit.jpg" },
-            { "name": "AstralPvcFoamcore-SN4", "img": "/assets/images/AstralPvcFoamcore-SN4.jpg" },
-            { "name": "AstralPvcFoamcoreSN4-RingFit", "img": "/assets/images/AstralPvcFoamcoreSN4-RingFit.jpg" },
-            { "name": "AstralPvcSwrFittingLongBend", "img": "/assets/images/AstralPvcSwrFittingLongBend.jpg" },
-            { "name": "AstralPvcSwrFittingOthers", "img": "/assets/images/AstralPvcSwrFittingOthers.jpg" },
-            { "name": "AstralPvcSwrFittingRubberRing", "img": "/assets/images/AstralPvcSwrFittingRubberRing.jpg" },
-            { "name": "AstralPvcSwrFittingSwrClamps", "img": "/assets/images/AstralPvcSwrFittingSwrClamps.jpg" },
-            { "name": "AstralPvcSwrFittingSwrCoupling", "img": "/assets/images/AstralPvcSwrFittingSwrCoupling.jpg" },
-            { "name": "AstralPvcSwrFittingSwrElbow", "img": "/assets/images/AstralPvcSwrFittingSwrElbow.jpg" },
-            { "name": "AstralPvcSwrFittingSwrReducerFittings", "img": "/assets/images/AstralPvcSwrFittingSwrReducerFittings.jpg" },
-            { "name": "AstralPvcSwrFittingSwrShoe", "img": "/assets/images/AstralPvcSwrFittingSwrShoe.jpg" },
-            { "name": "AstralPvcSwrFittingSwrSolution", "img": "/assets/images/AstralPvcSwrFittingSwrSolution.jpg" },
-            { "name": "AstralPvcSwrFittingSwrStepOverBend", "img": "/assets/images/AstralPvcSwrFittingSwrStepOverBend.jpg" },
-            { "name": "AstralPvcSwrFittingSwrTee", "img": "/assets/images/AstralPvcSwrFittingSwrTee.jpg" },
-            { "name": "AstralPvcSwrFittingSwrTraps", "img": "/assets/images/AstralPvcSwrFittingSwrTraps.jpg" },
-            { "name": "AstralPvcSwrFittingSwrVentCowl", "img": "/assets/images/AstralPvcSwrFittingSwrVentCowl.jpg" },
-            { "name": "AstralPvcSwrFittingSwrYee", "img": "/assets/images/AstralPvcSwrFittingSwrYee.jpg" },
-            { "name": "AstralPvcSwrFitting-RingfitCoupling", "img": "/assets/images/AstralPvcSwrFitting-RingfitCoupling.jpg" },
-            { "name": "AstralPvcSwrFitting-RingfitOthers", "img": "/assets/images/AstralPvcSwrFitting-RingfitOthers.jpg" },
-            { "name": "AstralPvcSwrFitting-RingfitElbow", "img": "/assets/images/AstralPvcSwrFitting-RingfitElbow.jpg" },
-            { "name": "AstralPvcSwrFitting-RingfitReducerFittings", "img": "/assets/images/AstralPvcSwrFitting-RingfitReducerFittings.jpg" },
-            { "name": "AstralPvcSwrFitting-RingfitShoe", "img": "/assets/images/AstralPvcSwrFitting-RingfitShoe.jpg" },
-            { "name": "AstralPvcSwrFitting-RingfitTee", "img": "/assets/images/AstralPvcSwrFitting-RingfitTee.jpg" },
-            { "name": "AstralPvcSwrFitting-RingfitYee", "img": "/assets/images/AstralPvcSwrFitting-RingfitYee.jpg" },
-            { "name": "AstralPvcSwrPipeType-A", "img": "/assets/images/AstralPvcSwrPipeType-A.jpg" },
-            { "name": "AstralPvcSwrPipeType-B", "img": "/assets/images/AstralPvcSwrPipeType-B.jpg" },
-            { "name": "AstralPvcSwrPipe-RingfitType-A-3Mtr", "img": "/assets/images/AstralPvcSwrPipe-RingfitType-A.jpg" },
-            { "name": "AstralPvcSwrPipe-RingfitType-B", "img": "/assets/images/AstralPvcSwrPipe-RingfitType-B.jpg" },
-            { "name": "AstralSilencioSilencioFittings", "img": "/assets/images/AstralSilencioSilencioFittings.jpg" },
-            { "name": "AstralSilencioSilencioPipes", "img": "/assets/images/AstralSilencioSilencioPipes.jpg" },
-            { "name": "AstralUpvcFittingBallValve", "img": "/assets/images/AstralUpvcFittingBallValve.jpg" },
-            { "name": "AstralUpvcFittingBrassFittings", "img": "/assets/images/AstralUpvcFittingBrassFittings.jpg" },
-            { "name": "AstralUpvcFittingClamps", "img": "/assets/images/AstralUpvcFittingClamps.jpg" },
-            { "name": "AstralUpvcFittingCoupling", "img": "/assets/images/AstralUpvcFittingCoupling.jpg" },
-            { "name": "AstralUpvcFittingCpvcFittingOthers", "img": "/assets/images/AstralUpvcFittingCpvcFittingOthers.jpg" },
-            { "name": "AstralUpvcFittingCpvcFittingSolution", "img": "/assets/images/AstralUpvcFittingCpvcFittingSolution.jpg" },
-            { "name": "AstralUpvcFittingElbow", "img": "/assets/images/AstralUpvcFittingElbow.jpg" },
-            { "name": "AstralUpvcFittingEndCap", "img": "/assets/images/AstralUpvcFittingEndCap.jpg" },
-            { "name": "AstralUpvcFittingFlange", "img": "/assets/images/AstralUpvcFittingFlange.jpg" },
-            { "name": "AstralUpvcFittingFta", "img": "/assets/images/AstralUpvcFittingFta.jpg" },
-            { "name": "AstralUpvcFittingMta", "img": "/assets/images/AstralUpvcFittingMta.jpg" },
-            { "name": "AstralUpvcFittingOthers", "img": "/assets/images/AstralUpvcFittingOthers.jpg" },
-            { "name": "AstralUpvcFittingReducerFittings", "img": "/assets/images/AstralUpvcFittingReducerFittings.jpg" },
-            { "name": "AstralUpvcFittingShoe", "img": "/assets/images/AstralUpvcFittingShoe.jpg" },
-            { "name": "AstralUpvcFittingSolution", "img": "/assets/images/AstralUpvcFittingSolution.jpg" },
-            { "name": "AstralUpvcFittingStepOverBend", "img": "/assets/images/AstralUpvcFittingStepOverBend.jpg" },
-            { "name": "AstralUpvcFittingTankAdaptor", "img": "/assets/images/AstralUpvcFittingTankAdaptor.jpg" },
-            { "name": "AstralUpvcFittingTee", "img": "/assets/images/AstralUpvcFittingTee.jpg" },
-            { "name": "AstralUpvcFittingUnion", "img": "/assets/images/AstralUpvcFittingUnion.jpg" },
-            { "name": "AstralUpvcPipeSch40-3Mtr", "img": "/assets/images/AstralUpvcPipeSch40-3Mtr.jpg" },
-            { "name": "AstralUpvcPipeSch40-6Mtr", "img": "/assets/images/AstralUpvcPipeSch40-6Mtr.jpg" },
-            { "name": "AstralUpvcPipeSch80-3Mtr", "img": "/assets/images/AstralUpvcPipeSch80-3Mtr.jpg" },
-            { "name": "AstralUpvcPipeSch80-6Mtr", "img": "/assets/images/AstralUpvcPipeSch80-6Mtr.jpg" }
-        ]
-    },
-    {
-        "category": "PipesandFittings",
-        "brand": "Star",
-        "models": [
-            { "name": "StarPvcAgriPipes", "img": "/assets/images/StarPvcAgriPipes.jpg" }
-        ]
+},
+{
+    "category": "PipesandFittings",
+    "brand": "Prince",
+    "models": [
+        { "name": "PrincePvcAgriBrassFittings", "img": "/assets/images/PrincePvcAgriBrassFittings.jpg" },
+        { "name": "PrincePvcAgriFittingBallValve", "img": "/assets/images/PrincePvcAgriFittingBallValve.jpg" },
+        { "name": "PrincePvcAgriFittingCoupling", "img": "/assets/images/PrincePvcAgriFittingCoupling.jpg" },
+        { "name": "PrincePvcAgriFittingElbow", "img": "/assets/images/PrincePvcAgriFittingElbow.jpg" },
+        { "name": "PrincePvcAgriFittingEndCap", "img": "/assets/images/PrincePvcAgriFittingEndCap.jpg" },
+        { "name": "PrincePvcAgriFittingFabricated", "img": "/assets/images/PrincePvcAgriFittingFabricated.jpg" },
+        { "name": "PrincePvcAgriFittingFlange", "img": "/assets/images/PrincePvcAgriFittingFlange.jpg" },
+        { "name": "PrincePvcAgriFittingFta", "img": "/assets/images/PrincePvcAgriFittingFta.jpg" },
+        { "name": "PrincePvcAgriFittingMta", "img": "/assets/images/PrincePvcAgriFittingMta.jpg" },
+        { "name": "PrincePvcAgriFittingReducerFittings", "img": "/assets/images/PrincePvcAgriFittingReducerFittings.jpg" },
+        { "name": "PrincePvcAgriFittingSolution", "img": "/assets/images/PrincePvcAgriFittingSolution.jpg" },
+        { "name": "PrincePvcAgriFittingTailPiece", "img": "/assets/images/PrincePvcAgriFittingTailPiece.jpg" },
+        { "name": "PrincePvcAgriFittingTee", "img": "/assets/images/PrincePvcAgriFittingTee.jpg" },
+        { "name": "PrincePvcAgriFittingUnion", "img": "/assets/images/PrincePvcAgriFittingUnion.jpg" },
+        { "name": "PrincePvcAgriPipe", "img": "/assets/images/PrincePvcAgriPipe.jpg" },
+        { "name": "PrincePvcAgriPipe2.5Kg", "img": "/assets/images/PrincePvcAgriPipe2.5Kg.jpg" },
+        { "name": "PrincePvcAgriPipe4Kg", "img": "/assets/images/PrincePvcAgriPipe4Kg.jpg" },
+        { "name": "PrincePvcAgriPipe6Kg", "img": "/assets/images/PrincePvcAgriPipe6Kg.jpg" },
+        { "name": "PrincePvcAgriPipe8Kg", "img": "/assets/images/PrincePvcAgriPipe8Kg.jpg" },
+        { "name": "PrincePvcAgriPipe10Kg", "img": "/assets/images/PrincePvcAgriPipe10Kg.jpg" },
+        { "name": "PrincePvcAgriPipe12.5Kg", "img": "/assets/images/PrincePvcAgriPipe12.5Kg.jpg" },
+        { "name": "PrincePvcAgriPipe15Kg", "img": "/assets/images/PrincePvcAgriPipe15Kg.jpg" },
+        { "name": "PrincePvcAgriPipe2.5Kg", "img": "/assets/images/PrincePvcAgriPipe2.5Kg.jpg" },
+        { "name": "PrincePvcAgriPipe4Kg", "img": "/assets/images/PrincePvcAgriPipe4Kg.jpg" },
+        { "name": "PrincePvcAgriPipe6Kg", "img": "/assets/images/PrincePvcAgriPipe6Kg.jpg" },
+        { "name": "PrincePvcAgriPipe8Kg", "img": "/assets/images/PrincePvcAgriPipe8Kg.jpg" },
+        { "name": "PrincePvcAgriPipe10Kg", "img": "/assets/images/PrincePvcAgriPipe10Kg.jpg" },
+        { "name": "PrincePvcAgriPipe12.5Kg", "img": "/assets/images/PrincePvcAgriPipe12.5Kg.jpg" },
+        { "name": "PrincePvcAgriPipe15Kg", "img": "/assets/images/PrincePvcAgriPipe15Kg.jpg" },
+        { "name": "PrincePvcSwrFittingClamps", "img": "/assets/images/PrincePvcSwrFittingClamps.jpg" },
+        { "name": "PrincePvcSwrFittingCoupling", "img": "/assets/images/PrincePvcSwrFittingCoupling.jpg" },
+        { "name": "PrincePvcSwrFittingElbow", "img": "/assets/images/PrincePvcSwrFittingElbow.jpg" },
+        { "name": "PrincePvcSwrFittingOthers", "img": "/assets/images/PrincePvcSwrFittingOthers.jpg" },
+        { "name": "PrincePvcSwrFittingReducerFittings", "img": "/assets/images/PrincePvcSwrFittingReducerFittings.jpg" },
+        { "name": "PrincePvcSwrFittingShoe", "img": "/assets/images/PrincePvcSwrFittingShoe.jpg" },
+        { "name": "PrincePvcSwrFittingTee", "img": "/assets/images/PrincePvcSwrFittingTee.jpg" },
+        { "name": "PrincePvcSwrFittingTraps", "img": "/assets/images/PrincePvcSwrFittingTraps.jpg" },
+        { "name": "PrincePvcSwrFittingVentCwol", "img": "/assets/images/PrincePvcSwrFittingVentCwol.jpg" },
+        { "name": "PrincePvcSwrFittingYee", "img": "/assets/images/PrincePvcSwrFittingYee.jpg" },
+        { "name": "PrincePvcSwrFitting-RingfitCoupling", "img": "/assets/images/PrincePvcSwrFitting-RingfitCoupling.jpg" },
+        { "name": "PrincePvcSwrFitting-RingfitElbow", "img": "/assets/images/PrincePvcSwrFitting-RingfitElbow.jpg" },
+        { "name": "PrincePvcSwrFitting-RingfitOthers", "img": "/assets/images/PrincePvcSwrFitting-RingfitOthers.jpg" },
+        { "name": "PrincePvcSwrFitting-RingfitReducerFittings", "img": "/assets/images/PrincePvcSwrFitting-RingfitReducerFittings.jpg" },
+        { "name": "PrincePvcSwrFitting-RingfitShoe", "img": "/assets/images/PrincePvcSwrFitting-RingfitShoe.jpg" },
+        { "name": "PrincePvcSwrFitting-RingfitTee", "img": "/assets/images/PrincePvcSwrFitting-RingfitTee.jpg" },
+        { "name": "PrincePvcSwrFitting-RingfitTraps", "img": "/assets/images/PrincePvcSwrFitting-RingfitTraps.jpg" },
+        { "name": "PrincePvcSwrFitting-RingfitYee", "img": "/assets/images/PrincePvcSwrFitting-RingfitYee.jpg" },
+        { "name": "PrincePvcSwrPipeType-A", "img": "/assets/images/PrincePvcSwrPipeType-A.jpg" },
+        { "name": "PrincePvcSwrPipeType-B", "img": "/assets/images/PrincePvcSwrPipeType-B.jpg" },
+        { "name": "PrincePvcSwrPipe-RingfitType-A", "img": "/assets/images/PrincePvcSwrPipe-RingfitType-A.jpg" },
+        { "name": "PrincePvcSwrPipe-RingfitType-A", "img": "/assets/images/PrincePvcSwrPipe-RingfitType-A.jpg" },
+        { "name": "PrincePvcSwrPipe-RingfitType-B", "img": "/assets/images/PrincePvcSwrPipe-RingfitType-B.jpg" }
 
-    },
-    {
-        "category": "PipesandFittings",
-        "brand": "Prince",
-        "models": [
-            { "name": "PrincePvcAgriBrassFittings", "img": "/assets/images/PrincePvcAgriBrassFittings.jpg" },
-            { "name": "PrincePvcAgriFittingBallValve", "img": "/assets/images/PrincePvcAgriFittingBallValve.jpg" },
-            { "name": "PrincePvcAgriFittingCoupling", "img": "/assets/images/PrincePvcAgriFittingCoupling.jpg" },
-            { "name": "PrincePvcAgriFittingElbow", "img": "/assets/images/PrincePvcAgriFittingElbow.jpg" },
-            { "name": "PrincePvcAgriFittingEndCap", "img": "/assets/images/PrincePvcAgriFittingEndCap.jpg" },
-            { "name": "PrincePvcAgriFittingFabricated", "img": "/assets/images/PrincePvcAgriFittingFabricated.jpg" },
-            { "name": "PrincePvcAgriFittingFlange", "img": "/assets/images/PrincePvcAgriFittingFlange.jpg" },
-            { "name": "PrincePvcAgriFittingFta", "img": "/assets/images/PrincePvcAgriFittingFta.jpg" },
-            { "name": "PrincePvcAgriFittingMta", "img": "/assets/images/PrincePvcAgriFittingMta.jpg" },
-            { "name": "PrincePvcAgriFittingReducerFittings", "img": "/assets/images/PrincePvcAgriFittingReducerFittings.jpg" },
-            { "name": "PrincePvcAgriFittingSolution", "img": "/assets/images/PrincePvcAgriFittingSolution.jpg" },
-            { "name": "PrincePvcAgriFittingTailPiece", "img": "/assets/images/PrincePvcAgriFittingTailPiece.jpg" },
-            { "name": "PrincePvcAgriFittingTee", "img": "/assets/images/PrincePvcAgriFittingTee.jpg" },
-            { "name": "PrincePvcAgriFittingUnion", "img": "/assets/images/PrincePvcAgriFittingUnion.jpg" },
-            { "name": "PrincePvcAgriPipe", "img": "/assets/images/PrincePvcAgriPipe.jpg" },
-            { "name": "PrincePvcAgriPipe2.5Kg", "img": "/assets/images/PrincePvcAgriPipe2.5Kg.jpg" },
-            { "name": "PrincePvcAgriPipe4Kg", "img": "/assets/images/PrincePvcAgriPipe4Kg.jpg" },
-            { "name": "PrincePvcAgriPipe6Kg", "img": "/assets/images/PrincePvcAgriPipe6Kg.jpg" },
-            { "name": "PrincePvcAgriPipe8Kg", "img": "/assets/images/PrincePvcAgriPipe8Kg.jpg" },
-            { "name": "PrincePvcAgriPipe10Kg", "img": "/assets/images/PrincePvcAgriPipe10Kg.jpg" },
-            { "name": "PrincePvcAgriPipe12.5Kg", "img": "/assets/images/PrincePvcAgriPipe12.5Kg.jpg" },
-            { "name": "PrincePvcAgriPipe15Kg", "img": "/assets/images/PrincePvcAgriPipe15Kg.jpg" },
-            { "name": "PrincePvcAgriPipe2.5Kg", "img": "/assets/images/PrincePvcAgriPipe2.5Kg.jpg" },
-            { "name": "PrincePvcAgriPipe4Kg", "img": "/assets/images/PrincePvcAgriPipe4Kg.jpg" },
-            { "name": "PrincePvcAgriPipe6Kg", "img": "/assets/images/PrincePvcAgriPipe6Kg.jpg" },
-            { "name": "PrincePvcAgriPipe8Kg", "img": "/assets/images/PrincePvcAgriPipe8Kg.jpg" },
-            { "name": "PrincePvcAgriPipe10Kg", "img": "/assets/images/PrincePvcAgriPipe10Kg.jpg" },
-            { "name": "PrincePvcAgriPipe12.5Kg", "img": "/assets/images/PrincePvcAgriPipe12.5Kg.jpg" },
-            { "name": "PrincePvcAgriPipe15Kg", "img": "/assets/images/PrincePvcAgriPipe15Kg.jpg" },
-            { "name": "PrincePvcSwrFittingClamps", "img": "/assets/images/PrincePvcSwrFittingClamps.jpg" },
-            { "name": "PrincePvcSwrFittingCoupling", "img": "/assets/images/PrincePvcSwrFittingCoupling.jpg" },
-            { "name": "PrincePvcSwrFittingElbow", "img": "/assets/images/PrincePvcSwrFittingElbow.jpg" },
-            { "name": "PrincePvcSwrFittingOthers", "img": "/assets/images/PrincePvcSwrFittingOthers.jpg" },
-            { "name": "PrincePvcSwrFittingReducerFittings", "img": "/assets/images/PrincePvcSwrFittingReducerFittings.jpg" },
-            { "name": "PrincePvcSwrFittingShoe", "img": "/assets/images/PrincePvcSwrFittingShoe.jpg" },
-            { "name": "PrincePvcSwrFittingTee", "img": "/assets/images/PrincePvcSwrFittingTee.jpg" },
-            { "name": "PrincePvcSwrFittingTraps", "img": "/assets/images/PrincePvcSwrFittingTraps.jpg" },
-            { "name": "PrincePvcSwrFittingVentCwol", "img": "/assets/images/PrincePvcSwrFittingVentCwol.jpg" },
-            { "name": "PrincePvcSwrFittingYee", "img": "/assets/images/PrincePvcSwrFittingYee.jpg" },
-            { "name": "PrincePvcSwrFitting-RingfitCoupling", "img": "/assets/images/PrincePvcSwrFitting-RingfitCoupling.jpg" },
-            { "name": "PrincePvcSwrFitting-RingfitElbow", "img": "/assets/images/PrincePvcSwrFitting-RingfitElbow.jpg" },
-            { "name": "PrincePvcSwrFitting-RingfitOthers", "img": "/assets/images/PrincePvcSwrFitting-RingfitOthers.jpg" },
-            { "name": "PrincePvcSwrFitting-RingfitReducerFittings", "img": "/assets/images/PrincePvcSwrFitting-RingfitReducerFittings.jpg" },
-            { "name": "PrincePvcSwrFitting-RingfitShoe", "img": "/assets/images/PrincePvcSwrFitting-RingfitShoe.jpg" },
-            { "name": "PrincePvcSwrFitting-RingfitTee", "img": "/assets/images/PrincePvcSwrFitting-RingfitTee.jpg" },
-            { "name": "PrincePvcSwrFitting-RingfitTraps", "img": "/assets/images/PrincePvcSwrFitting-RingfitTraps.jpg" },
-            { "name": "PrincePvcSwrFitting-RingfitYee", "img": "/assets/images/PrincePvcSwrFitting-RingfitYee.jpg" },
-            { "name": "PrincePvcSwrPipeType-A", "img": "/assets/images/PrincePvcSwrPipeType-A.jpg" },
-            { "name": "PrincePvcSwrPipeType-B", "img": "/assets/images/PrincePvcSwrPipeType-B.jpg" },
-            { "name": "PrincePvcSwrPipe-RingfitType-A", "img": "/assets/images/PrincePvcSwrPipe-RingfitType-A.jpg" },
-            { "name": "PrincePvcSwrPipe-RingfitType-A", "img": "/assets/images/PrincePvcSwrPipe-RingfitType-A.jpg" },
-            { "name": "PrincePvcSwrPipe-RingfitType-B", "img": "/assets/images/PrincePvcSwrPipe-RingfitType-B.jpg" }
+    ]
 
-        ]
+},
+{
+    "category": "BathTub",
+    "brand": "",
+    "models": [
+        { "name": "Amore", "img": "/assets/images/Amore.jpg" },
+        { "name": "Hindware", "img": "/assets/images/Hindware.jpg" },
+        { "name": "Jaquar", "img": "/assets/images/Jaquar.jpg" },
+        { "name": "Kohler", "img": "/assets/images/Kohler.jpg" },
+        { "name": "Oyster", "img": "/assets/images/Oyster.jpg" }
+    ]
 
-    },
-    {
-        "category": "BathTub",
-        "brand": "All",
-        "models": [
-            { "name": "Amore", "img": "/assets/images/Amore.jpg" },
-            { "name": "Hindware", "img": "/assets/images/Hindware.jpg" },
-            { "name": "Jaquare", "img": "/assets/images/Jaquare.jpg" },
-            { "name": "Kohler", "img": "/assets/images/Kohler.jpg" },
-            { "name": "Oyster", "img": "/assets/images/Oyster.jpg" }
-        ]
+},
+{
+    "category": "BrassValvesandFittings",
+    "brand": "Waterman",
+    "models": [
+        { "name": "BallValves", "img": "/assets/images/BallValves.jpg" }
+    ]
 
-    },
-    {
-        "category": "BrassValvesandFittings",
-        "brand": "Waterman",
-        "models": [
-            { "name": "BallValves", "img": "/assets/images/BallValves.jpg" }
-        ]
+},
+{
+    "category": "DomesticPumpsAndMotors",
+    "brand": "CRI",
+    "models": [
+        { "name": "JetPumps", "img": "/assets/images/JetPumps.jpg" },
+        { "name": "monoblock", "img": "/assets/images/monoblock.jpg" },
+        { "name": "Compressor", "img": "/assets/images/Compressor.jpg" },
+        { "name": "BoosterPumps", "img": "/assets/images/BoosterPumps.jpg" },
+        { "name": "SewagePumps", "img": "/assets/images/SewagePumps.jpg" },
+        { "name": "DrainagePumps", "img": "/assets/images/DrainagePumps.jpg" },
+        { "name": "OpenWellSubmersible", "img": "/assets/images/OpenWellSubmersible.jpg" },
+        { "name": "BorewellSubmersible", "img": "/assets/images/BorewellSubmersible.jpg" },
+        { "name": "others", "img": "/assets/images/CRI-others.jpg" }
+    ]
+},
+{
+    "category": "WaterHeaters",
+    "brand": "Jaquar",
+    "models": [
+        { "name": "Instant", "img": "/assets/images/Instant.jpg" },
+        { "name": "Manual", "img": "/assets/images/Manual.jpg" },
+        { "name": "Manual", "img": "/assets/images/Manual.jpg" },
+        { "name": "Digital", "img": "/assets/images/Digital.jpg" },
+        { "name": "Manual", "img": "/assets/images/Jaquar-Manual.jpg" },
+        { "name": "FloormoutingHeater", "img": "/assets/images/Jaquar-FloormoutingHeater.jpg" },
+        { "name": "HeatPump", "img": "/assets/images/Jaquar-HeatPump.jpg" }
+    ]
+},
+{
+    "category": "WaterHeaters",
+    "brand": "Jaquar",
+    "models": [
+        { "name": "Manual", "img": "/assets/images/Manual.jpg" },
+        { "name": "Digital", "img": "/assets/images/Digital.jpg" }
+    ]
 
-    },
-    {
-        "category": "DomesticPumpsAndMotors",
-        "brand": "CRI",
-        "models": [
-            { "name": "JetPumps", "img": "/assets/images/JetPumps.jpg" },
-            { "name": "monoblock", "img": "/assets/images/monoblock.jpg" },
-            { "name": "Compressor", "img": "/assets/images/Compressor.jpg" },
-            { "name": "BoosterPumps", "img": "/assets/images/BoosterPumps.jpg" },
-            { "name": "SewagePumps", "img": "/assets/images/SewagePumps.jpg" },
-            { "name": "DrainagePumps", "img": "/assets/images/DrainagePumps.jpg" },
-            { "name": "OpenWellSubmersible", "img": "/assets/images/OpenWellSubmersible.jpg" },
-            { "name": "BorewellSubmersible", "img": "/assets/images/BorewellSubmersible.jpg" },
-            { "name": "others", "img": "/assets/images/others.jpg" }
-        ]
-    },
-    {
-        "category": "WaterHeaters",
-        "brand": "Jaquar",
-        "models": [
-            { "name": "Instant", "img": "/assets/images/Instant.jpg" },
-            { "name": "Manual", "img": "/assets/images/Manual.jpg" },
-            { "name": "Manual", "img": "/assets/images/Manual.jpg" },
-            { "name": "Digital", "img": "/assets/images/Digital.jpg" },
-            { "name": "Manual", "img": "/assets/images/Manual" },
-            { "name": "FloormoutingHeater", "img": "/assets/images/FloormoutingHeater.jpg" },
-            { "name": "FloormoutingHeater", "img": "/assets/images/FloormoutingHeater.jpg" },
-            { "name": "HeatPump", "img": "/assets/images/HeatPump.jpg" }
-        ]
-    },
-    {
-        "category": "WaterHeaters",
-        "brand": "Jaquar",
-        "models": [
-            { "name": "Manual", "img": "/assets/images/Manual.jpg" },
-            { "name": "Digital", "img": "/assets/images/Digital.jpg" }
-        ]
+},
+{
+    "category": "WaterHeaters",
+    "brand": "Essco",
+    "models": [
+        { "name": "Manual", "img": "/assets/images/Manual.jpg" },
+        { "name": "Instant", "img": "/assets/images/Instant.jpg" },
+        { "name": "ManualMetalBody", "img": "/assets/images/Essco-ManualMetalBody.jpg" }
+    ]
 
-    },
-    {
-        "category": "WaterHeaters",
-        "brand": "Essco",
-        "models": [
-            { "name": "Manual", "img": "/assets/images/Manual.jpg" },
-            { "name": "Instant", "img": "/assets/images/Instant.jpg" },
-            { "name": "ManualMetalBody", "img": "/assets/images/ManualMetalBody.jpg" }
-        ]
+},
 
-    },
-    {
-        "category": "MirrorCabinet",
-        "brand": "Hindware",
-        "models": [
-            { "name": "HMC", "img": "/assets/images/HMC.jpg" }
-        ]
+{
+    "category": "Accessories",
+    "brand": "",
+    "models": [
+        { "name": "CpRegularAccessories", "img": "/assets/images/CpRegularAccessories.jpg" },
+        { "name": "PlumbingAccessories", "img": "/assets/images/PlumbingAccessories.jpg" }
+    ]
 
-    },
-
-    {
-        "category": "Accessories",
-        "brand": "All",
-        "models": [
-            { "name": "CpRegularAccessories", "img": "/assets/images/CpRegularAccessories.jpg" },
-            { "name": "PlumbingAccessories", "img": "/assets/images/PlumbingAccessories.jpg" }
-        ]
-
-    }
+}
 ]

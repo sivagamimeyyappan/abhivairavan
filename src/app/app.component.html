@@ -1,7 +1,6 @@
-<!-- <div id="snackbar">Added to Cart...</div> -->
 <div>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-myapp" style="width: 100%">
-        <span class="appBrand" style="width: 50%;">
+        <span class="appBrand" style="width: 40%;">
             <span class="app-heading"><a [routerLink]="['/products']"><span style="color: lawngreen;">ABHI VAIRAVAN' S</span> PLUMBING CO.</a>
             </span>
         <span class="app-subtitle"> Plumbing Materials wholes salers in chennai</span>
@@ -12,20 +11,20 @@
                 <li class="nav-item" *ngIf="showSearchIcon">
                     <input style="float:left" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="commonService.FilterText">
                 </li>
-                <li class="nav-item" *ngIf="showSearchIcon">
+                <!-- <li class="nav-item" *ngIf="showSearchIcon">
                     <a class="nav-link" (click)="commonService.FilterTextChange(commonService.FilterText)"><i class="fa fa-search"></i></a>
-                </li>
-                <!-- <li class="nav-item" *ngIf="showFilterIcon"> 
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="commonService.filterText">
                 </li> -->
+                <li class="nav-item" *ngIf="showSearchIcon">
+                    <a class="nav-link" [routerLink]="['/products/search/', {searchText:commonService.FilterText}]"><i class="fa fa-search"></i></a>
+                </li>
                 <li class="nav-item dropdown" *ngIf="commonService.user.isAdmin">
-                    <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog fa-lg"></i></a>
                     <div class="dropdown-menu" aria-labelledby="adminDropdown">
                         <app-adminmenu></app-adminmenu>
                     </div>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" routerLink="contactus">Contact us</a>
+                    <a class="nav-link" routerLink="contactus"><i class="fas fa-address-card fa-lg"></i></a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -52,39 +51,9 @@
                         <app-product-menu></app-product-menu>
                     </div>
                 </li>
-                <!-- <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="brandDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Brands
-      </a>
-      <div class="dropdown-menu" aria-labelledby="brandDropdown">
-        <app-brandmenu></app-brandmenu>
-      </div>
-    </li> -->
             </ul>
-            <!-- <form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form> -->
         </div>
     </nav>
-    <!-- <div class="app-header" id="myHeader">
-<div>
-  <span class="app-heading" style="color:lawngreen">ABHI VAIRAVAN'S</span>
-  <span class="app-heading">PLUMBING CO.</span><br/>
-  <span class="app-subtitle"> Plumbing Materials wholes salers in chennai</span>
-</div>
-<div class="app-navbar">
-  <a routerLink="contactus" class="app-nav">Contact us</a>
-  <a routerLink="login" class="app-nav">Login</a>
-  <a routerLink="cart" class="app-nav">
-    <i class="fa fa-shopping-cart fa-lg"></i>
-    <sup class="app-cart" *ngIf="cartService.items.length > 0" style="padding: 2px;">{{cartService.items.length}}</sup>
-  </a>
-  <app-product-menu></app-product-menu>
-  <app-brandmenu></app-brandmenu>
-</div>
-</div>-->
-
     <router-outlet></router-outlet>
 
 </div>

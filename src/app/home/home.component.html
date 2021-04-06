@@ -10,7 +10,7 @@
                         <img src={{model.img}} alt={{model.name}} style="min-height: 249px; min-width: 249px;" class="img-fluid">
                     </a>
                     <div style="text-align: center; font-weight: bold;">
-                        <p>{{product.brand}}-{{model.name}}</p>
+                        <p>{{product.brand}}<span *ngIf="product.brand.length != 0">-</span>{{model.name}}</p>
                     </div>
                 </div>
             </div>
