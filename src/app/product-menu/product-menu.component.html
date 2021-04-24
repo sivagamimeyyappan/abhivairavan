@@ -2,116 +2,17 @@
 
     <div style="display: flex; flex-direction: column;">
         <!-- <a [routerLink]="['/products/productlist/', {category:'All'}]" class="dropdown-item">All products</a> -->
-        <a [routerLink]="['/products/productlist/', {category:'BathroomCPFittings'}]" class="dropdown-item">Bathroom CP Fittings</a>
-        <a [routerLink]="['/products/productlist/', {category:'Sanitaryware'}]" class="dropdown-item">Sanitaryware</a>
-        <a [routerLink]="['/products/productlist/', {category:'ShowerEnclosure'}]" class="dropdown-item">Shower Enclosure</a>
-        <a [routerLink]="['/products/productlist/', {category:'ShowerPanel'}]" class="dropdown-item">Shower Panel</a>
-        <a [routerLink]="['/products/productlist/', {category:'BathTub'}]" class="dropdown-item">Bath Tub</a>
-        <a [routerLink]="['/products/productlist/', {category:'KitchenSink'}]" class="dropdown-item">Kitchen Sink</a>
-        <a [routerLink]="['/products/productlist/', {category:'PipesandFittings'}]" class="dropdown-item">Pipes and Fittings</a>
-        <a [routerLink]="['/products/productlist/', {category:'BrassValvesandFittings'}]" class="dropdown-item">Brass Valves and Fittings</a>
-        <a [routerLink]="['/products/productlist/', {category:'WaterTanks'}]" class="dropdown-item">Water Tanks</a>
-        <a [routerLink]="['/products/productlist/', {category:'DomesticPumpsAndMotors'}]" class="dropdown-item">Domestic Pumps And Motors</a>
-        <a [routerLink]="['/products/productlist/', {category:'WaterHeaters'}]" class="dropdown-item">Water Heaters</a>
-        <a [routerLink]="['/products/productlist/', {category:'Accessories'}]" class="dropdown-item">Accessories</a>
+        <a [routerLink]="['/products/productsByCategory/', {category:'BathroomCPFittings'}]" (click)="this.cs.setShowSidepanel(true)" class="dropdown-item">Bathroom CP Fittings</a>
+        <a [routerLink]="['/products/productsByCategory/', {category:'Sanitaryware'}]" (click)="this.cs.setShowSidepanel(true)" class="dropdown-item">Sanitaryware</a>
+        <a [routerLink]="['/products/productsByCategory/', {category:'ShowerEnclosure'}]" (click)="this.cs.setShowSidepanel(true)" class="dropdown-item">Shower Enclosure</a>
+        <a [routerLink]="['/products/productsByCategory/', {category:'ShowerPanel'}]" (click)="this.cs.setShowSidepanel(true)" class="dropdown-item">Shower Panel</a>
+        <a [routerLink]="['/products/productsByCategory/', {category:'BathTub'}]" (click)="this.cs.setShowSidepanel(true)" class="dropdown-item">Bath Tub</a>
+        <a [routerLink]="['/products/productsByCategory/', {category:'KitchenSink'}]" (click)="this.cs.setShowSidepanel(true)" class="dropdown-item">Kitchen Sink</a>
+        <a [routerLink]="['/products/productsByCategory/', {category:'PipesandFittings'}]" (click)="this.cs.setShowSidepanel(true)" class="dropdown-item">Pipes and Fittings</a>
+        <a [routerLink]="['/products/productsByCategory/', {category:'BrassValvesandFittings'}]" (click)="this.cs.setShowSidepanel(true)" class="dropdown-item">Brass Valves and Fittings</a>
+        <a [routerLink]="['/products/productsByCategory/', {category:'WaterTanks'}]" (click)="this.cs.setShowSidepanel(true)" class="dropdown-item">Water Tanks</a>
+        <a [routerLink]="['/products/productsByCategory/', {category:'DomesticPumpsAndMotors'}]" (click)="this.cs.setShowSidepanel(true)" class="dropdown-item">Domestic Pumps And Motors</a>
+        <a [routerLink]="['/products/productsByCategory/', {category:'WaterHeaters'}]" (click)="this.cs.setShowSidepanel(true)" class="dropdown-item">Water Heaters</a>
+        <a [routerLink]="['/products/productsByCategory/', {category:'Accessories'}]" (click)="this.cs.setShowSidepanel(true)" class="dropdown-item">Accessories</a>
     </div>
-    <!-- <div style="display: flex; flex-direction: column;">
-    <a [routerLink]="['/products/productlist/', {category:'All'}]" class="dropdown-item"><h5>All Products</h5></a>
-    <a [routerLink]="['/products/productlist/', {category:'BathroomFittings'}]" class="dropdown-item"><h5>Bathroom Fittings</h5></a>
-    <a [routerLink]="['/products/productlist/', {category:'BathroomFittings',subCategory:'BathroomFaucet'}]" class="dropdown-item">Bathroom Taps/Faucet</a>
-    <a [routerLink]="['/products/productlist/', {category:'BathroomFittings',subCategory:'HealthFaucet'}]" class="dropdown-item">Health Faucet</a>
-    <a [routerLink]="['/products/productlist/', {category:'BathroomFittings',subCategory:'BathroomShower'}]" class="dropdown-item">Bathroom Shower</a>
-    <a [routerLink]="['/products/productlist/', {category:'BathroomFittings',subCategory:'WashbasinMixer'}]" class="dropdown-item">Washbasin Mixer</a>
-    <a [routerLink]="['/products/productlist/', {category:'BathroomFittings',subCategory:'ShowerWallmixer'}]" class="dropdown-item">Shower Wallmixer</a>
-    <a [routerLink]="['/products/productlist/', {category:'BathroomFittings',subCategory:'ShowerEnclosures'}]" class="dropdown-item">Shower Enclosures</a>
-    <a [routerLink]="['/products/productlist/', {category:'BathroomFittings',subCategory:'ShowerPanels'}]" class="dropdown-item">Shower Panels</a>
-    <a [routerLink]="['/products/productlist/', {category:'SanitaryWare',subCategory:'BathTub'}]" class="dropdown-item">Bath Tub</a>
-    <a [routerLink]="['/products/productlist/', {category:'SanitaryWare'}]" class="dropdown-item"><h5>Sanitary Ware</h5></a>
-    <a [routerLink]="['/products/productlist/', {category:'SanitaryWare',subCategory:'BathroomUrinals'}]" class="dropdown-item">Bathroom Urinals</a>
-    <a [routerLink]="['/products/productlist/', {category:'SanitaryWare',subCategory:'WaterClosets'}]" class="dropdown-item">Water Closets</a>
-    <a [routerLink]="['/products/productlist/', {category:'SanitaryWare',subCategory:'WashBasin'}]" class="dropdown-item">WashBasin</a>
-    <a [routerLink]="['/products/productlist/', {category:'SanitaryWare',subCategory:'BathroomCisterns'}]" class="dropdown-item">Bathroom Cisterns</a>
-  </div>
-  <div style="display: flex; flex-direction: column; flex-wrap: wrap;">
-    <a [routerLink]="['/products/productlist/', {category:'KitchenSink'}]" class="dropdown-item"><h5>Kitchen Sink</h5></a>
-    <a [routerLink]="['/products/productlist/', {category:'KitchenSink',subCategory:'StainlessSteelKitchenSinks'}]" class="dropdown-item">Stainless Steel Kitchen Sinks</a>
-    <a [routerLink]="['/products/productlist/', {category:'KitchenSink',subCategory:'SingleBowl'}]" class="dropdown-item">Single Bowl</a>
-    <a [routerLink]="['/products/productlist/', {category:'KitchenSink',subCategory:'DoubleBowl'}]" class="dropdown-item">Double Bowl</a>
-    <a [routerLink]="['/products/productlist/', {category:'KitchenSink',subCategory:'GraniteKitchenSink'}]" class="dropdown-item">Granite Kitchen Sink</a>
-    <a [routerLink]="['/products/productlist/', {category:'KitchenSink',subCategory:'FoodWasteDisposer'}]" class="dropdown-item">Food Waste Disposer</a>
-    <a [routerLink]="['/products/productlist/', {category:'PipesandFittings'}]" class="dropdown-item"><h5>Pipes and Fittings</h5></a>
-    <a [routerLink]="['/products/productlist/', {category:'PipesandFittings',subCategory:'PVC'}]" class="dropdown-item">PVC Pipes and Fittings</a>
-    <a [routerLink]="['/products/productlist/', {category:'PipesandFittings',subCategory:'UPVC'}]" class="dropdown-item">UPVC Pipes and Fittings</a>
-    <a [routerLink]="['/products/productlist/', {category:'PipesandFittings',subCategory:'CPVC'}]" class="dropdown-item">CPVC Pipes and Fittings</a>
-    <a [routerLink]="['/products/productlist/', {category:'BrassValvesandFittings'}]" class="dropdown-item"><h5>Brass Valves and Fittings</h5></a>
-    <a [routerLink]="['/products/productlist/', {category:'BrassValvesandFittings',subCategory:'WaterManBrassBallValve'}]" class="dropdown-item">WaterMan Brass Ball Valve</a>
-  </div>
-  <div style="display: flex; flex-direction: column; flex-wrap: wrap;">
-    <a [routerLink]="['/products/productlist/', {category:'WaterTanks'}]" class="dropdown-item"><h5>Water Tanks</h5></a>
-    <a [routerLink]="['/products/productlist/', {category:'WaterTanks',subCategory:'OverheadTanks'}]" class="dropdown-item">Overhead Tanks</a>
-    <a [routerLink]="['/products/productlist/', {category:'WaterTanks',subCategory:'LoftTank'}]" class="dropdown-item">Loft Tank</a>
-    <a [routerLink]="['/products/productlist/', {category:'WaterTanks',subCategory:'UnderGroundSumpTank'}]" class="dropdown-item">UnderGround Sump Tank</a>
-    <a [routerLink]="['/products/productlist/', {category:'WaterTanks',subCategory:'SepticTank'}]" class="dropdown-item">Septic Tank</a>
-    <a [routerLink]="['/products/productlist/', {category:'PumpsandMotors'}]" class="dropdown-item"><h5>Domestic Pumps and Motors</h5></a>
-    <a [routerLink]="['/products/productlist/', {category:'PumpsandMotors',subCategory:'AgriculurePumps'}]" class="dropdown-item">Agriculure Pumps</a>
-    <a [routerLink]="['/products/productlist/', {category:'PumpsandMotors',subCategory:'PressureBoosterPumps'}]" class="dropdown-item">Pressure Booster Pumps</a>
-    <a [routerLink]="['/products/productlist/', {category:'PumpsandMotors',subCategory:'WasteWaterPumps'}]" class="dropdown-item">Waste Water Pumps</a>
-    <a [routerLink]="['/products/productlist/', {category:'PumpsandMotors',subCategory:'IndustrialPumps'}]" class="dropdown-item">Industrial Pumps</a>
-    <a [routerLink]="['/products/productlist/', {category:'PumpsandMotors',subCategory:'SubmersibleMotors'}]" class="dropdown-item">Submersible Motors</a>
-  </div> -->
 </div>
-
-<!-- <div class="product-menu-dropdown">
-    <button class="product-menu-dropbtn">Products
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="product-menu-dropdown-content">
-      <div class="product-menu-row">
-        <div class="product-menu-column">
-          <a [routerLink]="['/products/productlist/', {category:'All'}]"><h5>All Products</h5></a>
-          <a [routerLink]="['/products/productlist/', {category:'BathroomFittings'}]"><h5>Bathroom Fittings</h5></a>
-          <a [routerLink]="['/products/productlist/', {category:'BathroomFittings',subCategory:'BathroomFaucet'}]">Bathroom Taps/Faucet</a>
-          <a [routerLink]="['/products/productlist/', {category:'BathroomFittings',subCategory:'HealthFaucet'}]">Health Faucet</a>
-          <a [routerLink]="['/products/productlist/', {category:'BathroomFittings',subCategory:'BathroomShower'}]">Bathroom Shower</a>
-          <a [routerLink]="['/products/productlist/', {category:'BathroomFittings',subCategory:'WashbasinMixer'}]">Washbasin Mixer</a>
-          <a [routerLink]="['/products/productlist/', {category:'BathroomFittings',subCategory:'ShowerWallmixer'}]">Shower Wallmixer</a>
-          <a [routerLink]="['/products/productlist/', {category:'BathroomFittings',subCategory:'ShowerEnclosures'}]">Shower Enclosures</a>
-          <a [routerLink]="['/products/productlist/', {category:'BathroomFittings',subCategory:'ShowerPanels'}]">Shower Panels</a>
-          <a [routerLink]="['/products/productlist/', {category:'SanitaryWare',subCategory:'BathTub'}]">Bath Tub</a>
-          <a [routerLink]="['/products/productlist/', {category:'SanitaryWare'}]"><h5>Sanitary Ware</h5></a>
-          <a [routerLink]="['/products/productlist/', {category:'SanitaryWare',subCategory:'BathroomUrinals'}]">Bathroom Urinals</a>
-          <a [routerLink]="['/products/productlist/', {category:'SanitaryWare',subCategory:'WaterClosets'}]">Water Closets</a>
-          <a [routerLink]="['/products/productlist/', {category:'SanitaryWare',subCategory:'WashBasin'}]">WashBasin</a>
-          <a [routerLink]="['/products/productlist/', {category:'SanitaryWare',subCategory:'BathroomCisterns'}]">Bathroom Cisterns</a>
-        </div>
-        <div class="product-menu-column">
-          <a [routerLink]="['/products/productlist/', {category:'KitchenSink'}]"><h5>Kitchen Sink</h5></a>
-          <a [routerLink]="['/products/productlist/', {category:'KitchenSink',subCategory:'StainlessSteelKitchenSinks'}]">Stainless Steel Kitchen Sinks</a>
-          <a [routerLink]="['/products/productlist/', {category:'KitchenSink',subCategory:'SingleBowl'}]">Single Bowl</a>
-          <a [routerLink]="['/products/productlist/', {category:'KitchenSink',subCategory:'DoubleBowl'}]">Double Bowl</a>
-          <a [routerLink]="['/products/productlist/', {category:'KitchenSink',subCategory:'GraniteKitchenSink'}]">Granite Kitchen Sink</a>
-          <a [routerLink]="['/products/productlist/', {category:'KitchenSink',subCategory:'FoodWasteDisposer'}]">Food Waste Disposer</a>
-          <a [routerLink]="['/products/productlist/', {category:'PipesandFittings'}]"><h5>Pipes and Fittings</h5></a>
-          <a [routerLink]="['/products/productlist/', {category:'PipesandFittings',subCategory:'PVC'}]">PVC Pipes and Fittings</a>
-          <a [routerLink]="['/products/productlist/', {category:'PipesandFittings',subCategory:'UPVC'}]">UPVC Pipes and Fittings</a>
-          <a [routerLink]="['/products/productlist/', {category:'PipesandFittings',subCategory:'CPVC'}]">CPVC Pipes and Fittings</a>
-          <a [routerLink]="['/products/productlist/', {category:'BrassValvesandFittings'}]"><h5>Brass Valves and Fittings</h5></a>
-          <a [routerLink]="['/products/productlist/', {category:'BrassValvesandFittings',subCategory:'WaterManBrassBallValve'}]">WaterMan Brass Ball Valve</a>
-        </div>
-        <div class="product-menu-column">
-          <a [routerLink]="['/products/productlist/', {category:'WaterTanks'}]"><h5>Water Tanks</h5></a>
-          <a [routerLink]="['/products/productlist/', {category:'WaterTanks',subCategory:'OverheadTanks'}]">Overhead Tanks</a>
-          <a [routerLink]="['/products/productlist/', {category:'WaterTanks',subCategory:'LoftTank'}]">Loft Tank</a>
-          <a [routerLink]="['/products/productlist/', {category:'WaterTanks',subCategory:'UnderGroundSumpTank'}]">UnderGround Sump Tank</a>
-          <a [routerLink]="['/products/productlist/', {category:'WaterTanks',subCategory:'SepticTank'}]">Septic Tank</a>
-          <a [routerLink]="['/products/productlist/', {category:'PumpsandMotors'}]"><h5>Domestic Pumps and Motors</h5></a>
-          <a [routerLink]="['/products/productlist/', {category:'PumpsandMotors',subCategory:'AgriculurePumps'}]">Agriculure Pumps</a>
-          <a [routerLink]="['/products/productlist/', {category:'PumpsandMotors',subCategory:'PressureBoosterPumps'}]">Pressure Booster Pumps</a>
-          <a [routerLink]="['/products/productlist/', {category:'PumpsandMotors',subCategory:'WasteWaterPumps'}]">Waste Water Pumps</a>
-          <a [routerLink]="['/products/productlist/', {category:'PumpsandMotors',subCategory:'IndustrialPumps'}]">Industrial Pumps</a>
-          <a [routerLink]="['/products/productlist/', {category:'PumpsandMotors',subCategory:'SubmersibleMotors'}]">Submersible Motors</a>
-        </div>
-      </div>
-    </div>
-  </div>
- -->

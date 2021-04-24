@@ -8,14 +8,11 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="fas fa-bars"></span></button>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item" *ngIf="showSearchIcon">
-                    <input style="float:left" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="commonService.FilterText">
+                <li class="nav-item">
+                    <input style="float:left" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="commonService.filterText">
                 </li>
-                <!-- <li class="nav-item" *ngIf="showSearchIcon">
-                    <a class="nav-link" (click)="commonService.FilterTextChange(commonService.FilterText)"><i class="fa fa-search"></i></a>
-                </li> -->
-                <li class="nav-item" *ngIf="showSearchIcon">
-                    <a class="nav-link" [routerLink]="['/products/search/', {searchText:commonService.FilterText}]"><i class="fa fa-search"></i></a>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/products/productsBySearch/', {searchText:commonService.filterText}]"><i class="fa fa-search"></i></a>
                 </li>
                 <li class="nav-item dropdown" *ngIf="commonService.user.isAdmin">
                     <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog fa-lg"></i></a>

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { AsyncSubject, BehaviorSubject, forkJoin, Observable, of } from 'rxjs';
 import { Subject } from 'rxjs/internal/Subject';
 import { User } from '../Models/User';
+import { ProductService } from '../services/product.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,16 @@ export class CommonService {
 
   showFilterIcon: boolean = false;
   showSidepanel: boolean = false;
-  showSearchIcon: boolean = false;
   user: User = new User();
   redirectUrl: any =  [];
   products: any={};
-  FilterText: string = "";
+  homepage: any;
+  filterText: string = "";
+  resetScrollPosition: any = {'X':0, 'Y':0};
+
+  categories = ['BathroomCPFittings', 'DomesticPumpsAndMotors', 'PipesandFittings', 'Sanitaryware',
+     'WaterTanks', 'KitchenSink', 'BathTub', 'ShowerEnclosure', 'ShowerPanel', 'BrassValvesandFittings',
+    'WaterHeaters', 'MirrorCabinet', 'Accessories'];
 
   statusColors: object = {
     'Pending':{'color': 'orange'}, 
@@ -27,16 +33,14 @@ export class CommonService {
   private filterIcon = new BehaviorSubject<boolean>(this.showFilterIcon);
   public observeFilterIcon = this.filterIcon.asObservable();
 
-  private searchIcon = new BehaviorSubject<boolean>(this.showSearchIcon);
-  public observeSearchIcon = this.searchIcon.asObservable();
-
   private sidePanel = new BehaviorSubject<boolean>(this.showSidepanel);
   public observeSidepanel = this.sidePanel.asObservable();
 
-  private FilterTextSubject = new BehaviorSubject<string>(this.FilterText);
-  public observeFilterText = this.FilterTextSubject.asObservable();
+  public allProductsLoaded = new AsyncSubject<boolean>();
+  // private FilterTextSubject = new BehaviorSubject<string>(this.FilterText);
+  // public observeFilterText = this.FilterTextSubject.asObservable();
 
-  constructor() { 
+  constructor(private ps: ProductService) { 
   }
 
   setShowFilterIcon(value: boolean) {
@@ -44,20 +48,15 @@ export class CommonService {
     this.filterIcon.next(value);
   }
 
-  setShowSearchIcon(value: boolean) {
-    this.showSearchIcon = value;
-    this.searchIcon.next(value);
-  }
-
   setShowSidepanel(value: boolean) {
     this.showSidepanel = value;
     this.sidePanel.next(value);
   }
 
-  FilterTextChange(value: string){
-    this.FilterText = value;
-    this.FilterTextSubject.next(value);
-  }
+  // FilterTextChange(value: string){
+  //   this.FilterText = value;
+  //   this.FilterTextSubject.next(value);
+  // }
   
   getDateObject(date){
     return new Date(JSON.parse(date))
@@ -67,4 +66,34 @@ export class CommonService {
 
     return of(confirmation);
   };
+
+  GetAllProducts()
+  {
+    
+    var pullData = [];
+    var pullDataCategory = [];
+
+    for(var i=0; i<this.categories.length; i++){
+      if(this.products[this.categories[i]] == undefined){
+        pullData.push(this.ps.getProducts(this.categories[i]));
+        pullDataCategory.push(this.categories[i]);
+      }
+    }
+
+    if(pullData.length == 0){
+      this.allProductsLoaded.next(true);
+      this.allProductsLoaded.complete();
+      return;
+    }
+
+    forkJoin(pullData).subscribe(
+        results => {
+          for(var i=0; i<pullDataCategory.length; i++){
+            this.products[pullDataCategory[i]] = {products:results[i]};
+          }
+          this.allProductsLoaded.next(true);
+          this.allProductsLoaded.complete();
+          console.log("Retrieved all Products");
+      });
+  }
 }

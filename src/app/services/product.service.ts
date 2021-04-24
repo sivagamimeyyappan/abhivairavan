@@ -1,6 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CommonService } from './common.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +7,7 @@ import { CommonService } from './common.service';
 export class ProductService {
   products: any;
 
-  constructor(private http: HttpClient, public commonService: CommonService) {
+  constructor(private http: HttpClient) {
     /* let obs = this.http.get('assets/products.json');
     obs.subscribe((response) => {
       this.products = response;
@@ -16,12 +15,6 @@ export class ProductService {
   }
 
   getProducts(category) {
-
-    if(this.commonService.products[category] != undefined)
-    {
-      console.log("value available");
-      return this.commonService.products[category];
-    }
 
     switch (category) {
       case "BathroomCPFittings":

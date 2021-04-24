@@ -11,14 +11,12 @@ import { ActivatedRoute } from '@angular/router';
 export class AppComponent {
   showFilterIcon: boolean = false;
   showSearchIcon: boolean = false;
-  FilterText: string;
 
   constructor(private route: ActivatedRoute,public cartService: CartService, public commonService: CommonService){
   }
 
   ngOnInit(): void {
     this.commonService.observeFilterIcon.subscribe(value => {setTimeout(() => {this.showFilterIcon = value})});
-    this.commonService.observeSearchIcon.subscribe(value => {setTimeout(() => {this.showSearchIcon = value})});
   }
 
 }

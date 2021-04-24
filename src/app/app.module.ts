@@ -6,9 +6,9 @@ import { AppComponent } from './app.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { SignupComponent } from './signup/signup.component';
 import { CartComponent } from './cart/cart.component';
-import { ProductsComponent } from './products/products.component';
+import { ProductsLoaderComponent } from './productsLoaderPage/productsLoader.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ProductComponent } from './product/product.component';
+import { ProductsDisplayComponent } from './productsDisplayPage/productsDisplay.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProductMenuComponent } from './product-menu/product-menu.component';
@@ -27,8 +27,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ScrollTrackerDirective } from './shared/scrollTracker.directive';
-import { Router } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
+import { Router, Scroll } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @NgModule({
   declarations: [
@@ -36,8 +37,8 @@ import { ViewportScroller } from '@angular/common';
     ContactusComponent,
     SignupComponent,
     CartComponent,
-    ProductsComponent,
-    ProductComponent,
+    ProductsLoaderComponent,
+    ProductsDisplayComponent,
     ProductDetailComponent,
     PageNotFoundComponent,
     ProductMenuComponent,
@@ -68,6 +69,16 @@ import { ViewportScroller } from '@angular/common';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
-  
+export class AppModule {
+  // constructor(router: Router, viewportScroller: ViewportScroller) {
+  //   router.events.pipe(
+  //     filter((e): e is Scroll => e instanceof Scroll)
+  //   ).subscribe(e => {
+  //     console.log("i am e"+ e);
+      
+  //     if(e.position){
+  //       viewportScroller.scrollToPosition(e.position);
+  //     }
+  //   });
+  // }
 }

@@ -3,11 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { ContactusComponent } from './contactus/contactus.component';
 import { SignupComponent } from './signup/signup.component';
 import { CartComponent } from './cart/cart.component';
-import { ProductsComponent } from './products/products.component';
+import { ProductsLoaderComponent } from './productsLoaderPage/productsLoader.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { ProductComponent } from './product/product.component';
+import { ProductsDisplayComponent } from './productsDisplayPage/productsDisplay.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ProductResolverService } from './serviceResolvers/product-resolver.service';
+import { ProductByCategoryResolver } from './serviceResolvers/product-by-category.resolver';
 import { LoginComponent } from './login/login.component';
 import { OrdersComponent } from './orders/orders.component';
 import { EnquiriesComponent } from './enquiries/enquiries.component';
@@ -18,6 +18,9 @@ import { CanActivatecartGuard } from './guards/can-activatecart.guard';
 import { EnquiriesresolverService } from './serviceResolvers/enquiriesresolver.service';
 import { AuthGuard } from './guards/auth.guard';
 import { AdminGuard } from './guards/admin.guard';
+import { HomeProductResolver } from './serviceResolvers/home-product.resolver';
+import { SearchResolver } from './serviceResolvers/search.resolver';
+import { ProductByModelResolver } from './serviceResolvers/product-by-model.resolver';
 
 
 const routes: Routes = [{path: 'contactus', component: ContactusComponent},
@@ -29,11 +32,12 @@ const routes: Routes = [{path: 'contactus', component: ContactusComponent},
 {path: 'orders/:userId', component: OrdersComponent, resolve: {response: OrderresolverService}, canActivate: [AuthGuard]},
 {path: 'signup', component: SignupComponent},
 
-{path: 'products', component: ProductsComponent,
+{path: 'products', component: ProductsLoaderComponent,
 children: [
-  {path: '', component: HomeComponent , resolve: {response: ProductResolverService}},
-  {path: 'search', component: ProductComponent , resolve: {response: ProductResolverService}},
-  {path: 'productlist', component: ProductComponent , resolve: {response: ProductResolverService}},
+  {path: '', component: HomeComponent , resolve: {response: HomeProductResolver}},
+  {path: 'productsBySearch', component: ProductsDisplayComponent , resolve: {response: SearchResolver}},
+  {path: 'productsByModel', component: ProductsDisplayComponent , resolve: {response: ProductByModelResolver}},
+  {path: 'productsByCategory', component: ProductsDisplayComponent , resolve: {response: ProductByCategoryResolver}},
   {path: 'product', component: ProductDetailComponent }
 ]},
 {
@@ -43,7 +47,7 @@ children: [
 { path: '**', component: PageNotFoundComponent }];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy', scrollPositionRestoration: 'top'} )],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

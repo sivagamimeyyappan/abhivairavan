@@ -1,0 +1,78 @@
+<div class="sidepanelloc" [ngClass]="showSidepanel ? 'addWidth' : 'removeWidth'">
+    <div class="sidepanel">
+        <div class="sidepanelHeader">
+            <span class="float-left">{{this.category}}</span>
+            <span><i class="float-right text-right closebtn fas fa-times" (click)="closefilter()"></i></span>
+        </div>
+        <div class="sidepanelContent">
+            <div *ngFor="let filterOption of filterOptions">
+                <div class="brand" *ngIf="filterOption.brand.length != 0">
+                    <span>{{filterOption.brand}}</span>
+                    <span class="toggle" (click)="filterOption.show = !filterOption.show" *ngIf="!filterOption.show">
+                    <i class="fas fa-chevron-down"></i></span>
+                    <span class="toggle" (click)="filterOption.show = !filterOption.show" *ngIf="filterOption.show">
+                        <i class="fas fa-chevron-up"></i>
+                    </span>
+                </div>
+                <div class="models" *ngIf="filterOption.show || filterOption.brand.length == 0">
+                    <div *ngFor="let model of filterOption.models">
+                        <label class="container">{{model.modelname}}
+                        <input type="checkbox" [(ngModel)]="model.selected" (change)="setFilter(filterOption.brand+'-'+model.modelname, model.selected, filterOption)">
+                        <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="msg col-12 text-center" style="color: rgba(0, 0, 0, 0.6);" *ngIf="products.length == 0">
+        <h1>
+            <i>Apply Filter&nbsp;</i>
+            <i class="fas fa-filter fa-lg"></i>
+            <i>&nbsp;to View Products</i>
+        </h1>
+    </div>
+</div>
+
+
+<!-- <div *ngIf="commonService.showSpinner">
+    <i class="fas fa-spinner spinner fa-pulse"></i>
+</div> -->
+<div class="productlist" scrollTracker (scrollingFinished)="onScrollingFinished()">
+    <div *ngFor="let product of onScreenProducts">
+        <div class="card" [ngStyle]="{'width': '300px'}">
+            <a style="margin: auto; cursor: pointer;" (click)="show($event, product)">
+                <img src={{product.img}} alt={{product.alt}} [ngStyle]="{'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'}" class="img-fluid">
+            </a>
+            <div [style.display]="showModal ? 'block' : 'none'" class="modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">Image preview</h4>
+                        </div>
+                        <div class="modal-body">
+                            <img src={{imagepath}} id="imagepreview" style="width: 75%; height: 75%;">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" (click)="hide()">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mycontainer">
+                <h6><span *ngIf="product.brand.length != 0">{{product.brand}}~</span>{{product.model}}~{{product.productId}}</h6>
+                <p><i>{{product.desc}}</i></p>
+            </div>
+            <div class="cartIcons">
+                <label class="priceId"><b>MRP:</b></label>{{product.mrp | currency:"₹"}}
+                <label class="QtyId"><b>Qty:</b></label>
+                <input type="number" (change)="qtyChange(product)" [(ngModel)]="product.qty" min=0 value=0 step={{product.unit}} class="numSpinner">
+                <small>{{product.qtyType}}</small>
+                <span class="addcart" (click)="addToCart(product)"><i class="fa fa-shopping-cart fa-lg"></i></span>
+            </div>
+        </div>
+    </div>
+</div>
