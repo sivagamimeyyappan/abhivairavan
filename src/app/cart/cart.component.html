@@ -73,7 +73,7 @@
                         <h6>Authorised distributors for plumbing materials</h6>
                     </div>
                 </div> -->
-                <table class="table table-responsive text-center align-middle">
+                <table class="table table-responsive text-center align-middle" id="CartTable">
                     <thead>
                         <tr id="cartTableHeader">
                             <th colspan="10">
@@ -222,6 +222,7 @@
                             <td colspan="5" class="text-right">
                                 <button *ngIf="mode === 'edit'" type="submit" class="btn btn-getQuote" (click)="clearCart()"><span>{{order.status == 'In Cart' ? 'Clear Cart' : 'Cancel Editing'}}</span></button>&nbsp;&nbsp;
                                 <button *ngIf="mode === 'view'" type="submit" class="btn btn-getQuote" (click)="print()">Print</button>&nbsp;&nbsp;
+                                <button *ngIf="mode === 'view'" type="submit" class="btn btn-getQuote" (click)="excel()">ExportToExcel</button>&nbsp;&nbsp;
                                 <button [disabled]="cartForm.invalid" *ngIf="mode === 'edit' && commonService.user.isAdmin" type="submit" class="btn btn-save" (click)="getQuote()">Save</button>
                                 <button [disabled]="cartForm.invalid" *ngIf="mode === 'edit' && !commonService.user.isAdmin" type="submit" class="btn btn-getQuote" (click)="getQuote()">Save & GetQuote</button>
                             </td>

@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient, HttpClientJsonpModule } from '@angular/common/http';
 import { ResponseData } from '../Models/response';
 import {FormControl, FormGroupDirective, NgForm, Validators, FormGroup} from '@angular/forms';
+import { ExcelService } from '../services/excel.service';
 
 @Component({
   selector: 'app-cart',
@@ -20,7 +21,7 @@ export class CartComponent implements OnInit {
   private OrderId: string;
   colHeadings = ['S.No','Image','Item Name','Tax','Qty','MRP','Disc','Discounted Rate','Total',''];
 
-  constructor(private route: ActivatedRoute, private router: Router, public commonService: CommonService, public cartService: CartService, private http: HttpClient, private snackbar: MatSnackBar) { }
+  constructor(private route: ActivatedRoute, private router: Router, public commonService: CommonService, public cartService: CartService, private excelService: ExcelService, private http: HttpClient, private snackbar: MatSnackBar) { }
   public mode: string;
   private postOrderUrl: string = "https://avwebapi.abhivairavan.online/orders/PostOrder";
   private response: ResponseData  = new ResponseData();
@@ -146,5 +147,16 @@ export class CartComponent implements OnInit {
   }
   print(){
     window.print();
+  }
+  excel(): void{
+
+    this.excelService.ExportToExcel(this.order);
+    // let element = document.getElementById("CartTable");
+    // const fileName = this.OrderId+".xlsx";
+		// const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+		// const wb: XLSX.WorkBook = XLSX.utils.book_new();
+		// XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+		// XLSX.writeFile(wb, fileName);
   }
 }
