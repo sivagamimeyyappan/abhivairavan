@@ -1,0 +1,29 @@
+.btn-AdCtgry, .btn-AdBrnd, .btn-AdMdl, 
+.btn-rmvCtgry, .btn-rmvBrnd, .btn-rmvMdl,
+.btn-AdPrdt {
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+}
+
+.btn-AdCtgry:hover, .btn-AdBrnd:hover, .btn-AdMdl:hover,
+.btn-rmvCtgry:hover, .btn-rmvBrnd:hover, .btn-rmvMdl:hover,
+.btn-AdPrdt:hover {
+    color: lawngreen;
+}
+
+.btn-AdCtgry:disabled, .btn-AdBrnd:disabled, .btn-AdMdl:disabled,
+.btn-rmvCtgry:disabled, .btn-rmvBrnd:disabled, .btn-rmvMdl:disabled,
+.btn-AdPrdt:disabled {
+    background-color: #ddd;
+    color: black;
+}
+
+.card{
+    background-color: white;
+    border: 1px solid;
+    border-color: #555;
+}
+
+.full-width {
+    width: 100%;
+}

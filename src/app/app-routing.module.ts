@@ -21,6 +21,7 @@ import { AdminGuard } from './guards/admin.guard';
 import { HomeProductResolver } from './serviceResolvers/home-product.resolver';
 import { SearchResolver } from './serviceResolvers/search.resolver';
 import { ProductByModelResolver } from './serviceResolvers/product-by-model.resolver';
+import { ManageProductsComponent } from './manage-products/manage-products.component';
 
 
 const routes: Routes = [{path: 'contactus', component: ContactusComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [{path: 'contactus', component: ContactusComponent},
 {path: 'cart/:orderId', component: CartComponent, resolve: {response: CartresolverService}, canActivate: [AuthGuard, CanActivatecartGuard]},
 {path: 'cart', component: CartComponent, resolve: {response: CartresolverService}},
 {path: 'enquiries', component: EnquiriesComponent, resolve: {response: EnquiriesresolverService}, canActivate: [AdminGuard]},
+{path: 'ManageProducts', component: ManageProductsComponent, canActivate: [AdminGuard]},
 {path: 'orders', component: OrdersComponent, resolve: {response: OrderresolverService}, canActivate: [AdminGuard]},
 {path: 'orders/:userId', component: OrdersComponent, resolve: {response: OrderresolverService}, canActivate: [AuthGuard]},
 {path: 'signup', component: SignupComponent},

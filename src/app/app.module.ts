@@ -24,12 +24,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ScrollTrackerDirective } from './shared/scrollTracker.directive';
-import { ViewportScroller } from '@angular/common';
-import { Router, Scroll } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { ManageProductsComponent } from './manage-products/manage-products.component';
+import { autocompleteStringValidatorDirective } from './shared/autocompleteStringValidator';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,9 @@ import { filter } from 'rxjs/operators';
     OrdersComponent,
     EnquiriesComponent,
     HomeComponent,
-    ScrollTrackerDirective
+    ScrollTrackerDirective,
+    ManageProductsComponent,
+    autocompleteStringValidatorDirective 
   ],
   imports: [
     BrowserModule,
@@ -62,6 +64,7 @@ import { filter } from 'rxjs/operators';
     MatSelectModule,
     MatInputModule,
     MatFormFieldModule,
+    MatAutocompleteModule,
     FormsModule,
     ReactiveFormsModule
     
