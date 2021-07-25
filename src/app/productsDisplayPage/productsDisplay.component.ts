@@ -1,8 +1,12 @@
-import { Component, OnInit,HostListener, ElementRef,Input } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../services/cart.service';
 import { CommonService } from '../services/common.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ResponseData } from '../Models/response';
+import { HttpClient } from '@angular/common/http';
+import { Product } from '../Models/Product';
+import { ProductService } from '../services/product.service';
 
 
 @Component({
@@ -12,9 +16,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ProductsDisplayComponent implements OnInit {
   products: any = [];
-  allProducts: any;
   filterOptions: any = [];
-  filteredOptions:any = [];
   category: string;
   model: string;
   filterText: string;
@@ -24,8 +26,10 @@ export class ProductsDisplayComponent implements OnInit {
   snackbarRef: any;
   onScreenProducts: any = [];
   title:string = 'Preview';
+  filterCriteria: any = {};
   showModal: boolean = false;
   @Input() imagepath: string; 
+  showSpinner: boolean = false;
 
   imgWidthByCategory = {'BathroomCPFittings': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
   'Sanitaryware': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
@@ -55,7 +59,7 @@ export class ProductsDisplayComponent implements OnInit {
   'Accessories': {'width': '300px'}
 };
   
-  constructor(private route: ActivatedRoute, public cs: CartService, public commonService: CommonService, private snackbar: MatSnackBar, private ele: ElementRef) {
+  constructor(private route: ActivatedRoute, public cs: CartService, public commonService: CommonService, private snackbar: MatSnackBar, private ps: ProductService) {
     
   }
 
@@ -76,19 +80,16 @@ export class ProductsDisplayComponent implements OnInit {
 
     this.route.data.subscribe((data) => {
 
-      this.allProducts = data.response.products;
-      this.filterOptions = data.response.filterOptions;
-      this.products = [];
-      this.filteredOptions = [];
-      var self = this;
-      
       if(this.currentPage == 'productsByCategory'){
-        this.products = this.commonService.products[this.category].retainProducts;
+        this.products = this.commonService.products[this.category].products;
+        this.filterOptions = this.commonService.products[this.category].filterOptions;
+        this.filterCriteria = this.commonService.products[this.category].filterCriteria;
         this.commonService.setShowSidepanel(true);
         this.commonService.setShowFilterIcon(true);
       }
       else{
-        this.products = this.allProducts;
+        this.category = this.currentPage;
+        this.products = this.commonService.products[this.category].products;
         this.commonService.setShowFilterIcon(false);
         this.commonService.setShowSidepanel(false);
         if(this.currentPage == 'productsBySearch'){
@@ -109,49 +110,133 @@ export class ProductsDisplayComponent implements OnInit {
     this.commonService.filterText = "";
   }
 
-  setFilter(filteredOption, selected, filterOption){
+  setFilter(brand: string, model: string, selected: boolean, filterOption: any){
 
-    if(!this.filteredOptions.includes(filteredOption) && selected){
-
-      if(!filteredOption.includes('All Models')){
-        var index = this.filteredOptions.indexOf(filterOption.brand+'-All Models');
-        if(index != -1){
-          this.filteredOptions.splice(index,1);
-          filterOption.models[0].selected = false;
-        }
-      }
-
-      if(filteredOption.includes('All Models')){
-        for(var i=1; i<filterOption.models.length; i++){
-          filterOption.models[i].selected = false;
-          var index = this.filteredOptions.indexOf(filterOption.brand+'-'+filterOption.models[i].modelname);
-          if(index != -1){
-            this.filteredOptions.splice(index,1);
-          }
-        }
-      }
-      this.filteredOptions.push(filteredOption);
+    var brcat = brand;
+    if(brand == ""){
+      brcat = this.category;
     }
-    else{
-      var index = this.filteredOptions.indexOf(filteredOption);
-      this.filteredOptions.splice(index,1);
+
+    if(this.filterCriteria["$or"] == undefined){
+      this.filterCriteria["$or"] = [];
     }
-    
-    var self = this;
-    this.products = this.allProducts.filter(function(product){
-      if(self.filteredOptions.includes(product.brand+'-'+product.model) || self.filteredOptions.includes(product.brand+'-All Models'))
-      {
-         return true;
-      }
+
+    var index = this.filterCriteria["$or"].findIndex(function(item){
+      return item.brand == brand && item.model == model
     });
 
-    this.commonService.products[this.category].retainProducts = this.products;
-    this.onScreenProducts = [];
-    this.getNextItems();
+    if(index == -1 && selected){
 
+      if(model != 'All '+ brcat +' Models'){
+
+        index = this.filterCriteria["$or"].findIndex(function(item) {
+          return item.brand == brand && item.model == undefined;
+        });
+
+        if(index != -1){
+          this.filterCriteria["$or"].splice(index,1);
+          filterOption.fltrs[0].selected = false;
+        }
+
+        this.filterCriteria["$or"].push({"brand":brand,"model":model});
+      }
+      else{
+
+        for(var i=1; i<filterOption.fltrs.length; i++){
+
+          filterOption.fltrs[i].selected = false;
+
+          index = this.filterCriteria["$or"].findIndex(function(item) {
+            return item.brand == filterOption.fltrTyp;
+          });
+
+          if(index != -1){
+            this.filterCriteria["$or"].splice(index,1);
+          }
+        }
+
+        this.filterCriteria["$or"].push({"brand":brand});
+      }
+    }
+    else{
+
+      if(model != 'All '+ brcat +' Models'){
+        index = this.filterCriteria["$or"].findIndex(function(item) {
+          return item.brand == brand && item.model == model;
+        });
+      }else{
+        index = this.filterCriteria["$or"].findIndex(function(item) {
+          return item.brand == brand && item.model == undefined;
+        });
+      }
+
+      this.filterCriteria["$or"].splice(index,1);
+    }
+
+    this.filterCriteria["category"] = this.category;
+    this.filterCriteria["isActive"] = true;
+
+    this.resetData();
+
+    if(this.filterCriteria["$or"].length !=0){
+      this.showSpinner = true;
+      this.loadData();
+    }
+  }
+
+  loadData(){
+
+    var reqBody = {};
+    reqBody["filterCriteria"] = this.filterCriteria;
+    reqBody["limit"] = 100;
+    reqBody["skip"] = 100 * Math.round(this.products.length/100);
+
+
+    this.ps.GetProductsByFilter(reqBody).subscribe((response: ResponseData)=> {
+      if(response.Status == 1){
+        if(response.DataCount == 0){
+          this.resetData();
+          this.snackbar.open('No Data Available for Selected Filter', 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});
+        }else{
+          this.commonService.products[this.category].count = response.DataCount ? response.DataCount.fltrdCount : 0;
+          this.commonService.products[this.category].products.push(...response.Data.map((product: object) => new Product(product,this.category)));
+          //this.products.push(...response.Data.map((product: object) => new Product(product,this.category)));
+          this.products = this.commonService.products[this.category].products;
+        }
+        this.getNextItems();
+
+      }else{
+        this.resetData();
+        this.snackbar.open(response.Message, 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});
+      }
+      this.showSpinner = false;
+    });
+  }
+
+  highLightCart(data){
+    for(var i=0; i<data.length; i++){
+      data[i].hghLghtCart = false;
+      data[i].qty = 0;
+      this.cs.getItems().forEach(function(item){
+        if(item.productId == data[i].productId){
+          data[i].hghLghtCart = true;
+          data[i].qty = item.qty;
+        }
+      })
+    }
+  }
+
+  resetData(){
+    this.commonService.products[this.category].count = 0;
+    this.commonService.products[this.category].products = [];
+    this.onScreenProducts = [];
+    this.products = [];
   }
 
   onScrollingFinished() {
+    if(this.products.length <  this.commonService.products[this.category].count){
+      this.loadData();
+    }
     this.getNextItems();
   }
 
@@ -159,7 +244,9 @@ export class ProductsDisplayComponent implements OnInit {
     //console.log(this.onScreenProducts.length+" "+this.products.length);
     if (this.onScreenProducts.length < this.products.length) {
       const remainingLength = Math.min(20, this.products.length - this.onScreenProducts.length);
-      this.onScreenProducts.push(...this.products.slice(this.onScreenProducts.length, this.onScreenProducts.length + remainingLength));
+      var dltaOnScrnPrdcts = this.products.slice(this.onScreenProducts.length, this.onScreenProducts.length + remainingLength);
+      this.highLightCart(dltaOnScrnPrdcts);
+      this.onScreenProducts.push(...dltaOnScrnPrdcts);
     }
   }
 
@@ -228,6 +315,7 @@ export class ProductsDisplayComponent implements OnInit {
     }
 
     //product.qty = 0;
+    product.hghLghtCart = true;
 
     this.snackbar.open('Added To Cart..', '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:1000});
   }

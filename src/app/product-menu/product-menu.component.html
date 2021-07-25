@@ -1,7 +1,6 @@
-<div style="display: flex; flex-direction: row; justify-content: flex-start;" class="product-menu">
+<!-- <div style="display: flex; flex-direction: row; justify-content: flex-start;" class="product-menu">
 
     <div style="display: flex; flex-direction: column;">
-        <!-- <a [routerLink]="['/products/productlist/', {category:'All'}]" class="dropdown-item">All products</a> -->
         <a [routerLink]="['/products/productsByCategory/', {category:'BathroomCPFittings'}]" (click)="this.cs.setShowSidepanel(true)" class="dropdown-item">Bathroom CP Fittings</a>
         <a [routerLink]="['/products/productsByCategory/', {category:'Sanitaryware'}]" (click)="this.cs.setShowSidepanel(true)" class="dropdown-item">Sanitaryware</a>
         <a [routerLink]="['/products/productsByCategory/', {category:'ShowerEnclosure'}]" (click)="this.cs.setShowSidepanel(true)" class="dropdown-item">Shower Enclosure</a>
@@ -15,4 +14,24 @@
         <a [routerLink]="['/products/productsByCategory/', {category:'WaterHeaters'}]" (click)="this.cs.setShowSidepanel(true)" class="dropdown-item">Water Heaters</a>
         <a [routerLink]="['/products/productsByCategory/', {category:'Accessories'}]" (click)="this.cs.setShowSidepanel(true)" class="dropdown-item">Accessories</a>
     </div>
+</div> -->
+
+<div style="display: flex; flex-direction: row; justify-content: flex-start;" class="product-menu">
+    <div *ngFor="let col of divideCols;  let i = index">
+        <div style="display: flex; flex-direction: column;">
+            <div *ngFor="let row of noOfRowsPerCol">
+                <a *ngIf="(row + (itemsPerCol*i)) <  categories.length" [routerLink]="['/products/productsByCategory/', {category:categories[row + (itemsPerCol*i)]}]" 
+                (click)="this.cs.setShowSidepanel(true)" class="dropdown-item">{{categories[row + (itemsPerCol*i)]}}</a>
+            </div>
+        </div>
+    </div>
+    <!-- <div style="display: flex; flex-direction: column;">
+        <div *ngFor="let category of categories; let i = index">
+            <a [routerLink]="['/products/productsByCategory/', {category:category}]" (click)="this.cs.setShowSidepanel(true)" class="dropdown-item">{{category}}</a>
+        </div>
+    </div> -->
 </div>
+
+
+
+        <!-- <a [routerLink]="['/products/productlist/', {category:'All'}]" class="dropdown-item">All products</a> -->

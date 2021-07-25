@@ -44,6 +44,14 @@
     color: lawngreen;
 }
 
+.cartHghLght{
+    color: lawngreen;
+}
+
+.cartRmvHghLght{
+    color: #212529;
+}
+
 .numSpinner {
     width: 60px;
     margin: 0px 4px;
@@ -55,7 +63,6 @@
 }
 
 .spinner {
-    margin-left: 50%;
     margin-top: 10%;
     color: lawngreen;
     font-size: 60px;

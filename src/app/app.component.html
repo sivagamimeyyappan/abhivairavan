@@ -5,15 +5,14 @@
             </span>
         <span class="app-subtitle"> Plumbing Materials wholes salers in chennai</span>
         </span>
+        <a class="app-logo" [routerLink]="['/products']" >
+            <img src="/assets/images/FrntIcon.png" width="50px" height="50px">
+        </a>
+        <br>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="fas fa-bars"></span></button>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <input style="float:left" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="commonService.filterText">
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/products/productsBySearch/', {searchText:commonService.filterText}]"><i class="fa fa-search"></i></a>
-                </li>
+                
                 <li class="nav-item dropdown" *ngIf="commonService.user.isAdmin">
                     <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog fa-lg"></i></a>
                     <div class="dropdown-menu" aria-labelledby="adminDropdown">
@@ -47,6 +46,16 @@
                     <div class="dropdown-menu" aria-labelledby="productDropdown">
                         <app-product-menu></app-product-menu>
                     </div>
+                </li>
+                <!-- <li class="nav-item">
+                    <input style="float:left" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="commonService.filterText">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/products/productsBySearch/', {searchText:commonService.filterText}]"><i class="fa fa-search"></i></a>
+                </li> -->
+                <li class="nav-item menuSearch" style="position: relative;">
+                    <input style="float:left" class="form-control mr-sm-2" placeholder="Search" aria-label="Search" [(ngModel)]="commonService.filterText">
+                    <a style="position: absolute; right: 20px;" class="nav-link" [routerLink]="['/products/productsBySearch/', {searchText:commonService.filterText}]"><i class="fa fa-search"></i></a>
                 </li>
             </ul>
         </div>

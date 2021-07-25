@@ -1,26 +1,33 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AsyncSubject, BehaviorSubject, forkJoin, Observable, of } from 'rxjs';
 import { Subject } from 'rxjs/internal/Subject';
+import { mergeMap } from 'rxjs/operators';
+import { PrimaryData } from '../Models/PrimaryData';
+import { Product } from '../Models/Product';
+import { ProductsData } from '../Models/ProductsData';
+import { ResponseData } from '../Models/response';
 import { User } from '../Models/User';
 import { ProductService } from '../services/product.service';
+// import { ManageProductsService } from './manage-products.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CommonService {
 
   showFilterIcon: boolean = false;
   showSidepanel: boolean = false;
   user: User = new User();
   redirectUrl: any =  [];
-  products: any={};
+  products: any = {};
   homepage: any;
   filterText: string = "";
   resetScrollPosition: any = {'X':0, 'Y':0};
+  primaryData: PrimaryData = new PrimaryData();
 
-  categories = ['BathroomCPFittings', 'DomesticPumpsAndMotors', 'PipesandFittings', 'Sanitaryware',
-     'WaterTanks', 'KitchenSink', 'BathTub', 'ShowerEnclosure', 'ShowerPanel', 'BrassValvesandFittings',
-    'WaterHeaters', 'MirrorCabinet', 'Accessories'];
+  public GetModelsDataUrl = "https://avwebapi.abhivairavan.online/essentialdata/GetModels";
+  public GetBrandsDataUrl = "https://avwebapi.abhivairavan.online/essentialdata/GetBrands";
+  public GetCategoriesDataUrl = "https://avwebapi.abhivairavan.online/essentialdata/GetCategories";
 
   statusColors: object = {
     'Pending':{'color': 'orange'}, 
@@ -40,7 +47,7 @@ export class CommonService {
   // private FilterTextSubject = new BehaviorSubject<string>(this.FilterText);
   // public observeFilterText = this.FilterTextSubject.asObservable();
 
-  constructor(private ps: ProductService) { 
+  constructor(private ps: ProductService, private snackbar: MatSnackBar, private http: HttpClient) { 
   }
 
   setShowFilterIcon(value: boolean) {
@@ -67,16 +74,43 @@ export class CommonService {
     return of(confirmation);
   };
 
+  getPrimaryData(){
+
+    var GetPrimaryData = [];
+    GetPrimaryData.push(this.http.get(this.GetModelsDataUrl));
+    GetPrimaryData.push(this.http.get(this.GetBrandsDataUrl));
+    GetPrimaryData.push(this.http.get(this.GetCategoriesDataUrl));
+
+    return forkJoin(GetPrimaryData).toPromise().then((results: ResponseData[]) => {
+      for(var i=0; i<GetPrimaryData.length; i++){
+        if(results[i].Status == 0){
+          this.snackbar.open(results[i].Message, '', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:2000});
+          this.primaryData = new PrimaryData();
+          return;
+        }
+      }
+      this.primaryData.setBrands(results[1].Data);
+      this.primaryData.setModels(results[0].Data);
+      this.primaryData.setCategories(results[2].Data);
+      for(var i=0; i<this.primaryData.getCategories().length; i++){
+        this.products[this.primaryData.getCategories()[i]] = new ProductsData();
+      }
+      this.products["productsBySearch"] = new ProductsData();
+      this.products["productsByModel"] = new ProductsData();
+    });
+  }
+
   GetAllProducts()
   {
     
     var pullData = [];
     var pullDataCategory = [];
+    var result: Product[];
 
-    for(var i=0; i<this.categories.length; i++){
-      if(this.products[this.categories[i]] == undefined){
-        pullData.push(this.ps.getProducts(this.categories[i]));
-        pullDataCategory.push(this.categories[i]);
+    for(var i=0; i<this.primaryData.getCategories().length; i++){
+      if(this.products[this.primaryData.getCategories()[i]] == undefined){
+        pullData.push(this.ps.getProducts(this.primaryData.getCategories()[i]));
+        pullDataCategory.push(this.primaryData.getCategories()[i]);
       }
     }
 
@@ -87,9 +121,12 @@ export class CommonService {
     }
 
     forkJoin(pullData).subscribe(
-        results => {
+      (results: ResponseData[]) => {
           for(var i=0; i<pullDataCategory.length; i++){
-            this.products[pullDataCategory[i]] = {products:results[i]};
+            result = results[i].Data as Product[];
+            result = result.map(product => new Product(product,pullDataCategory[i]));
+            this.products[pullDataCategory[i]] = new ProductsData();
+            this.products[pullDataCategory[i]].products = result;
           }
           this.allProductsLoaded.next(true);
           this.allProductsLoaded.complete();

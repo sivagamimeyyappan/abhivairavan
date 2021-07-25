@@ -22,7 +22,6 @@ export class EnquiriesresolverService  implements Resolve<any>{
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     return this.es.getEnquiries().pipe(
-      take(1),
       mergeMap((response: ResponseData)=> {
         this.colHeadings = ['Question','Email','Phone','Enquiry Date'];
         if(response.Status == 1){

@@ -1,4 +1,4 @@
 export class login{
     CustomerId: string;
-    Password: String;
+    Password: string;
 }

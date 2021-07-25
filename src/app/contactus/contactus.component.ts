@@ -5,6 +5,7 @@ import { enquiry } from '../Models/enquiry';
 import { HttpHeaders } from '@angular/common/http';
 import { ResponseData } from '../Models/response';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { EnquiriesService } from '../services/enquiries.service';
 
 // const httpOptions = {
 //   headers: new HttpHeaders({
@@ -23,11 +24,10 @@ export class ContactusComponent implements OnInit {
   public userPhone: string;
   public userrequest: string;
   public mobNumberPattern = "^((\\+91-?)|0)?[0-9]{10}$"; 
-  public postEnquiryUrl = "https://avwebapi.abhivairavan.online/enquiries/PostEnquiry";
   public postData: enquiry = new enquiry();
   private response: ResponseData  = new ResponseData();
 
-  constructor(private http: HttpClient, private snackbar: MatSnackBar) {
+  constructor(private http: HttpClient, private snackbar: MatSnackBar, private EnqurSrvc: EnquiriesService) {
   }
 
   ngOnInit(): void {
@@ -39,13 +39,13 @@ export class ContactusComponent implements OnInit {
     this.postData.phone = this.userPhone;
     this.postData.date = new Date();
     this.postData.status = "Pending";
-    this.http.post(this.postEnquiryUrl, this.postData).subscribe(data => {
+    this.EnqurSrvc.postEnquiries(this.postData).subscribe(data => {
     this.response = data as ResponseData;
      if(this.response.Status == 1){
       this.snackbar.open('Your Enquiry Submitted Successfully..We will contact you shortly', '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:2000});
      }
      else{
-      this.snackbar.open('Error While Processing Request. '+ this.response.Message+ ' Please try after some time or call us on 08048428253', 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});
+      this.snackbar.open(this.response.Message+ ' Please try after some time or call us on 08048428253', 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});
      }
     })
    };

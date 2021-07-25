@@ -12,6 +12,7 @@ export class OrderService {
   public GetOrdersUrl = "https://avwebapi.abhivairavan.online/orders/GetOrders";
   public GetOrdersbyUserUrl = "https://avwebapi.abhivairavan.online/orders/GetOrdersbyUserId/";
   public GetOrderUrl = "https://avwebapi.abhivairavan.online/orders/GetOrder/";
+  private postOrderUrl = "https://avwebapi.abhivairavan.online/orders/PostOrder";
 
   constructor(private http: HttpClient) { }
 
@@ -28,5 +29,9 @@ export class OrderService {
   getCustomerOrders(userId){
     // return this.http.get('assets/CustomerOrders.json');
     return this.http.get(this.GetOrdersbyUserUrl+userId);
+  }
+
+  postOrder(data: any){
+    return this.http.post(this.postOrderUrl, data);
   }
 }

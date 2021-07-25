@@ -1,8 +1,8 @@
 export class User{
     userId: string;
-    password: String;
-    email: String;
-    phone: String;
+    password: string;
+    email: string;
+    phone: string;
     isAdmin: boolean = false;
     signupDate: Date;
     accessDate: Date;

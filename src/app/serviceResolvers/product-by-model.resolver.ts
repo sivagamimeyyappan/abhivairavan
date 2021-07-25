@@ -1,5 +1,6 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import {
   Router, Resolve,
   RouterStateSnapshot,
@@ -7,6 +8,8 @@ import {
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
+import { Product } from '../Models/Product';
+import { ResponseData } from '../Models/response';
 import { CommonService } from '../services/common.service';
 import { ProductService } from '../services/product.service';
 
@@ -21,7 +24,7 @@ export class ProductByModelResolver implements Resolve<any> {
   products: any;
   
 
-  constructor(private ps: ProductService, private router: Router,  public commonService: CommonService) {}
+  constructor(private ps: ProductService, private router: Router,  public commonService: CommonService, private snackbar: MatSnackBar) {}
   
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
 
@@ -29,29 +32,26 @@ export class ProductByModelResolver implements Resolve<any> {
     this.model = route.paramMap.get('model');
     this.brand = route.paramMap.get('brand');
 
-    if(this.commonService.products[this.category] !=undefined){
-      return this.getProducts(this.commonService.products[this.category].products);
+    if(!this.category || !this.model || !this.brand){
+      return of({});
     }
-    return this.ps.getProducts(this.category).pipe(
-      mergeMap((products: any) => {
-        if (products) {
-          console.log("products not available");
-          this.commonService.products[this.category] = {products:products}
-          this.commonService.GetAllProducts();
-          return this.getProducts(products);
-        }
+
+    var reqBody = {};
+    this.commonService.products["productsByModel"].filterCriteria = {category:this.category,brand:this.brand,model:this.model};
+    reqBody["filterCriteria"] = this.commonService.products["productsByModel"].filterCriteria;
+    reqBody["limit"] = 100;
+    reqBody["skip"] = 0;
+
+    return this.ps.GetProductsByFilter(reqBody).pipe(
+      mergeMap((response: ResponseData)=> {
+      if (response.Status == 0) {
+        this.snackbar.open(response.Message, 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});
+      }else{
+        this.commonService.products["productsByModel"].products.push(...response.Data.map((product: object) => new Product(product, undefined)));
+        this.commonService.products["productsByModel"].count = response.DataCount ? response.DataCount.fltrdCount : 0;
+      }
+      return of({});
       })
     );
-  }
-
-  getProducts(products){
-    var self = this;
-    products = products.filter(function(product){
-      if(product.category == self.category && product.model == self.model && product.brand == self.brand)
-      {
-         return true;
-      }
-    });
-    return of({products:products});
   }
 }

@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient, HttpClientJsonpModule } from '@angular/common/http';
 import { CommonService } from '../services/common.service';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user-service';
 
 @Component({
   selector: 'app-login',
@@ -17,9 +18,8 @@ export class LoginComponent implements OnInit {
   public userpassword: string;
   public postData: User = new User();
   private response: ResponseData  = new ResponseData();
-  public LoginUrl = "https://avwebapi.abhivairavan.online/users/Login";
 
-  constructor(private http: HttpClient, private router: Router, private snackbar: MatSnackBar, private commonService: CommonService) { }
+  constructor(private http: HttpClient, private router: Router, private snackbar: MatSnackBar, private commonService: CommonService, private usrSrvc: UserService) { }
 
   ngOnInit(): void {
   }
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     var redirectUrl = this.commonService.redirectUrl;
     this.postData.userId = this.userid;
     this.postData.password = this.userpassword;
-    this.http.post(this.LoginUrl, this.postData).subscribe(data => {
+    this.usrSrvc.Login(this.postData).subscribe(data => {
     this.response = data as ResponseData;
      if(this.response.Status == 1){
       this.commonService.user.userId = this.userid;

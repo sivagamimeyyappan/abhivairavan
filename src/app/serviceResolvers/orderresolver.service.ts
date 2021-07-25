@@ -26,7 +26,6 @@ export class OrderresolverService implements Resolve<any>{
 
     if(userId == undefined){
       return this.os.getAllOrders().pipe(
-        take(1),
         mergeMap((response: ResponseData)=> {
           this.colHeadings = ['Order ID','Order Name','Customer ID','Order Date','Order Status','Actions'];
           if(response.Status == 1){
@@ -42,7 +41,6 @@ export class OrderresolverService implements Resolve<any>{
     }
     else{
       return this.os.getCustomerOrders(userId).pipe(
-        take(1),
         mergeMap((response: any)=> {
           this.colHeadings = ['Order ID','Order Name','Order Date','Order Status','Actions'];
           if(response.Status == 1){

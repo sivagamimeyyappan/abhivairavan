@@ -5,6 +5,12 @@
     justify-content: flex-start;
 }
 
+@media (max-width: 990px){
+    .admin-menu {
+        background-color: rgba(0, 0, 0, 0.0);
+    }
+}
+
 .admin-menu a {
     color: white;
 }

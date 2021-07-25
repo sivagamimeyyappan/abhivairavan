@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient, HttpClientJsonpModule } from '@angular/common/http';
 import { CommonService } from '../services/common.service';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user-service';
 
 @Component({
   selector: 'app-signup',
@@ -21,9 +22,8 @@ export class SignupComponent implements OnInit {
   public mobNumberPattern = "^((\\+91-?)|0)?[0-9]{10}$"; 
   public postData: User = new User();
   private response: ResponseData  = new ResponseData();
-  public SignUpUrl = "https://avwebapi.abhivairavan.online/users/PostUser";
 
-  constructor(private http: HttpClient, private router: Router, private snackbar: MatSnackBar, private commonService: CommonService) { }
+  constructor(private http: HttpClient, private router: Router, private snackbar: MatSnackBar, private commonService: CommonService, private usrSrvc: UserService) { }
 
   ngOnInit(): void {
   }
@@ -36,7 +36,7 @@ export class SignupComponent implements OnInit {
     this.postData.phone = this.userPhone.trim();
     this.postData.signupDate = new Date();
     this.postData.accessDate = new Date();
-    this.http.post(this.SignUpUrl, this.postData).subscribe(data => {
+    this.usrSrvc.SignUp(this.postData).subscribe(data => {
     this.response = data as ResponseData;
      if(this.response.Status == 1){
       this.commonService.user.userId = this.userid;
@@ -55,5 +55,4 @@ export class SignupComponent implements OnInit {
      }
     })
   };
-
 }

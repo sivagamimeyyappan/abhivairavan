@@ -8,6 +8,7 @@ import { HttpClient, HttpClientJsonpModule } from '@angular/common/http';
 import { ResponseData } from '../Models/response';
 import {FormControl, FormGroupDirective, NgForm, Validators, FormGroup} from '@angular/forms';
 import { ExcelService } from '../services/excel.service';
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-cart',
@@ -21,9 +22,8 @@ export class CartComponent implements OnInit {
   private OrderId: string;
   colHeadings = ['S.No','Image','Item Name','Tax','Qty','MRP','Disc','Discounted Rate','Total',''];
 
-  constructor(private route: ActivatedRoute, private router: Router, public commonService: CommonService, public cartService: CartService, private excelService: ExcelService, private http: HttpClient, private snackbar: MatSnackBar) { }
+  constructor(private route: ActivatedRoute, private router: Router, public commonService: CommonService, public cartService: CartService, private excelService: ExcelService, private http: HttpClient, private snackbar: MatSnackBar, private orderSrvc: OrderService) { }
   public mode: string;
-  private postOrderUrl: string = "https://avwebapi.abhivairavan.online/orders/PostOrder";
   private response: ResponseData  = new ResponseData();
   public cartForm: FormGroup = new FormGroup({
     orderName: new FormControl(this.cartService.order.name, Validators.required)
@@ -124,7 +124,7 @@ export class CartComponent implements OnInit {
       if(this.order.userId == undefined || this.order.userId == '')
         this.order.userId = this.commonService.user.userId;
       this.order.lastModifiedBy = this.commonService.user.userId;
-      this.http.post(this.postOrderUrl, this.order).subscribe(data => {
+      this.orderSrvc.postOrder(this.order).subscribe(data => {
         this.response = data as ResponseData;
          if(this.response.Status == 1){
             this.clearCart();
@@ -137,7 +137,7 @@ export class CartComponent implements OnInit {
             }
          }
          else{
-          this.snackbar.open('Error While Processing Request. '+ this.response.Message + ' Please try after some time or call us on 08048428253.', 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});
+          this.snackbar.open(this.response.Message + ' Please try after some time or call us on 08048428253.', 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});
          }
         })
     }else{

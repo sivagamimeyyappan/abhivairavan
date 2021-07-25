@@ -1,8 +1,14 @@
 import { CdkTextareaAutosize } from "@angular/cdk/text-field";
-import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AbstractControl, FormControl, FormGroup, FormGroupDirective, NgForm, ValidatorFn, Validators } from '@angular/forms';
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { ActivatedRoute } from "@angular/router";
 import { Observable } from 'rxjs';
 import { map, startWith, take } from 'rxjs/operators';
+import { Product } from "../Models/Product";
+import { ResponseData } from "../Models/response";
+import { CommonService } from "../services/common.service";
+import { ManageProductsService } from "../services/manage-products.service";
 
 @Component({
   selector: 'app-manage-products',
@@ -11,25 +17,42 @@ import { map, startWith, take } from 'rxjs/operators';
 })
 export class ManageProductsComponent implements OnInit {
 
-  adminActions: string[] =['Add Product','Update Product','Add Category','DeActivate Category', 'Add Brand', 'DeActivate Brand', 'Add Model', 'DeActivate Model'];
+  adminActions: string[] =['Add Product','Update Product','Add Category','Delete Category', 'Add Brand', 'Delete Brand', 'Add Model', 'Delete Model'];
   currentAction: string = 'Add Product';
+  AddMode: boolean = true;
+  ShowPrdtFlds: boolean = true;
+  oldData: any;
   
   fltrdCtgrys_slctCtgry: Observable<string[]>;
   fltrdBrnds_slctBrnd: Observable<string[]>;
   fltrdMdls_slctMdl: Observable<string[]>;
 
+  prdtSrchCtrl= new FormControl('',[Validators.required]);
+  dActCtrl= new FormControl();
+
+  @ViewChild('formDirective') private adminForm: NgForm;
   public adPrdtFrm: FormGroup = new FormGroup({
-    prdtIDCtrl: new FormControl('',[Validators.required]),
+    prdtIDCtrl: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z0-9]+[a-zA-Z0-9_ ]*$')]),
     mrpCtrl: new FormControl('',[Validators.required, Validators.pattern('^[0-9]+(.[0-9]+)?$')]),
     ctgryCtrl: new FormControl(),
     brndCtrl: new FormControl(),
     mdlCtrl: new FormControl(),
-    descCtrl: new FormControl('',[Validators.required, Validators.maxLength(100)])
+    descCtrl: new FormControl('',[Validators.required, Validators.maxLength(100)]),
+    qtyTypeCtrl: new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]{1,3}')]),
+    taxCtrl: new FormControl('', [Validators.required, Validators.pattern('[0-9]+')]),
+    minUnitCtrl: new FormControl('', [Validators.required, Validators.pattern('[0-9]+')]),
+    
   });
 
-  categories: string[] = ['Bathroom CP Fittings','Sanitaryware','Shower Enclosure','Shower Panel','Bath Tub',
+  /*categories: string[] = ['Bathroom CP Fittings','Sanitaryware','Shower Enclosure','Shower Panel','Bath Tub',
   'Kitchen Sink','Pipes and Fittings','Brass Valves and Fittings','Water Tanks','Domestic Pumps And Motors',
   'Water Heaters','Accessories'];
+  brands: string[] = ['Hindware','Jaquar','Watermen','Queo','Grohe','Kolher','American Standard'];
+  models: string[] = ['Contessa Plus','Classik','Flora','Monroe','Nebula','Oros','Armada'];*/
+
+  categories: string[];
+  brands: string[];
+  models: string[];
 
   fltrdCtgrys_dActCtgry: Observable<string[]>;
 
@@ -38,10 +61,10 @@ export class ManageProductsComponent implements OnInit {
   });
 
   public adCtgryFrm: FormGroup = new FormGroup({
-    adCtgryCtrl: new FormControl('', [Validators.required, Validators.minLength(2)])
+    adCtgryCtrl: new FormControl('', [Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z0-9]+[a-zA-Z0-9_ ]*$')])
   });
 
-  brands: string[] = ['Hindware','Jaquar','Watermen','Queo','Grohe','Kolher','American Standard'];
+  
 
   fltrdBrnds_dActBrnd: Observable<string[]>;
   public rmvBrndFrm: FormGroup = new FormGroup({
@@ -49,10 +72,10 @@ export class ManageProductsComponent implements OnInit {
   });
 
   public adBrndFrm: FormGroup = new FormGroup({
-    adBrndCtrl: new FormControl('', [Validators.required, Validators.minLength(2)])
+    adBrndCtrl: new FormControl('', [Validators.required, Validators.minLength(2),Validators.pattern('^[a-zA-Z0-9]+[a-zA-Z0-9_ ]*$')])
   });
 
-  models: string[] = ['Contessa Plus','Classik','Flora','Monroe','Nebula','Oros','Armada'];
+  
 
   fltrdMdls_dActMdl: Observable<string[]>;
   public rmvMdlFrm: FormGroup = new FormGroup({
@@ -60,14 +83,42 @@ export class ManageProductsComponent implements OnInit {
   });
 
   public adMdlFrm: FormGroup = new FormGroup({
-    adMdlCtrl: new FormControl('', [Validators.required, Validators.minLength(2)])
+    adMdlCtrl: new FormControl('', [Validators.required, Validators.minLength(2),Validators.pattern('^[a-zA-Z0-9]+[a-zA-Z0-9_ ]*$')])
   });
   
-  constructor(private _ngZone: NgZone) { }
+  constructor(private route: ActivatedRoute, private snackbar: MatSnackBar, private commonSrvc: CommonService, private mngProductSrvc: ManageProductsService) { }
 
-  @ViewChild("autosize", { static: false }) autosize: CdkTextareaAutosize;
+  @ViewChild("autosize") autosize: CdkTextareaAutosize;
 
   ngOnInit(): void {
+
+    // this.route.data.subscribe((data) => {
+    //   this.categories = data.response.categories;
+    //   this.models = data.response.models;
+    //   this.brands = data.response.brands;
+    // });
+    this.categories = this.commonSrvc.primaryData.getCategories();
+    this.models = this.commonSrvc.primaryData.getModels();
+    this.brands = this.commonSrvc.primaryData.getBrands();
+    
+    this.commonSrvc.primaryData.observecategories.subscribe(value => {
+      this.categories = value;
+      this.setFilters();
+    });
+    this.commonSrvc.primaryData.observebrands.subscribe(value => {
+      this.brands = value;
+      this.setFilters();
+    });
+    this.commonSrvc.primaryData.observemodels.subscribe(value => {
+      this.models = value;
+      this.setFilters();
+    });
+    this.setFilters();
+    
+  }
+
+  private setFilters(){
+
     this.fltrdCtgrys_dActCtgry = this.rmvCtgryFrm.get("rmvCtgryCtrl")!.valueChanges
     .pipe(
       startWith(''),
@@ -103,42 +154,143 @@ export class ManageProductsComponent implements OnInit {
       startWith(''),
       map(value => this._filterModels(value))
     );
+
   }
 
   private _filterCategories(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.categories.filter(option => option.toLowerCase().includes(filterValue));
+    if(value != null){
+      const filterValue = value.toLowerCase();
+      return this.categories.filter(option => option.toLowerCase().includes(filterValue));
+    }
   }
 
   private _filterBrands(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.brands.filter(option => option.toLowerCase().includes(filterValue));
+    if(value != null){
+      const filterValue = value.toLowerCase();
+      return this.brands.filter(option => option.toLowerCase().includes(filterValue));
+    }
   }
 
   private _filterModels(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.models.filter(option => option.toLowerCase().includes(filterValue));
+    if(value != null){
+      const filterValue = value.toLowerCase();
+      return this.models.filter(option => option.toLowerCase().includes(filterValue));
+    }
   }
 
-  onSubmit() {
+  adminActionChanged(){
+    if(this.currentAction == 'Add Product'){
+      this.AddMode = true;
+      this.ShowPrdtFlds = true;
+    }
+    else if(this.currentAction == 'Update Product'){
+      this.AddMode = false;
+      this.ShowPrdtFlds = false;
+    }
+    this.prdtSrchCtrl.reset();
+    this.dActCtrl.reset();
+    if(this.adminForm){
+      this.adminForm.resetForm();
+    }
+    this.setFilters();
+  }
+
+  searchProduct(){
+    this.ShowPrdtFlds = false;
+    if(this.prdtSrchCtrl.errors == null){
+      this.mngProductSrvc.GetProduct(this.prdtSrchCtrl.value.trim()).subscribe(
+        (response: ResponseData) => {
+          if (response.Status == 1){
+            var prdt = response.Data as Product;
+            this.oldData = prdt;
+            this.adPrdtFrm.get("prdtIDCtrl").setValue(prdt.productId);
+            this.adPrdtFrm.get("mrpCtrl").setValue(prdt.mrp);
+            this.adPrdtFrm.get("ctgryCtrl").setValue(prdt.category);
+            this.adPrdtFrm.get("mdlCtrl").setValue(prdt.model);
+            this.adPrdtFrm.get("brndCtrl").setValue(prdt.brand);
+            this.adPrdtFrm.get("descCtrl").setValue(prdt.desc);
+            //this.adPrdtFrm.get("image").setValue(prdt.productId);
+            this.adPrdtFrm.get("qtyTypeCtrl").setValue(prdt.qtyType);
+            this.adPrdtFrm.get("taxCtrl").setValue(prdt.tax);
+            this.adPrdtFrm.get("minUnitCtrl").setValue(prdt.unit);
+            this.dActCtrl.setValue(!prdt.isActive);
+            this.ShowPrdtFlds = true;
+          }
+          else{
+            this.snackbar.open(response.Message, 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});
+          }
+        });
+      //this.adPrdtFrm.get("prdtIDCtrl").setValue("FR567R");
+    }
+    else{
+      this.ShowPrdtFlds = false;
+    }
+  }
+
+  format(str) {
+    str = str.toLowerCase().split(' ');
+    for (var i = 0; i < str.length; i++) {
+      str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
+    }
+    str = str.join(' ');
+    return str.trim();
+  }
+
+  onSubmit(formData: any, formDirective: FormGroupDirective) {
+    var data: any;
     if(this.currentAction == 'Add Category'){
-      alert('Save Category ' + this.adCtgryFrm.get("adCtgryCtrl")!.value);
+      data = {category: this.format(this.adCtgryFrm.get("adCtgryCtrl")!.value)};
+      this.mngProductSrvc.InsertCategory(data);
     }
-    if(this.currentAction == 'Add Model'){
-      alert('Save Model ' + this.adMdlFrm.get("adMdlCtrl")!.value);
+    else if(this.currentAction == 'Add Model'){
+      data = {model: this.format(this.adMdlFrm.get("adMdlCtrl")!.value)};
+      this.mngProductSrvc.InsertModel(data);
     }
-    if(this.currentAction == 'Add Brand'){
-      alert('Save Brand ' + this.adBrndFrm.get("adBrndCtrl")!.value);
+    else if(this.currentAction == 'Add Brand'){
+      data = {brand: this.format(this.adBrndFrm.get("adBrndCtrl")!.value)};
+      this.mngProductSrvc.InsertBrand(data);
     }
-    if(this.currentAction == 'DeActivate Category'){
-      alert('DeActivate Category ' + this.rmvCtgryFrm.get("rmvCtgryCtrl")!.value);
+    else if(this.currentAction == 'Delete Category'){
+      data = {category: this.rmvCtgryFrm.get("rmvCtgryCtrl")!.value};
+      this.mngProductSrvc.DeleteCategory(data);
     }
-    if(this.currentAction == 'DeActivate Brand'){
-      alert('DeActivate Brand ' + this.rmvBrndFrm.get("rmvBrndCtrl")!.value);
+    else if(this.currentAction == 'Delete Brand'){
+      data = {brand: this.rmvBrndFrm.get("rmvBrndCtrl")!.value};
+      this.mngProductSrvc.DeleteBrand(data);
     }
-    if(this.currentAction == 'DeActivate Model'){
-      alert('DeActivate Model ' + this.rmvMdlFrm.get("rmvMdlCtrl")!.value);
+    else if(this.currentAction == 'Delete Model'){
+      data = {model: this.rmvMdlFrm.get("rmvMdlCtrl")!.value};
+      this.mngProductSrvc.DeleteModel(data);
     }
+
+    else if(this.currentAction == 'Add Product' || this.currentAction == 'Update Product'){
+
+      data = {
+        "productId": this.adPrdtFrm.get("prdtIDCtrl")!.value.trim(),
+        "mrp": this.adPrdtFrm.get("mrpCtrl")!.value,
+        "category": this.adPrdtFrm.get("ctgryCtrl")!.value,
+        "model": this.adPrdtFrm.get("mdlCtrl")!.value,
+        "brand": this.adPrdtFrm.get("brndCtrl")!.value,
+        "desc": this.adPrdtFrm.get("descCtrl")!.value,
+        "img": "/assets/abc.jpg",
+        "qtyType": this.format(this.adPrdtFrm.get("qtyTypeCtrl")!.value),
+        "tax": this.adPrdtFrm.get("taxCtrl")!.value,
+        "unit": this.adPrdtFrm.get("minUnitCtrl")!.value,
+        "isActive": (this.dActCtrl.value == null) ?  true : !this.dActCtrl.value,
+        "lastModifiedBy": this.commonSrvc.user.userId
+      }
+      if(this.currentAction == 'Add Product'){
+        this.mngProductSrvc.AddProduct(data);
+      }else{
+        this.mngProductSrvc.UpdateProduct(data, this.oldData);
+        this.ShowPrdtFlds = false;
+        this.prdtSrchCtrl.reset();
+      }
+    }
+
+    formDirective.resetForm();
+    this.dActCtrl.reset();
+    this.setFilters();
   }
 
 }

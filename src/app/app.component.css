@@ -1,7 +1,15 @@
 .sticky-top {
      z-index: 500;
  }
- 
+
+ .menuSearch i{
+    color:rgba(0, 0, 0, 0.6) !important;
+ }
+
+ .menuSearch i:hover{
+    color:lawngreen !important;
+ }
+
  .appBrand {
      display: flex;
      flex-direction: column;
@@ -24,7 +32,7 @@
      background-color: rgba(0, 0, 0, 0.6);
      color: white;
  }
- 
+
  .bg-myapp a {
      color: white;
  }
@@ -33,34 +41,69 @@
      color: lawngreen;
      cursor: pointer;
  }
- 
- .navbar-light a {
+
+ .bg-myapp a:focus {
+    color: lawngreen;
+}
+
+ .bg-myapp .navbar-nav .show>.nav-link {
+    color: lawngreen;
+}
+
+ /* .navbar-light a {
      color: white !important;
  }
  
  .navbar-light a:hover {
      color: lawngreen !important;
- }
+ }*/
  
- .navbar-light .navbar-toggler {
+ .bg-myapp .navbar-toggler {
      color: white;
      border-color: white;
  }
  
- .navbar-light .navbar-toggler:focus {
+ .bg-myapp .navbar-toggler:focus {
      color: lawngreen;
  }
- 
- .navbar-light .navbar-toggler:hover {
+
+ .bg-myapp .navbar-toggler:hover {
      color: lawngreen;
      border-color: lawngreen;
  }
+
+ .bg-myapp button:focus {
+    outline: 0px;
+ }
+
  .dropdown-menu {
      right: 0 !important;
      left: unset;
      background-color: rgba(0, 0, 0, 0.0);
      border: 0px;
      margin: .400rem 0 0;
+ }
+
+ @media (max-width: 990px){
+    .bg-myapp .navbar-collapse{
+        height: 200px;
+        overflow: auto;
+    }
+    .appBrand{
+        display: none;
+    }
+    .app-logo{
+        display: flex;
+    }
+ }
+
+ @media (min-width: 991px){
+    .appBrand{
+        display: flex;
+    }
+    .app-logo{
+        display: none;
+    }
  }
  
  #snackbar {

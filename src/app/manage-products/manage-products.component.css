@@ -27,3 +27,25 @@
 .full-width {
     width: 100%;
 }
+
+.searchIcon{
+    font-size: 28px !important;
+}
+.searchIcon:hover{
+    color: lawngreen !important;
+}
+.searchIcon:focus{
+    outline: 5px lawngreen !important;
+}
+
+::ng-deep .mat-checkbox-ripple .mat-ripple-element {
+    background-color: lawngreen !important;
+  }
+  
+  ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: lawngreen !important;
+  }
+  
+  ::ng-deep .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: lawngreen !important;
+  }

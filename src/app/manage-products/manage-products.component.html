@@ -1,231 +1,274 @@
 <div class="container">
-    <div class="row">
-        <div class="col-12 col-sm-12 col-md-4 offset-md-4">
-            <br>
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-4 offset-md-4">
+      <br>
 
-            <mat-form-field class="full-width">
-                <mat-label>Admin Actions</mat-label>
-                <mat-select [(value)] = currentAction>
-                  <mat-option *ngFor="let action of adminActions" [value]="action">
-                    {{action}}
-                  </mat-option>
-                </mat-select>
-            </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Admin Actions</mat-label>
+        <mat-select [(value)]=currentAction (selectionChange)="adminActionChanged()">
+          <mat-option *ngFor="let action of adminActions" [value]="action">
+            {{action}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-            <div *ngIf="currentAction === 'Add Product'">
-                <form [formGroup]="adPrdtFrm" (ngSubmit)="onSubmit()">
+      <div *ngIf="currentAction === 'Add Product' || currentAction === 'Update Product'">
 
-                    <mat-form-field class="full-width">
-                        <input matInput formControlName ="prdtIDCtrl" placeholder="Product ID">
-                          <mat-error *ngIf="this.adPrdtFrm.get('prdtIDCtrl')!.hasError('required')">
-                            Key In Product ID.
-                          </mat-error>
-                    </mat-form-field>
+        <mat-form-field *ngIf="!AddMode" class="full-width">
+          <input matInput [formControl]="prdtSrchCtrl" placeholder="Enter Product ID to Search" type="search">
+          <button mat-icon-button matSuffix (click)="searchProduct()" class="searchIcon">
+            <mat-icon>search</mat-icon>
+          </button>
+          <mat-error *ngIf="prdtSrchCtrl.hasError('required')">
+            Key In Product ID to Search.
+          </mat-error>
+        </mat-form-field>
 
-                    <mat-form-field class="full-width">
-                        <input matInput formControlName ="mrpCtrl" placeholder="MRP">
-                          <mat-error *ngIf="this.adPrdtFrm.get('mrpCtrl')!.hasError('pattern')">
-                            Key In Valid Price.
-                          </mat-error>
-                          <mat-error *ngIf="this.adPrdtFrm.get('mrpCtrl')!.hasError('required')">
-                            Key In MRP.
-                          </mat-error>
-                    </mat-form-field>
 
-                    <mat-form-field class="full-width">
-                        <mat-label>Select Category</mat-label>
-                        <input type="text"
-                               matInput
-                               formControlName="ctgryCtrl"
-                               [autocompleteStringValidator]="this.categories"
-                               [matAutocomplete]="autoSlctCtgry">
-                            <mat-error *ngIf="this.adPrdtFrm.get('ctgryCtrl')!.hasError('invalidAutocompleteString')">
-                                Please Select Valid Category
-                            </mat-error>
-                        <mat-autocomplete #autoSlctCtgry="matAutocomplete">
-                          <mat-option *ngFor="let category of fltrdCtgrys_slctCtgry | async" [value]="category">
-                            {{category}}
-                          </mat-option>
-                        </mat-autocomplete>
-                      </mat-form-field>
+        <form *ngIf="ShowPrdtFlds" [formGroup]="adPrdtFrm" #formDirective="ngForm" (ngSubmit)="onSubmit(adPrdtFrm, formDirective)">
+          <mat-form-field class="full-width">
+            <input matInput formControlName="prdtIDCtrl" placeholder="Product ID">
+            <mat-error *ngIf="this.adPrdtFrm.get('prdtIDCtrl')!.hasError('pattern')">
+              Key In Valid ProductId.
+            </mat-error>
+            <mat-error *ngIf="this.adPrdtFrm.get('prdtIDCtrl')!.hasError('required')">
+              Key In Product ID.
+            </mat-error>
+          </mat-form-field>
 
-                      <mat-form-field class="full-width">
-                        <mat-label>Select Brand</mat-label>
-                        <input type="text"
-                               matInput
-                               formControlName="brndCtrl"
-                               [autocompleteStringValidator]="this.brands"
-                               [matAutocomplete]="autoSlctBrnd">
-                            <mat-error *ngIf="this.adPrdtFrm.get('brndCtrl')!.hasError('invalidAutocompleteString')">
-                                Please Select Valid Brand
-                            </mat-error>
-                        <mat-autocomplete #autoSlctBrnd="matAutocomplete">
-                          <mat-option *ngFor="let brand of fltrdBrnds_slctBrnd | async" [value]="brand">
-                            {{brand}}
-                          </mat-option>
-                        </mat-autocomplete>
-                      </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput formControlName="mrpCtrl" placeholder="MRP">
+            <mat-error *ngIf="this.adPrdtFrm.get('mrpCtrl')!.hasError('pattern')">
+              Key In Valid Price.
+            </mat-error>
+            <mat-error *ngIf="this.adPrdtFrm.get('mrpCtrl')!.hasError('required')">
+              Key In MRP.
+            </mat-error>
+          </mat-form-field>
 
-                      <mat-form-field class="full-width">
-                        <mat-label>Select Model</mat-label>
-                        <input type="text"
-                               matInput
-                               formControlName="mdlCtrl"
-                               [autocompleteStringValidator]="this.models"
-                               [matAutocomplete]="autoSlctMdl">
-                            <mat-error *ngIf="this.adPrdtFrm.get('mdlCtrl')!.hasError('invalidAutocompleteString')">
-                                Please Select Valid Model
-                            </mat-error>
-                        <mat-autocomplete #autoSlctMdl="matAutocomplete">
-                          <mat-option *ngFor="let model of fltrdMdls_slctMdl | async" [value]="model">
-                            {{model}}
-                          </mat-option>
-                        </mat-autocomplete>
-                      </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Select Category</mat-label>
+            <input type="text" matInput formControlName="ctgryCtrl" [autocompleteStringValidator]="this.categories"
+              [matAutocomplete]="autoSlctCtgry">
+            <mat-error *ngIf="this.adPrdtFrm.get('ctgryCtrl')!.hasError('invalidAutocompleteString')">
+              Please Select Valid Category
+            </mat-error>
+            <mat-autocomplete #autoSlctCtgry="matAutocomplete">
+              <mat-option *ngFor="let category of fltrdCtgrys_slctCtgry | async" [value]="category">
+                {{category}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
 
-                      <mat-form-field class="full-width">
-                        <mat-label>Product Description</mat-label>
-                        <textarea matInput
-                            cdkTextareaAutosize
-                            #autosize="cdkTextareaAutosize"></textarea>
-                        <mat-error *ngIf="this.adPrdtFrm.get('descCtrl')!.hasError('maxlength') && !this.adPrdtFrm.get('descCtrl')!.hasError('required')">
-                        Only Maximum of 100 Characters allowed.
-                        </mat-error>
-                        <mat-error *ngIf="this.adPrdtFrm.get('descCtrl')!.hasError('required')">
-                        Key In Category Name.
-                        </mat-error>
-                      </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Select Brand</mat-label>
+            <input type="text" matInput formControlName="brndCtrl" [autocompleteStringValidator]="this.brands"
+              [matAutocomplete]="autoSlctBrnd">
+            <mat-error *ngIf="this.adPrdtFrm.get('brndCtrl')!.hasError('invalidAutocompleteString')">
+              Please Select Valid Brand
+            </mat-error>
+            <mat-autocomplete #autoSlctBrnd="matAutocomplete">
+              <mat-option *ngFor="let brand of fltrdBrnds_slctBrnd | async" [value]="brand">
+                {{brand}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
 
-                    <button [disabled]="adPrdtFrm.invalid" type="submit" class="btn btn-AdPrdt btn-lg btn-block">Add Product</button>
-                </form>
-            </div>
-            <div *ngIf="currentAction === 'Update Product'">
-                <span>
-                    I am Update Product
-                </span>
-            </div>
-            <div *ngIf="currentAction === 'Add Category'">
-                <br>
-                <form [formGroup]="adCtgryFrm" (ngSubmit)="onSubmit()">
+          <mat-form-field class="full-width">
+            <mat-label>Select Model</mat-label>
+            <input type="text" matInput formControlName="mdlCtrl" [autocompleteStringValidator]="this.models"
+              [matAutocomplete]="autoSlctMdl">
+            <mat-error *ngIf="this.adPrdtFrm.get('mdlCtrl')!.hasError('invalidAutocompleteString')">
+              Please Select Valid Model
+            </mat-error>
+            <mat-autocomplete #autoSlctMdl="matAutocomplete">
+              <mat-option *ngFor="let model of fltrdMdls_slctMdl | async" [value]="model">
+                {{model}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
 
-                    <mat-form-field class="full-width">
-                        <input matInput formControlName ="adCtgryCtrl" placeholder="Category Name">
-                        <mat-error *ngIf="this.adCtgryFrm.get('adCtgryCtrl')!.hasError('minlength') && !this.adCtgryFrm.get('adCtgryCtrl')!.hasError('required')">
-                            Key In Minimum 2 Characters
-                          </mat-error>
-                          <mat-error *ngIf="this.adCtgryFrm.get('adCtgryCtrl')!.hasError('required')">
-                            Key In Category Name.
-                          </mat-error>
-                    </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Product Description</mat-label>
+            <textarea matInput formControlName="descCtrl" cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="1" cdkAutosizeMaxRows="3"></textarea>
+            <mat-error *ngIf="this.adPrdtFrm.get('descCtrl')!.hasError('maxlength')">
+              Only Maximum of 100 Characters allowed.
+            </mat-error>
+            <mat-error *ngIf="this.adPrdtFrm.get('descCtrl')!.hasError('required')">
+              Key In Category Name.
+            </mat-error>
+          </mat-form-field>
 
-                    <button [disabled]="adCtgryFrm.invalid" type="submit" class="btn btn-AdCtgry btn-lg btn-block">Add Category</button>
-                </form>
-            </div>
-            <div *ngIf="currentAction === 'DeActivate Category'">
-                <br>
-                <form  [formGroup]="rmvCtgryFrm">
-                    <mat-form-field class="full-width">
-                        <mat-label>Select Category</mat-label>
-                        <input type="text"
-                               matInput
-                               formControlName="rmvCtgryCtrl"
-                               [autocompleteStringValidator]="this.categories"
-                               [matAutocomplete]="autoDActCtgry">
-                            <mat-error *ngIf="this.rmvCtgryFrm.get('rmvCtgryCtrl')!.hasError('invalidAutocompleteString')">
-                                Please Select Category to DeActivate
-                            </mat-error>
-                        <mat-autocomplete #autoDActCtgry="matAutocomplete">
-                          <mat-option *ngFor="let category of fltrdCtgrys_dActCtgry | async" [value]="category">
-                            {{category}}
-                          </mat-option>
-                        </mat-autocomplete>
-                      </mat-form-field>
-    
-                      <button [disabled]="rmvCtgryFrm.invalid" type="submit" class="btn btn-rmvCtgry btn-lg btn-block" (click)="onSubmit()">DeActivate Category</button>
-                </form>
-            </div>
-            <div *ngIf="currentAction === 'Add Brand'">
-                <br>
-                <form [formGroup]="adBrndFrm" (ngSubmit)="onSubmit()">
+          <mat-form-field class="full-width">
+            <input matInput formControlName="qtyTypeCtrl" placeholder="Measurement Unit (No/Mtr/kg etc..)">
+            <mat-error *ngIf="this.adPrdtFrm.get('qtyTypeCtrl')!.hasError('pattern')">
+              Key In Valid Unit of Measurement with Maximum of 3 Characters
+            </mat-error>
+            <mat-error *ngIf="this.adPrdtFrm.get('qtyTypeCtrl')!.hasError('required')">
+              Key In Measurement Unit.
+            </mat-error>
+          </mat-form-field>
 
-                    <mat-form-field class="full-width">
-                        <input matInput formControlName ="adBrndCtrl" placeholder="Brand Name">
-                        <mat-error *ngIf="this.adBrndFrm.get('adBrndCtrl')!.hasError('minlength') && !this.adBrndFrm.get('adBrndCtrl')!.hasError('required')">
-                            Key In Minimum 2 Characters
-                          </mat-error>
-                          <mat-error *ngIf="this.adBrndFrm.get('adBrndCtrl')!.hasError('required')">
-                            Key In Brand Name.
-                          </mat-error>
-                    </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput formControlName="taxCtrl" placeholder="Tax Percentage">
+            <mat-error *ngIf="this.adPrdtFrm.get('taxCtrl')!.hasError('pattern')">
+              Key In Valid Tax Percentage
+            </mat-error>
+            <mat-error *ngIf="this.adPrdtFrm.get('taxCtrl')!.hasError('required')">
+              Key In Tax Percentage.
+            </mat-error>
+          </mat-form-field>
 
-                    <button [disabled]="adBrndFrm.invalid" type="submit" class="btn btn-AdBrnd btn-lg btn-block">Add Brand</button>
-                </form>
-            </div>
-            <div *ngIf="currentAction === 'DeActivate Brand'">
-                <br>
-                <form  [formGroup]="rmvBrndFrm">
+          <mat-form-field class="full-width">
+            <input matInput formControlName="minUnitCtrl" placeholder="Minimum Order Quantity">
+            <mat-error *ngIf="this.adPrdtFrm.get('minUnitCtrl')!.hasError('pattern')">
+              Key In Valid Minimum Order Quantity
+            </mat-error>
+            <mat-error *ngIf="this.adPrdtFrm.get('minUnitCtrl')!.hasError('required')">
+              Key In Minimum Order Quantity.
+            </mat-error>
+          </mat-form-field>
 
-                    <mat-form-field class="full-width">
-                        <mat-label>Select Brand</mat-label>
-                        <input type="text"
-                               matInput
-                               formControlName="rmvBrndCtrl"
-                               [autocompleteStringValidator]="this.brands"
-                               [matAutocomplete]="autoDActBrnd">
-                            <mat-error *ngIf="this.rmvBrndFrm.get('rmvBrndCtrl')!.hasError('invalidAutocompleteString')">
-                                Please Select Brand to DeActivate
-                            </mat-error>
-                        <mat-autocomplete #autoDActBrnd="matAutocomplete">
-                          <mat-option *ngFor="let brand of fltrdBrnds_dActBrnd | async" [value]="brand">
-                            {{brand}}
-                          </mat-option>
-                        </mat-autocomplete>
-                      </mat-form-field>
-    
-                      <button [disabled]="rmvBrndFrm.invalid" type="submit" class="btn btn-rmvBrnd btn-lg btn-block" (click)="onSubmit()">DeActivate Brand</button>
-                </form>
-            </div>
-            <div *ngIf="currentAction === 'Add Model'">
-                <br>
-                <form [formGroup]="adMdlFrm" (ngSubmit)="onSubmit()">
+          <mat-checkbox *ngIf="!AddMode" [formControl]="dActCtrl" class="dActChckBx">Delete</mat-checkbox>
+          
 
-                    <mat-form-field class="full-width">
-                        <input matInput formControlName ="adMdlCtrl" placeholder="Brand Name">
-                        <mat-error *ngIf="this.adMdlFrm.get('adMdlCtrl')!.hasError('minlength') && !this.adMdlFrm.get('adMdlCtrl')!.hasError('required')">
-                            Key In Minimum 2 Characters
-                          </mat-error>
-                          <mat-error *ngIf="this.adMdlFrm.get('adMdlCtrl')!.hasError('required')">
-                            Key In Model Name.
-                          </mat-error>
-                    </mat-form-field>
+          <button *ngIf="AddMode" [disabled]="adPrdtFrm.invalid" type="submit"
+            class="btn btn-AdPrdt btn-lg btn-block">Add Product</button>
+          <button *ngIf="!AddMode" [disabled]="adPrdtFrm.invalid" type="submit"
+            class="btn btn-AdPrdt btn-lg btn-block">Update Product</button>
+        </form>
+      </div>
+      <div *ngIf="currentAction === 'Add Category'">
+        <br>
+        <form [formGroup]="adCtgryFrm" #formDirective="ngForm" (ngSubmit)="onSubmit(adCtgryFrm, formDirective)">
 
-                    <button [disabled]="adMdlFrm.invalid" type="submit" class="btn btn-AdMdl btn-lg btn-block">Add Model</button>
-                </form>
-            </div>
-            <div *ngIf="currentAction === 'DeActivate Model'">
-                <br>
-                <form  [formGroup]="rmvMdlFrm">
+          <mat-form-field class="full-width">
+            <input matInput formControlName="adCtgryCtrl" placeholder="Category Name">
+            <mat-error
+              *ngIf="this.adCtgryFrm.get('adCtgryCtrl')!.hasError('minlength') && !this.adCtgryFrm.get('adCtgryCtrl')!.hasError('required')">
+              Key In Minimum 2 Characters
+            </mat-error>
+            <mat-error *ngIf="this.adCtgryFrm.get('adCtgryCtrl')!.hasError('required')">
+              Key In Category Name.
+            </mat-error>
+            <mat-error *ngIf="this.adCtgryFrm.get('adCtgryCtrl')!.hasError('pattern')">
+              Key In Valid Category Name
+            </mat-error>
+          </mat-form-field>
 
-                    <mat-form-field class="full-width">
-                        <mat-label>Select Model</mat-label>
-                        <input type="text"
-                               matInput
-                               formControlName="rmvMdlCtrl"
-                               [autocompleteStringValidator]="this.models"
-                               [matAutocomplete]="autoDActMdl">
-                            <mat-error *ngIf="this.rmvMdlFrm.get('rmvMdlCtrl')!.hasError('invalidAutocompleteString')">
-                                Please Select Model to DeActivate
-                            </mat-error>
-                        <mat-autocomplete #autoDActMdl="matAutocomplete">
-                          <mat-option *ngFor="let model of fltrdMdls_dActMdl | async" [value]="model">
-                            {{model}}
-                          </mat-option>
-                        </mat-autocomplete>
-                      </mat-form-field>
-    
-                      <button [disabled]="rmvMdlFrm.invalid" type="submit" class="btn btn-rmvMdl btn-lg btn-block" (click)="onSubmit()">DeActivate Model</button>
-                </form>
-            </div>
-        </div>
+          <button [disabled]="adCtgryFrm.invalid" type="submit" class="btn btn-AdCtgry btn-lg btn-block">Add
+            Category</button>
+        </form>
+      </div>
+      <div *ngIf="currentAction === 'Delete Category'">
+        <br>
+        <form [formGroup]="rmvCtgryFrm" #formDirective="ngForm" >
+          <mat-form-field class="full-width">
+            <mat-label>Select Category</mat-label>
+            <input type="text" matInput formControlName="rmvCtgryCtrl" [autocompleteStringValidator]="this.categories"
+              [matAutocomplete]="autoDActCtgry">
+            <mat-error *ngIf="this.rmvCtgryFrm.get('rmvCtgryCtrl')!.hasError('invalidAutocompleteString')">
+              Please Select Category to Delete
+            </mat-error>
+            <mat-autocomplete #autoDActCtgry="matAutocomplete">
+              <mat-option *ngFor="let category of fltrdCtgrys_dActCtgry | async" [value]="category">
+                {{category}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+          <button [disabled]="rmvCtgryFrm.invalid" type="submit" class="btn btn-rmvCtgry btn-lg btn-block"
+            (click)="onSubmit(rmvCtgryFrm, formDirective)">Delete Category</button>
+        </form>
+      </div>
+      <div *ngIf="currentAction === 'Add Brand'">
+        <br>
+        <form [formGroup]="adBrndFrm" #formDirective="ngForm" (ngSubmit)="onSubmit(adBrndFrm,formDirective)">
+
+          <mat-form-field class="full-width">
+            <input matInput formControlName="adBrndCtrl" placeholder="Brand Name">
+            <mat-error
+              *ngIf="this.adBrndFrm.get('adBrndCtrl')!.hasError('minlength') && !this.adBrndFrm.get('adBrndCtrl')!.hasError('required')">
+              Key In Minimum 2 Characters
+            </mat-error>
+            <mat-error *ngIf="this.adBrndFrm.get('adBrndCtrl')!.hasError('required')">
+              Key In Brand Name.
+            </mat-error>
+            <mat-error *ngIf="this.adBrndFrm.get('adBrndCtrl')!.hasError('pattern')">
+              Key In Valid Brand Name
+            </mat-error>
+          </mat-form-field>
+
+          <button [disabled]="adBrndFrm.invalid" type="submit" class="btn btn-AdBrnd btn-lg btn-block">Add
+            Brand</button>
+        </form>
+      </div>
+      <div *ngIf="currentAction === 'Delete Brand'">
+        <br>
+        <form [formGroup]="rmvBrndFrm" #formDirective="ngForm">
+
+          <mat-form-field class="full-width">
+            <mat-label>Select Brand</mat-label>
+            <input type="text" matInput formControlName="rmvBrndCtrl" [autocompleteStringValidator]="this.brands"
+              [matAutocomplete]="autoDActBrnd">
+            <mat-error *ngIf="this.rmvBrndFrm.get('rmvBrndCtrl')!.hasError('invalidAutocompleteString')">
+              Please Select Brand to Delete
+            </mat-error>
+            <mat-autocomplete #autoDActBrnd="matAutocomplete">
+              <mat-option *ngFor="let brand of fltrdBrnds_dActBrnd | async" [value]="brand">
+                {{brand}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+          <button [disabled]="rmvBrndFrm.invalid" type="submit" class="btn btn-rmvBrnd btn-lg btn-block"
+            (click)="onSubmit(rmvBrndFrm,formDirective)">Delete Brand</button>
+        </form>
+      </div>
+      <div *ngIf="currentAction === 'Add Model'">
+        <br>
+        <form [formGroup]="adMdlFrm" #formDirective="ngForm" (ngSubmit)="onSubmit(adMdlFrm,formDirective)">
+
+          <mat-form-field class="full-width">
+            <input matInput formControlName="adMdlCtrl" placeholder="Model Name">
+            <mat-error
+              *ngIf="this.adMdlFrm.get('adMdlCtrl')!.hasError('minlength') && !this.adMdlFrm.get('adMdlCtrl')!.hasError('required')">
+              Key In Minimum 2 Characters
+            </mat-error>
+            <mat-error *ngIf="this.adMdlFrm.get('adMdlCtrl')!.hasError('required')">
+              Key In Model Name.
+            </mat-error>
+            <mat-error *ngIf="this.adMdlFrm.get('adMdlCtrl')!.hasError('pattern')">
+              Key In Valid Model Name
+            </mat-error>
+          </mat-form-field>
+
+          <button [disabled]="adMdlFrm.invalid" type="submit" class="btn btn-AdMdl btn-lg btn-block">Add Model</button>
+        </form>
+      </div>
+      <div *ngIf="currentAction === 'Delete Model'">
+        <br>
+        <form [formGroup]="rmvMdlFrm" #formDirective="ngForm">
+
+          <mat-form-field class="full-width">
+            <mat-label>Select Model</mat-label>
+            <input type="text" matInput formControlName="rmvMdlCtrl" [autocompleteStringValidator]="this.models"
+              [matAutocomplete]="autoDActMdl">
+            <mat-error *ngIf="this.rmvMdlFrm.get('rmvMdlCtrl')!.hasError('invalidAutocompleteString')">
+              Please Select Model to Delete
+            </mat-error>
+            <mat-autocomplete #autoDActMdl="matAutocomplete">
+              <mat-option *ngFor="let model of fltrdMdls_dActMdl | async" [value]="model">
+                {{model}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+          <button [disabled]="rmvMdlFrm.invalid" type="submit" class="btn btn-rmvMdl btn-lg btn-block"
+            (click)="onSubmit(rmvMdlFrm, formDirective)">Delete Model</button>
+        </form>
+      </div>
     </div>
+  </div>
 </div>

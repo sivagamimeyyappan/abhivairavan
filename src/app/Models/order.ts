@@ -1,14 +1,14 @@
 export class Order{
     orderId: string;
-    name: String;
-    userId: String;
+    name: string;
+    userId: string;
     date: Date;
     status: string;
     items = [];
     cartTotal: number = 0;
     cashDiscount: number = 0;
     taxPercentages: any = new Object();
-    lastModifiedBy: String;
+    lastModifiedBy: string;
 
     constructor(){
         var orderId = Date.now().toString() + Math.floor(Math.random() * 10);
