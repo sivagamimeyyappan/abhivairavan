@@ -31,7 +31,7 @@ export class SignupComponent implements OnInit {
   onSubmit() { 
     var redirectUrl = this.commonService.redirectUrl;
     this.postData.userId = this.userid.trim();
-    this.postData.password = this.userpassword.trim();
+    this.postData.password = btoa(this.userpassword.trim());
     this.postData.email = this.useremail.trim();
     this.postData.phone = this.userPhone.trim();
     this.postData.signupDate = new Date();

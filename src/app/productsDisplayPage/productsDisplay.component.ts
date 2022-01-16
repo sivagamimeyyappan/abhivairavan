@@ -7,6 +7,7 @@ import { ResponseData } from '../Models/response';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../Models/Product';
 import { ProductService } from '../services/product.service';
+import { ThrowStmt } from '@angular/compiler';
 
 
 @Component({
@@ -30,6 +31,8 @@ export class ProductsDisplayComponent implements OnInit {
   showModal: boolean = false;
   @Input() imagepath: string; 
   showSpinner: boolean = false;
+  webAPIFunc: any;
+  expctdDatacunt: number = 0;
 
   imgWidthByCategory = {'BathroomCPFittings': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
   'Sanitaryware': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
@@ -45,18 +48,21 @@ export class ProductsDisplayComponent implements OnInit {
   'Accessories': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'}
 };
 
-  cardWidthByCategory = {'BathroomCPFittings': {'width': '300px'},
-  'Sanitaryware': {'width': '300px'},
-  'ShowerEnclosure': {'width': '300px'},
-  'ShowerPanel': {'width': '300px'},
-  'BathTub': {'width': '300px'},
-  'KitchenSink': {'width': '300px'},
-  'PipesandFittings': {'width': '300px'},
-  'BrassValvesandFittings': {'width': '300px'},
-  'WaterTanks': {'width': '300px'},
-  'DomesticPumpsAndMotors': {'width': '300px'},
-  'WaterHeaters': {'width': '300px'},
-  'Accessories': {'width': '300px'}
+  cardImgSizByCategory = {'Bathroom CP Fittings': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'Sanitaryware': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'Shower Enclosure': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'Shower Panel': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'Bathtub': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'Kitchen Sink': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'Pipes & Fittings': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'Brass Valves & Fittings': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'Water Tanks': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'Domestic Pumps & Motors': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'Water Heaters': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'Steam Generator': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'Mirror & Cabinets': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'Accessories': {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'},
+  'Tiles': {'min-width': '298px', 'min-height':'150px','max-width': '298px', 'max-height':'150px'}
 };
   
   constructor(private route: ActivatedRoute, public cs: CartService, public commonService: CommonService, private snackbar: MatSnackBar, private ps: ProductService) {
@@ -81,6 +87,7 @@ export class ProductsDisplayComponent implements OnInit {
     this.route.data.subscribe((data) => {
 
       if(this.currentPage == 'productsByCategory'){
+        this.expctdDatacunt = 0;
         this.products = this.commonService.products[this.category].products;
         this.filterOptions = this.commonService.products[this.category].filterOptions;
         this.filterCriteria = this.commonService.products[this.category].filterCriteria;
@@ -88,15 +95,19 @@ export class ProductsDisplayComponent implements OnInit {
         this.commonService.setShowFilterIcon(true);
       }
       else{
+        this.expctdDatacunt = 100;
         this.category = this.currentPage;
         this.products = this.commonService.products[this.category].products;
+        this.filterCriteria = this.commonService.products[this.category].filterCriteria;
         this.commonService.setShowFilterIcon(false);
         this.commonService.setShowSidepanel(false);
+        this.cardImgSizByCategory[this.currentPage] = {'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'};
         if(this.currentPage == 'productsBySearch'){
+          this.webAPIFunc = this.ps.GetProductsBySearch;
           this.commonService.filterText = this.filterText;
         }
       }
-
+      
       this.onScreenProducts = [];
       this.getNextItems();
       console.log("Products page getNextItems finished");
@@ -191,20 +202,30 @@ export class ProductsDisplayComponent implements OnInit {
     reqBody["limit"] = 100;
     reqBody["skip"] = 100 * Math.round(this.products.length/100);
 
+    if(this.expctdDatacunt > reqBody["skip"]){
+      return;
+    }
+    console.log(this.expctdDatacunt+" "+this.products.length);
+    this.expctdDatacunt += 100;
+    if(this.currentPage == 'productsBySearch'){
+      this.webAPIFunc = this.ps.GetProductsBySearch(reqBody);
+    }
+    else{
+      this.webAPIFunc = this.ps.GetProductsByFilter(reqBody);
+    }
 
-    this.ps.GetProductsByFilter(reqBody).subscribe((response: ResponseData)=> {
+    this.webAPIFunc.subscribe((response: ResponseData)=> {
       if(response.Status == 1){
         if(response.DataCount == 0){
           this.resetData();
           this.snackbar.open('No Data Available for Selected Filter', 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});
         }else{
-          this.commonService.products[this.category].count = response.DataCount ? response.DataCount.fltrdCount : 0;
+          this.commonService.products[this.category].count = response.DataCount.fltrdCount;
           this.commonService.products[this.category].products.push(...response.Data.map((product: object) => new Product(product,this.category)));
           //this.products.push(...response.Data.map((product: object) => new Product(product,this.category)));
           this.products = this.commonService.products[this.category].products;
         }
         this.getNextItems();
-
       }else{
         this.resetData();
         this.snackbar.open(response.Message, 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});
@@ -227,6 +248,7 @@ export class ProductsDisplayComponent implements OnInit {
   }
 
   resetData(){
+    this.expctdDatacunt = 0;
     this.commonService.products[this.category].count = 0;
     this.commonService.products[this.category].products = [];
     this.onScreenProducts = [];

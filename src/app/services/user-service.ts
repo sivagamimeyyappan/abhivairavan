@@ -7,8 +7,10 @@ import { timeStamp } from 'console';
 })
 export class UserService {
 
-  public LoginUrl = "https://avwebapi.abhivairavan.online/users/Login";
-  public SignUpUrl = "https://avwebapi.abhivairavan.online/users/PostUser";
+  public LoginUrl = "https://abhivairavan.online/webapi/users/Login";
+  public SignUpUrl = "https://abhivairavan.online/webapi/users/PostUser";
+  //public LoginUrl =  "http://localhost:5000/webapi/users/Login";
+  //public SignUpUrl = "http://localhost:5000/webapi/users/PostUser";
 
   constructor(private http: HttpClient) { }
 

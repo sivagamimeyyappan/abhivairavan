@@ -8,11 +8,11 @@ import { Product } from '../Models/Product';
 export class ProductService {
   products: any;
 
-  public GetProductsByCategoryUrl = "https://avwebapi.abhivairavan.online/products/GetProductsByCategory/";
-  public GetProductsByFilterUrl = "https://avwebapi.abhivairavan.online/products/GetProductsByFilter";
-  public GetProductsBySearchUrl = "https://avwebapi.abhivairavan.online/products/GetProductsBySearch/";
-  public GetFilterOptionsUrl = "https://avwebapi.abhivairavan.online/filterOptions/GetFilterOptions/";
-  public GetHomePageUrl = "https://avwebapi.abhivairavan.online/essentialdata/GetHomePage/"
+  public GetProductsByCategoryUrl = "https://abhivairavan.online/webapi/products/GetProductsByCategory/";
+  public GetProductsByFilterUrl = "https://abhivairavan.online/webapi/products/GetProductsByFilter";
+  public GetProductsBySearchUrl = "https://abhivairavan.online/webapi/products/GetProductsBySearch/";
+  public GetFilterOptionsUrl = "https://abhivairavan.online/webapi/filterOptions/GetFilterOptions/";
+  public GetHomePageUrl = "https://abhivairavan.online/webapi/essentialdata/GetHomePage/"
 
   constructor(private http: HttpClient) {
     /* let obs = this.http.get('assets/products.json');
@@ -25,8 +25,8 @@ export class ProductService {
     return this.http.get(this.GetHomePageUrl);
   }
 
-  GetProductsBySearch(searchText: string){
-    return this.http.get(this.GetProductsBySearchUrl+searchText);
+  GetProductsBySearch(req){
+    return this.http.post(this.GetProductsBySearchUrl,req);
   }
 
   GetFilterOptions(){

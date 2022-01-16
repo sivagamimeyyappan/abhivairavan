@@ -12,42 +12,46 @@ import { CommonService } from './common.service';
 })
 export class ManageProductsService {
 
-  public InsertModelUrl = "https://avwebapi.abhivairavan.online/essentialData/InsertModel/";
-  public DeleteModelUrl = "https://avwebapi.abhivairavan.online/essentialData/DeleteModel";
-  public InsertBrandUrl = "https://avwebapi.abhivairavan.online/essentialData/InsertBrand/";
-  public DeleteBrandUrl = "https://avwebapi.abhivairavan.online/essentialData/DeleteBrand/";
-  public InsertCategoryUrl = "https://avwebapi.abhivairavan.online/essentialData/InsertCategory/";
-  public DeleteCategoryUrl = "https://avwebapi.abhivairavan.online/essentialData/DeleteCategory/";
-  public AddProductUrl = "https://avwebapi.abhivairavan.online/products/PostProduct/";
-  public UpdateProductUrl = "https://avwebapi.abhivairavan.online/products/UpdateProduct/";
-  public GetProductUrl = "https://avwebapi.abhivairavan.online/products/GetProduct/"
+  public InsertModelUrl = "https://abhivairavan.online/webapi/essentialData/InsertModel/";
+  public DeleteModelUrl = "https://abhivairavan.online/webapi/essentialData/DeleteModel";
+  public InsertBrandUrl = "https://abhivairavan.online/webapi/essentialData/InsertBrand/";
+  public DeleteBrandUrl = "https://abhivairavan.online/webapi/essentialData/DeleteBrand/";
+  public InsertCategoryUrl = "https://abhivairavan.online/webapi/essentialData/InsertCategory/";
+  public DeleteCategoryUrl = "https://abhivairavan.online/webapi/essentialData/DeleteCategory/";
+  public AddProductUrl = "https://abhivairavan.online/webapi/products/PostProduct/";
+  public UpdateProductUrl = "https://abhivairavan.online/webapi/products/UpdateProduct/";
+  public GetProductUrl = "https://abhivairavan.online/webapi/products/GetProduct/";
 
   constructor(private http: HttpClient, private snackbar: MatSnackBar, private commonSrvc: CommonService) {
 
   }
 
   GetProduct(productId: string){
-    return this.http.get(this.GetProductUrl+productId)
+    var data = {
+      productId: productId
+    }
+    return this.http.post(this.GetProductUrl,data)
   }
 
   AddProduct(data: any){
     this.http.post(this.AddProductUrl, data).subscribe(
       (response: ResponseData) => {
         if (response.Status == 1){
-          this.snackbar.open("Product "+ data.productId+ " Inserted Successfully", '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:2000});
+          this.snackbar.open("Product "+ data.get('productId')+ " Inserted Successfully", '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:2000});
         }
         else{
+          console.log(response.Message)
           this.snackbar.open(response.Message, 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});
         }
       });
   }
 
-  UpdateProduct(newData: any, oldData: any){
-    var data = {"newData": newData, "oldData": oldData};
+  UpdateProduct(data: any){
+    //var data = {"newData": newData, "oldData": oldData};
     this.http.post(this.UpdateProductUrl, data).subscribe(
       (response: ResponseData) => {
         if (response.Status == 1){
-          this.snackbar.open("Product "+ newData.productId+ " Updated Successfully", '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:2000});
+          this.snackbar.open("Product "+ data.get('productId')+ " Updated Successfully", '', {panelClass: ['success-snackbar'], verticalPosition: 'top', horizontalPosition:'center', duration:2000});
         }
         else{
           this.snackbar.open(response.Message, 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});

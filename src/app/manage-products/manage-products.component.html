@@ -130,6 +130,18 @@
             </mat-error>
           </mat-form-field>
 
+          <div  *ngIf="imgPrvew">
+            <img [src]="prdtPic" style="width: 75%; height: 75%">
+          </div>
+          
+
+          <br>
+
+          <span>Upload Product Picture:</span>  
+          <input formControlName="imgCtrl" type="file" name="img" (change)="processFile($event)" style="margin:2%"/>
+          
+          <br>
+
           <mat-checkbox *ngIf="!AddMode" [formControl]="dActCtrl" class="dActChckBx">Delete</mat-checkbox>
           
 

@@ -53,7 +53,7 @@
     <div *ngFor="let product of onScreenProducts">
         <div class="card" [ngStyle]="{'width': '300px'}">
             <a style="margin: auto; cursor: pointer;" (click)="show($event, product)">
-                <img src={{product.img}} alt={{product.alt}} [ngStyle]="{'min-width': '298px', 'min-height':'298px','max-width': '298px', 'max-height':'298px'}" class="img-fluid">
+                <img src={{product.img}} alt={{product.alt}} [ngStyle]="this.cardImgSizByCategory[this.category]" class="img-fluid">
             </a>
             <div [style.display]="showModal ? 'block' : 'none'" class="modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">

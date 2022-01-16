@@ -32,12 +32,16 @@ export class ProductByModelResolver implements Resolve<any> {
     this.model = route.paramMap.get('model');
     this.brand = route.paramMap.get('brand');
 
-    if(!this.category || !this.model || !this.brand){
+    if(!this.category || !this.model){
       return of({});
     }
 
     var reqBody = {};
-    this.commonService.products["productsByModel"].filterCriteria = {category:this.category,brand:this.brand,model:this.model};
+    if(this.brand == ""){
+      this.commonService.products["productsByModel"].filterCriteria = {category:this.category,model:this.model};
+    }else{
+      this.commonService.products["productsByModel"].filterCriteria = {category:this.category,brand:this.brand,model:this.model};
+    }
     reqBody["filterCriteria"] = this.commonService.products["productsByModel"].filterCriteria;
     reqBody["limit"] = 100;
     reqBody["skip"] = 0;
@@ -47,8 +51,9 @@ export class ProductByModelResolver implements Resolve<any> {
       if (response.Status == 0) {
         this.snackbar.open(response.Message, 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});
       }else{
-        this.commonService.products["productsByModel"].products.push(...response.Data.map((product: object) => new Product(product, undefined)));
-        this.commonService.products["productsByModel"].count = response.DataCount ? response.DataCount.fltrdCount : 0;
+        this.commonService.products["productsByModel"].products = [];
+        this.commonService.products["productsByModel"].products.push(...response.Data.map((product: object) => new Product(product, this.category)));
+        this.commonService.products["productsByModel"].count = response.DataCount.fltrdCount;
       }
       return of({});
       })

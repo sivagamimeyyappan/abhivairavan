@@ -9,10 +9,10 @@ export class OrderService {
 
 
   private response: ResponseData  = new ResponseData();
-  public GetOrdersUrl = "https://avwebapi.abhivairavan.online/orders/GetOrders";
-  public GetOrdersbyUserUrl = "https://avwebapi.abhivairavan.online/orders/GetOrdersbyUserId/";
-  public GetOrderUrl = "https://avwebapi.abhivairavan.online/orders/GetOrder/";
-  private postOrderUrl = "https://avwebapi.abhivairavan.online/orders/PostOrder";
+  public GetOrdersUrl = "https://abhivairavan.online/webapi/orders/GetOrders";
+  public GetOrdersbyUserUrl = "https://abhivairavan.online/webapi/orders/GetOrdersbyUserId/";
+  public GetOrderUrl = "https://abhivairavan.online/webapi/orders/GetOrder/";
+  private postOrderUrl = "https://abhivairavan.online/webapi/orders/PostOrder";
 
   constructor(private http: HttpClient) { }
 

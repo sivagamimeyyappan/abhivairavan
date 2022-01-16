@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     var redirectUrl = this.commonService.redirectUrl;
     this.postData.userId = this.userid;
-    this.postData.password = this.userpassword;
+    this.postData.password = btoa(this.userpassword);
     this.usrSrvc.Login(this.postData).subscribe(data => {
     this.response = data as ResponseData;
      if(this.response.Status == 1){

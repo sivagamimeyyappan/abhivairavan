@@ -26,7 +26,7 @@ export class CartComponent implements OnInit {
   public mode: string;
   private response: ResponseData  = new ResponseData();
   public cartForm: FormGroup = new FormGroup({
-    orderName: new FormControl(this.cartService.order.name, Validators.required)
+    orderName: new FormControl(this.cartService.order.name, [Validators.required,  Validators.pattern('^[a-zA-Z0-9]+[a-zA-Z0-9&\\-._ ]*$')])
   });
 
   ngOnInit(): void {
@@ -115,7 +115,12 @@ export class CartComponent implements OnInit {
   }
 
   getQuote(){
-    console.log(this.cartService.order);
+    if(this.cartForm.status == "INVALID"){
+      this.snackbar.open('Please Enter Valid Order Name', 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});
+      return;
+    }
+    //console.log(this.cartForm);
+    //console.log(this.cartService.order);
     if(this.commonService.user.loggedIn){
       this.order.date = new Date();
       if(this.OrderId == undefined)

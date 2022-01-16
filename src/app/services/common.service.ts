@@ -25,9 +25,9 @@ export class CommonService {
   resetScrollPosition: any = {'X':0, 'Y':0};
   primaryData: PrimaryData = new PrimaryData();
 
-  public GetModelsDataUrl = "https://avwebapi.abhivairavan.online/essentialdata/GetModels";
-  public GetBrandsDataUrl = "https://avwebapi.abhivairavan.online/essentialdata/GetBrands";
-  public GetCategoriesDataUrl = "https://avwebapi.abhivairavan.online/essentialdata/GetCategories";
+  public GetModelsDataUrl = "https://abhivairavan.online/webapi/essentialdata/GetModels";
+  public GetBrandsDataUrl = "https://abhivairavan.online/webapi/essentialdata/GetBrands";
+  public GetCategoriesDataUrl = "https://abhivairavan.online/webapi/essentialdata/GetCategories";
 
   statusColors: object = {
     'Pending':{'color': 'orange'}, 

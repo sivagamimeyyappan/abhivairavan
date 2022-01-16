@@ -6,7 +6,7 @@ import {
   ActivatedRouteSnapshot
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { mergeMap } from 'rxjs/operators';
+import { mergeMap, retry } from 'rxjs/operators';
 import { Product } from '../Models/Product';
 import { ProductsData } from '../Models/ProductsData';
 import { ResponseData } from '../Models/response';
@@ -32,14 +32,21 @@ export class SearchResolver implements Resolve<any> {
     }
     this.commonService.filterText = this.filterText;
 
-    return this.ps.GetProductsBySearch(this.filterText).pipe(
+    this.commonService.products["productsBySearch"].filterCriteria = this.filterText
+    var reqBody = {};
+    reqBody["filterCriteria"] = this.commonService.products["productsBySearch"].filterCriteria;
+    reqBody["limit"] = 100;
+    reqBody["skip"] = 0;
+
+    return this.ps.GetProductsBySearch(reqBody).pipe(
       mergeMap((response: ResponseData)=> {
 
         if (response.Status == 0) {
           this.snackbar.open(response.Message, 'Dimiss', {panelClass: ['error-snackbar'], verticalPosition: 'top', horizontalPosition:'center'});
         }else{
+          this.commonService.products["productsBySearch"].products=[];
           this.commonService.products["productsBySearch"].products.push(...response.Data.map((product: object) => new Product(product, undefined)));
-          this.commonService.products["productsBySearch"].count = response.Data.length;
+          this.commonService.products["productsBySearch"].count = response.DataCount.fltrdCount;
         }
         return of({});
       })
