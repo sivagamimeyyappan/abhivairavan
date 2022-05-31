@@ -37,7 +37,7 @@ export class ManageProductsComponent implements OnInit {
   @ViewChild('formDirective') private adminForm: NgForm;
   public adPrdtFrm: FormGroup = new FormGroup({
     //prdtIDCtrl: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z0-9]+[a-zA-Z0-9&\\/\\-.!@()#$%&*_ ]*$')]),
-    prdtIDCtrl: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z0-9]+[a-zA-Z0-9&-.!@()#$%&*_ ]*$')]),
+    prdtIDCtrl: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z0-9]+[a-zA-Z0-9-_ ]*$')]),
     mrpCtrl: new FormControl('',[Validators.required, Validators.pattern('^[0-9]+(.[0-9]+)?$')]),
     ctgryCtrl: new FormControl(),
     brndCtrl: new FormControl(),
@@ -67,7 +67,7 @@ export class ManageProductsComponent implements OnInit {
   });
 
   public adCtgryFrm: FormGroup = new FormGroup({
-    adCtgryCtrl: new FormControl('', [Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z0-9]+[a-zA-Z0-9&\\-._ ]*$')])
+    adCtgryCtrl: new FormControl('', [Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z0-9]+[a-zA-Z0-9-_ ]*$')])
   });
 
   
@@ -78,7 +78,7 @@ export class ManageProductsComponent implements OnInit {
   });
 
   public adBrndFrm: FormGroup = new FormGroup({
-    adBrndCtrl: new FormControl('', [Validators.required, Validators.minLength(2),Validators.pattern('^[a-zA-Z0-9]+[a-zA-Z0-9&\\-._ ]*$')])
+    adBrndCtrl: new FormControl('', [Validators.required, Validators.minLength(2),Validators.pattern('^[a-zA-Z0-9]+[a-zA-Z0-9-_ ]*$')])
   });
 
   
@@ -89,7 +89,7 @@ export class ManageProductsComponent implements OnInit {
   });
 
   public adMdlFrm: FormGroup = new FormGroup({
-    adMdlCtrl: new FormControl('', [Validators.required, Validators.minLength(2),Validators.pattern('^[a-zA-Z0-9]+[a-zA-Z0-9&\\-._ ]*$')])
+    adMdlCtrl: new FormControl('', [Validators.required, Validators.minLength(2),Validators.pattern('^[a-zA-Z0-9]+[a-zA-Z0-9-_ ]*$')])
   });
   
   constructor(private route: ActivatedRoute, private snackbar: MatSnackBar, private commonSrvc: CommonService, private mngProductSrvc: ManageProductsService) { }
