@@ -8,8 +8,8 @@ import { ResponseData } from '../Models/response';
 export class EnquiriesService {
 
   private response: ResponseData  = new ResponseData();
-  public GetEnquiriesUrl = "https://avwebapi.abhivairavan.online/enquiries/GetEnquiries";
-  public postEnquiryUrl = "https://avwebapi.abhivairavan.online/enquiries/PostEnquiry";
+  public GetEnquiriesUrl = "https://abhivairavan.online/webapi/enquiries/GetEnquiries";
+  public postEnquiryUrl = "https://abhivairavan.online/webapi/enquiries/PostEnquiry";
 
   constructor(private http: HttpClient) { }
 
