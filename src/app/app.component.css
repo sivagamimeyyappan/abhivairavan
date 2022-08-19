@@ -26,6 +26,7 @@
  
  .app-subtitle {
      font-size: small;
+     white-space: nowrap;
  }
  
  .bg-myapp {
@@ -81,10 +82,10 @@
      left: unset;
      background-color: rgba(0, 0, 0, 0.0);
      border: 0px;
-     margin: .400rem 0 0;
+     margin: -.400rem 0 0;
  }
 
- @media (max-width: 990px){
+/*  @media (max-width: 990px){
     .bg-myapp .navbar-collapse{
         height: 200px;
         overflow: auto;
@@ -104,7 +105,7 @@
     .app-logo{
         display: none;
     }
- }
+ } */
  
  #snackbar {
      visibility: hidden;

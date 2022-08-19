@@ -37,7 +37,7 @@ export class ManageProductsComponent implements OnInit {
   @ViewChild('formDirective') private adminForm: NgForm;
   public adPrdtFrm: FormGroup = new FormGroup({
     //prdtIDCtrl: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z0-9]+[a-zA-Z0-9&\\/\\-.!@()#$%&*_ ]*$')]),
-    prdtIDCtrl: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z0-9]+[a-zA-Z0-9-_ ]*$')]),
+    prdtIDCtrl: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z0-9]+[a-zA-Z0-9-_. ]*$')]),
     mrpCtrl: new FormControl('',[Validators.required, Validators.pattern('^[0-9]+(.[0-9]+)?$')]),
     ctgryCtrl: new FormControl(),
     brndCtrl: new FormControl(),

@@ -27,7 +27,7 @@ export class OrderresolverService implements Resolve<any>{
     if(userId == undefined){
       return this.os.getAllOrders().pipe(
         mergeMap((response: ResponseData)=> {
-          this.colHeadings = ['Order ID','Order Name','Customer ID','Order Date','Order Status','Actions'];
+          this.colHeadings = ['Order ID','Order Name','Customer ID','Phone','Order Date','Order Status','Actions'];
           if(response.Status == 1){
             return of({orders:response.Data, colHeadings:this.colHeadings});
           }

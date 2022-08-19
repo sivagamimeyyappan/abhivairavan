@@ -7,12 +7,13 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let order of orders;let i = index">
-                        <td>{{order.orderId}}</td>
+                        <td nowrap>{{order.orderId}}</td>
                         <td>{{order.name}}</td>
-                        <td *ngIf="order.userId != undefined">{{order.userId}}</td>
+                        <td>{{order.userId}}</td>
+                        <td>{{order.users[0].phone}}</td>
                         <td>{{order.date| date:'dd-MMM-yyyy @ hh:MM:ss'}}</td>
                         <td [ngStyle]="commonService.statusColors[order.status]">{{order.status}}</td>
-                        <td>
+                        <td nowrap>
                             <span [routerLink]="['/cart', order.orderId,{mode:'view'}]" class="btn-view"><i class="fas fa-eye fa-lg"></i></span>
                             <span *ngIf="order.status != 'Completed'" [routerLink]="['/cart', order.orderId,{mode:'edit'}]" class="btn-edit"><i class="fas fa-pencil-alt fa-lg"></i></span>
                         </td>
