@@ -9,8 +9,8 @@
                     <tr *ngFor="let order of orders;let i = index">
                         <td nowrap>{{order.orderId}}</td>
                         <td>{{order.name}}</td>
-                        <td>{{order.userId}}</td>
-                        <td>{{order.users[0].phone}}</td>
+                        <td *ngIf="order.userId != undefined">{{order.userId}}</td>
+                        <td *ngIf="order.users != undefined">{{order.users[0].phone}}</td>
                         <td>{{order.date| date:'dd-MMM-yyyy @ hh:MM:ss'}}</td>
                         <td [ngStyle]="commonService.statusColors[order.status]">{{order.status}}</td>
                         <td nowrap>
